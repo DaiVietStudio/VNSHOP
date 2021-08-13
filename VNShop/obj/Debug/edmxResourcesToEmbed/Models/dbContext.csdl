@@ -1,0 +1,498 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QLBHModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="QLBHEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ChiTietPhieuBanHangs" EntityType="QLBHModel.ChiTietPhieuBanHang" />
+    <EntitySet Name="ChiTietPhieuBaoGias" EntityType="QLBHModel.ChiTietPhieuBaoGia" />
+    <EntitySet Name="ChiTietPhieuNhapKhoes" EntityType="QLBHModel.ChiTietPhieuNhapKho" />
+    <EntitySet Name="DonViTinhs" EntityType="QLBHModel.DonViTinh" />
+    <EntitySet Name="DonViTinh_SanPham" EntityType="QLBHModel.DonViTinh_SanPham" />
+    <EntitySet Name="Huyens" EntityType="QLBHModel.Huyen" />
+    <EntitySet Name="KhachHangs" EntityType="QLBHModel.KhachHang" />
+    <EntitySet Name="KhoHangs" EntityType="QLBHModel.KhoHang" />
+    <EntitySet Name="KhoHang_SanPham" EntityType="QLBHModel.KhoHang_SanPham" />
+    <EntitySet Name="NhanViens" EntityType="QLBHModel.NhanVien" />
+    <EntitySet Name="PhieuBanHangs" EntityType="QLBHModel.PhieuBanHang" />
+    <EntitySet Name="PhieuBaoGias" EntityType="QLBHModel.PhieuBaoGia" />
+    <EntitySet Name="PhieuNhapKhoes" EntityType="QLBHModel.PhieuNhapKho" />
+    <EntitySet Name="SanPhams" EntityType="QLBHModel.SanPham" />
+    <EntitySet Name="sysdiagrams" EntityType="QLBHModel.sysdiagram" />
+    <EntitySet Name="TaiKhoans" EntityType="QLBHModel.TaiKhoan" />
+    <EntitySet Name="ThongTinDonVis" EntityType="QLBHModel.ThongTinDonVi" />
+    <EntitySet Name="Tinhs" EntityType="QLBHModel.Tinh" />
+    <EntitySet Name="Xas" EntityType="QLBHModel.Xa" />
+    <AssociationSet Name="FK_ChiTietPhieuBanHang_PhieuBanHang" Association="QLBHModel.FK_ChiTietPhieuBanHang_PhieuBanHang">
+      <End Role="PhieuBanHang" EntitySet="PhieuBanHangs" />
+      <End Role="ChiTietPhieuBanHang" EntitySet="ChiTietPhieuBanHangs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChiTietPhieuBanHang_SanPham" Association="QLBHModel.FK_ChiTietPhieuBanHang_SanPham">
+      <End Role="SanPham" EntitySet="SanPhams" />
+      <End Role="ChiTietPhieuBanHang" EntitySet="ChiTietPhieuBanHangs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChiTietPhieuBaoGia_PhieuBaoGia" Association="QLBHModel.FK_ChiTietPhieuBaoGia_PhieuBaoGia">
+      <End Role="PhieuBaoGia" EntitySet="PhieuBaoGias" />
+      <End Role="ChiTietPhieuBaoGia" EntitySet="ChiTietPhieuBaoGias" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChiTietPhieuNhapKho_PhieuNhapKho" Association="QLBHModel.FK_ChiTietPhieuNhapKho_PhieuNhapKho">
+      <End Role="PhieuNhapKho" EntitySet="PhieuNhapKhoes" />
+      <End Role="ChiTietPhieuNhapKho" EntitySet="ChiTietPhieuNhapKhoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChiTietPhieuNhapKho_SanPham" Association="QLBHModel.FK_ChiTietPhieuNhapKho_SanPham">
+      <End Role="SanPham" EntitySet="SanPhams" />
+      <End Role="ChiTietPhieuNhapKho" EntitySet="ChiTietPhieuNhapKhoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DonViTinh_SanPham_DonViTinh" Association="QLBHModel.FK_DonViTinh_SanPham_DonViTinh">
+      <End Role="DonViTinh" EntitySet="DonViTinhs" />
+      <End Role="DonViTinh_SanPham" EntitySet="DonViTinh_SanPham" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DonViTinh_SanPham_SanPham" Association="QLBHModel.FK_DonViTinh_SanPham_SanPham">
+      <End Role="SanPham" EntitySet="SanPhams" />
+      <End Role="DonViTinh_SanPham" EntitySet="DonViTinh_SanPham" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KhachHang_Huyen" Association="QLBHModel.FK_KhachHang_Huyen">
+      <End Role="Huyen" EntitySet="Huyens" />
+      <End Role="KhachHang" EntitySet="KhachHangs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KhachHang_Tinh" Association="QLBHModel.FK_KhachHang_Tinh">
+      <End Role="Tinh" EntitySet="Tinhs" />
+      <End Role="KhachHang" EntitySet="KhachHangs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KhachHang_Xa" Association="QLBHModel.FK_KhachHang_Xa">
+      <End Role="Xa" EntitySet="Xas" />
+      <End Role="KhachHang" EntitySet="KhachHangs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PhieuBanHang_KhachHang" Association="QLBHModel.FK_PhieuBanHang_KhachHang">
+      <End Role="KhachHang" EntitySet="KhachHangs" />
+      <End Role="PhieuBanHang" EntitySet="PhieuBanHangs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PhieuBaoGia_KhachHang" Association="QLBHModel.FK_PhieuBaoGia_KhachHang">
+      <End Role="KhachHang" EntitySet="KhachHangs" />
+      <End Role="PhieuBaoGia" EntitySet="PhieuBaoGias" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PhieuNhapKho_KhachHang" Association="QLBHModel.FK_PhieuNhapKho_KhachHang">
+      <End Role="KhachHang" EntitySet="KhachHangs" />
+      <End Role="PhieuNhapKho" EntitySet="PhieuNhapKhoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KhoHang_SanPham_KhoHang" Association="QLBHModel.FK_KhoHang_SanPham_KhoHang">
+      <End Role="KhoHang" EntitySet="KhoHangs" />
+      <End Role="KhoHang_SanPham" EntitySet="KhoHang_SanPham" />
+    </AssociationSet>
+    <AssociationSet Name="FK_KhoHang_SanPham_SanPham" Association="QLBHModel.FK_KhoHang_SanPham_SanPham">
+      <End Role="SanPham" EntitySet="SanPhams" />
+      <End Role="KhoHang_SanPham" EntitySet="KhoHang_SanPham" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TaiKhoan_NhanVien" Association="QLBHModel.FK_TaiKhoan_NhanVien">
+      <End Role="NhanVien" EntitySet="NhanViens" />
+      <End Role="TaiKhoan" EntitySet="TaiKhoans" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="ChiTietPhieuBanHang">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Phieu" Type="Int64" />
+    <Property Name="SanPham" Type="Int64" />
+    <Property Name="SoLuong" Type="Double" />
+    <Property Name="GiaBan" Type="Double" />
+    <Property Name="GiamGia" Type="Double" />
+    <Property Name="DonViTinh" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="PhieuBanHang" Relationship="QLBHModel.FK_ChiTietPhieuBanHang_PhieuBanHang" FromRole="ChiTietPhieuBanHang" ToRole="PhieuBanHang" />
+    <NavigationProperty Name="SanPham1" Relationship="QLBHModel.FK_ChiTietPhieuBanHang_SanPham" FromRole="ChiTietPhieuBanHang" ToRole="SanPham" />
+  </EntityType>
+  <EntityType Name="ChiTietPhieuBaoGia">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Phieu" Type="Int64" />
+    <Property Name="SanPham" Type="Int32" />
+    <Property Name="Gia" Type="Double" />
+    <Property Name="SoLuong" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="PhieuBaoGia" Relationship="QLBHModel.FK_ChiTietPhieuBaoGia_PhieuBaoGia" FromRole="ChiTietPhieuBaoGia" ToRole="PhieuBaoGia" />
+  </EntityType>
+  <EntityType Name="ChiTietPhieuNhapKho">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Phieu" Type="Int64" />
+    <Property Name="SanPham" Type="Int64" />
+    <Property Name="SoLuong" Type="Double" />
+    <Property Name="DonGia" Type="Double" />
+    <NavigationProperty Name="PhieuNhapKho" Relationship="QLBHModel.FK_ChiTietPhieuNhapKho_PhieuNhapKho" FromRole="ChiTietPhieuNhapKho" ToRole="PhieuNhapKho" />
+    <NavigationProperty Name="SanPham1" Relationship="QLBHModel.FK_ChiTietPhieuNhapKho_SanPham" FromRole="ChiTietPhieuNhapKho" ToRole="SanPham" />
+  </EntityType>
+  <EntityType Name="DonViTinh">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenDonVi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MoTa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DonViTinh_SanPham" Relationship="QLBHModel.FK_DonViTinh_SanPham_DonViTinh" FromRole="DonViTinh" ToRole="DonViTinh_SanPham" />
+  </EntityType>
+  <EntityType Name="DonViTinh_SanPham">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DonViTinh" Type="Int64" />
+    <Property Name="SanPham" Type="Int64" />
+    <Property Name="Gia" Type="Double" />
+    <NavigationProperty Name="DonViTinh1" Relationship="QLBHModel.FK_DonViTinh_SanPham_DonViTinh" FromRole="DonViTinh_SanPham" ToRole="DonViTinh" />
+    <NavigationProperty Name="SanPham1" Relationship="QLBHModel.FK_DonViTinh_SanPham_SanPham" FromRole="DonViTinh_SanPham" ToRole="SanPham" />
+  </EntityType>
+  <EntityType Name="Huyen">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" />
+    <Property Name="Ten" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="KhachHangs" Relationship="QLBHModel.FK_KhachHang_Huyen" FromRole="Huyen" ToRole="KhachHang" />
+  </EntityType>
+  <EntityType Name="KhachHang">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="Loai" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id" Type="Int64" Nullable="false" />
+    <Property Name="TenKhachHang" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="DiaChi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="SoDienThoai" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Tinh" Type="Int64" />
+    <Property Name="Huyen" Type="Int64" />
+    <Property Name="Xa" Type="Int64" />
+    <NavigationProperty Name="Huyen1" Relationship="QLBHModel.FK_KhachHang_Huyen" FromRole="KhachHang" ToRole="Huyen" />
+    <NavigationProperty Name="Tinh1" Relationship="QLBHModel.FK_KhachHang_Tinh" FromRole="KhachHang" ToRole="Tinh" />
+    <NavigationProperty Name="Xa1" Relationship="QLBHModel.FK_KhachHang_Xa" FromRole="KhachHang" ToRole="Xa" />
+    <NavigationProperty Name="PhieuBanHangs" Relationship="QLBHModel.FK_PhieuBanHang_KhachHang" FromRole="KhachHang" ToRole="PhieuBanHang" />
+    <NavigationProperty Name="PhieuBaoGias" Relationship="QLBHModel.FK_PhieuBaoGia_KhachHang" FromRole="KhachHang" ToRole="PhieuBaoGia" />
+    <NavigationProperty Name="PhieuNhapKhoes" Relationship="QLBHModel.FK_PhieuNhapKho_KhachHang" FromRole="KhachHang" ToRole="PhieuNhapKho" />
+  </EntityType>
+  <EntityType Name="KhoHang">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenKho" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="KhoHang_SanPham" Relationship="QLBHModel.FK_KhoHang_SanPham_KhoHang" FromRole="KhoHang" ToRole="KhoHang_SanPham" />
+  </EntityType>
+  <EntityType Name="KhoHang_SanPham">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KhoHang" Type="Int64" />
+    <Property Name="SanPham" Type="Int64" />
+    <Property Name="SoLuong" Type="Double" />
+    <NavigationProperty Name="KhoHang1" Relationship="QLBHModel.FK_KhoHang_SanPham_KhoHang" FromRole="KhoHang_SanPham" ToRole="KhoHang" />
+    <NavigationProperty Name="SanPham1" Relationship="QLBHModel.FK_KhoHang_SanPham_SanPham" FromRole="KhoHang_SanPham" ToRole="SanPham" />
+  </EntityType>
+  <EntityType Name="NhanVien">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HoVaTen" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="GioiTinh" Type="Int32" />
+    <Property Name="DiaChi" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="SoDienThoai" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="TaiKhoans" Relationship="QLBHModel.FK_TaiKhoan_NhanVien" FromRole="NhanVien" ToRole="TaiKhoan" />
+  </EntityType>
+  <EntityType Name="PhieuBanHang">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaSo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NgayNhap" Type="DateTime" Precision="0" />
+    <Property Name="KhachHang" Type="Int64" />
+    <Property Name="NhanVien" Type="Int64" />
+    <NavigationProperty Name="ChiTietPhieuBanHangs" Relationship="QLBHModel.FK_ChiTietPhieuBanHang_PhieuBanHang" FromRole="PhieuBanHang" ToRole="ChiTietPhieuBanHang" />
+    <NavigationProperty Name="KhachHang1" Relationship="QLBHModel.FK_PhieuBanHang_KhachHang" FromRole="PhieuBanHang" ToRole="KhachHang" />
+  </EntityType>
+  <EntityType Name="PhieuBaoGia">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NgayNhap" Type="DateTime" Precision="0" />
+    <Property Name="DonViBaoGia" Type="Int64" />
+    <NavigationProperty Name="ChiTietPhieuBaoGias" Relationship="QLBHModel.FK_ChiTietPhieuBaoGia_PhieuBaoGia" FromRole="PhieuBaoGia" ToRole="ChiTietPhieuBaoGia" />
+    <NavigationProperty Name="KhachHang" Relationship="QLBHModel.FK_PhieuBaoGia_KhachHang" FromRole="PhieuBaoGia" ToRole="KhachHang" />
+  </EntityType>
+  <EntityType Name="PhieuNhapKho">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaSo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NgayNhap" Type="DateTime" Precision="0" />
+    <Property Name="TongTien" Type="Double" />
+    <Property Name="NhapCungCap" Type="Int64" />
+    <NavigationProperty Name="ChiTietPhieuNhapKhoes" Relationship="QLBHModel.FK_ChiTietPhieuNhapKho_PhieuNhapKho" FromRole="PhieuNhapKho" ToRole="ChiTietPhieuNhapKho" />
+    <NavigationProperty Name="KhachHang" Relationship="QLBHModel.FK_PhieuNhapKho_KhachHang" FromRole="PhieuNhapKho" ToRole="KhachHang" />
+  </EntityType>
+  <EntityType Name="SanPham">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenSanPham" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="MaSanPham" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MoTa" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="GiaNhap" Type="Double" />
+    <Property Name="GiaBan" Type="Double" />
+    <Property Name="DonViTinh" Type="Int64" />
+    <Property Name="ThueVAT" Type="Double" />
+    <Property Name="KichHoat" Type="Boolean" />
+    <Property Name="HinhAnh" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="QuanLyTonKho" Type="Int64" />
+    <Property Name="NgaySanXuat" Type="DateTime" Precision="0" />
+    <Property Name="NgayHetHan" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="ChiTietPhieuBanHangs" Relationship="QLBHModel.FK_ChiTietPhieuBanHang_SanPham" FromRole="SanPham" ToRole="ChiTietPhieuBanHang" />
+    <NavigationProperty Name="ChiTietPhieuNhapKhoes" Relationship="QLBHModel.FK_ChiTietPhieuNhapKho_SanPham" FromRole="SanPham" ToRole="ChiTietPhieuNhapKho" />
+    <NavigationProperty Name="DonViTinh_SanPham" Relationship="QLBHModel.FK_DonViTinh_SanPham_SanPham" FromRole="SanPham" ToRole="DonViTinh_SanPham" />
+    <NavigationProperty Name="KhoHang_SanPham" Relationship="QLBHModel.FK_KhoHang_SanPham_SanPham" FromRole="SanPham" ToRole="KhoHang_SanPham" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TaiKhoan">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenDangNhap" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MatKhau" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NhanVien" Type="Int64" />
+    <NavigationProperty Name="NhanVien1" Relationship="QLBHModel.FK_TaiKhoan_NhanVien" FromRole="TaiKhoan" ToRole="NhanVien" />
+  </EntityType>
+  <EntityType Name="ThongTinDonVi">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenDonVi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DiaChi" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="SoDienThoai" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Website" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="KyTen" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Tinh">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" />
+    <Property Name="Ten" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="KhachHangs" Relationship="QLBHModel.FK_KhachHang_Tinh" FromRole="Tinh" ToRole="KhachHang" />
+  </EntityType>
+  <EntityType Name="Xa">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ten" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="KhachHangs" Relationship="QLBHModel.FK_KhachHang_Xa" FromRole="Xa" ToRole="KhachHang" />
+  </EntityType>
+  <Association Name="FK_ChiTietPhieuBanHang_PhieuBanHang">
+    <End Type="QLBHModel.PhieuBanHang" Role="PhieuBanHang" Multiplicity="0..1" />
+    <End Type="QLBHModel.ChiTietPhieuBanHang" Role="ChiTietPhieuBanHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PhieuBanHang">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ChiTietPhieuBanHang">
+        <PropertyRef Name="Phieu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChiTietPhieuBanHang_SanPham">
+    <End Type="QLBHModel.SanPham" Role="SanPham" Multiplicity="0..1" />
+    <End Type="QLBHModel.ChiTietPhieuBanHang" Role="ChiTietPhieuBanHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SanPham">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ChiTietPhieuBanHang">
+        <PropertyRef Name="SanPham" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChiTietPhieuBaoGia_PhieuBaoGia">
+    <End Type="QLBHModel.PhieuBaoGia" Role="PhieuBaoGia" Multiplicity="0..1" />
+    <End Type="QLBHModel.ChiTietPhieuBaoGia" Role="ChiTietPhieuBaoGia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PhieuBaoGia">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ChiTietPhieuBaoGia">
+        <PropertyRef Name="Phieu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChiTietPhieuNhapKho_PhieuNhapKho">
+    <End Type="QLBHModel.PhieuNhapKho" Role="PhieuNhapKho" Multiplicity="0..1" />
+    <End Type="QLBHModel.ChiTietPhieuNhapKho" Role="ChiTietPhieuNhapKho" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PhieuNhapKho">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ChiTietPhieuNhapKho">
+        <PropertyRef Name="Phieu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChiTietPhieuNhapKho_SanPham">
+    <End Type="QLBHModel.SanPham" Role="SanPham" Multiplicity="0..1" />
+    <End Type="QLBHModel.ChiTietPhieuNhapKho" Role="ChiTietPhieuNhapKho" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SanPham">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ChiTietPhieuNhapKho">
+        <PropertyRef Name="SanPham" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DonViTinh_SanPham_DonViTinh">
+    <End Type="QLBHModel.DonViTinh" Role="DonViTinh" Multiplicity="0..1" />
+    <End Type="QLBHModel.DonViTinh_SanPham" Role="DonViTinh_SanPham" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DonViTinh">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="DonViTinh_SanPham">
+        <PropertyRef Name="DonViTinh" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DonViTinh_SanPham_SanPham">
+    <End Type="QLBHModel.SanPham" Role="SanPham" Multiplicity="1" />
+    <End Type="QLBHModel.DonViTinh_SanPham" Role="DonViTinh_SanPham" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="SanPham">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="DonViTinh_SanPham">
+        <PropertyRef Name="id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KhachHang_Huyen">
+    <End Type="QLBHModel.Huyen" Role="Huyen" Multiplicity="0..1" />
+    <End Type="QLBHModel.KhachHang" Role="KhachHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Huyen">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="KhachHang">
+        <PropertyRef Name="Huyen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KhachHang_Tinh">
+    <End Type="QLBHModel.Tinh" Role="Tinh" Multiplicity="0..1" />
+    <End Type="QLBHModel.KhachHang" Role="KhachHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tinh">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="KhachHang">
+        <PropertyRef Name="Tinh" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KhachHang_Xa">
+    <End Type="QLBHModel.Xa" Role="Xa" Multiplicity="0..1" />
+    <End Type="QLBHModel.KhachHang" Role="KhachHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Xa">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="KhachHang">
+        <PropertyRef Name="Xa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PhieuBanHang_KhachHang">
+    <End Type="QLBHModel.KhachHang" Role="KhachHang" Multiplicity="0..1" />
+    <End Type="QLBHModel.PhieuBanHang" Role="PhieuBanHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KhachHang">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="PhieuBanHang">
+        <PropertyRef Name="KhachHang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PhieuBaoGia_KhachHang">
+    <End Type="QLBHModel.KhachHang" Role="KhachHang" Multiplicity="0..1" />
+    <End Type="QLBHModel.PhieuBaoGia" Role="PhieuBaoGia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KhachHang">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="PhieuBaoGia">
+        <PropertyRef Name="DonViBaoGia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PhieuNhapKho_KhachHang">
+    <End Type="QLBHModel.KhachHang" Role="KhachHang" Multiplicity="0..1" />
+    <End Type="QLBHModel.PhieuNhapKho" Role="PhieuNhapKho" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KhachHang">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="PhieuNhapKho">
+        <PropertyRef Name="NhapCungCap" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KhoHang_SanPham_KhoHang">
+    <End Type="QLBHModel.KhoHang" Role="KhoHang" Multiplicity="0..1" />
+    <End Type="QLBHModel.KhoHang_SanPham" Role="KhoHang_SanPham" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KhoHang">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="KhoHang_SanPham">
+        <PropertyRef Name="KhoHang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_KhoHang_SanPham_SanPham">
+    <End Type="QLBHModel.SanPham" Role="SanPham" Multiplicity="0..1" />
+    <End Type="QLBHModel.KhoHang_SanPham" Role="KhoHang_SanPham" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SanPham">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="KhoHang_SanPham">
+        <PropertyRef Name="KhoHang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TaiKhoan_NhanVien">
+    <End Type="QLBHModel.NhanVien" Role="NhanVien" Multiplicity="0..1" />
+    <End Type="QLBHModel.TaiKhoan" Role="TaiKhoan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhanVien">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="TaiKhoan">
+        <PropertyRef Name="NhanVien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
