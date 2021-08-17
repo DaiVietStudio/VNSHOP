@@ -31,12 +31,11 @@
             this.components = new System.ComponentModel.Container();
             DevExpress.XtraCharts.XYDiagram xyDiagram1 = new DevExpress.XtraCharts.XYDiagram();
             DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.Series series2 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.LineSeriesView lineSeriesView1 = new DevExpress.XtraCharts.LineSeriesView();
             DevExpress.XtraCharts.ChartTitle chartTitle1 = new DevExpress.XtraCharts.ChartTitle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainApp));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.chartControl1 = new DevExpress.XtraCharts.ChartControl();
+            this.chartControlMain = new DevExpress.XtraCharts.ChartControl();
+            this.chartItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -51,8 +50,7 @@
             this.barSubItem3 = new DevExpress.XtraBars.BarSubItem();
             this.btnRetail = new DevExpress.XtraBars.BarButtonItem();
             this.btnWhole = new DevExpress.XtraBars.BarButtonItem();
-            this.btnPriceReport = new DevExpress.XtraBars.BarButtonItem();
-            this.btnDebit = new DevExpress.XtraBars.BarButtonItem();
+            this.btnRecpiect = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItem4 = new DevExpress.XtraBars.BarSubItem();
             this.btnInfo = new DevExpress.XtraBars.BarButtonItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
@@ -64,13 +62,14 @@
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnPriceReport = new DevExpress.XtraBars.BarButtonItem();
+            this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartControlMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(series1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(lineSeriesView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartItemBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
@@ -78,7 +77,7 @@
             // 
             // layoutControl1
             // 
-            this.layoutControl1.Controls.Add(this.chartControl1);
+            this.layoutControl1.Controls.Add(this.chartControlMain);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 29);
             this.layoutControl1.Name = "layoutControl1";
@@ -87,26 +86,30 @@
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
-            // chartControl1
+            // chartControlMain
             // 
-            this.chartControl1.DataBindings = null;
+            this.chartControlMain.DataBindings = null;
+            this.chartControlMain.DataSource = this.chartItemBindingSource;
             xyDiagram1.AxisX.VisibleInPanesSerializable = "-1";
             xyDiagram1.AxisY.VisibleInPanesSerializable = "-1";
-            this.chartControl1.Diagram = xyDiagram1;
-            this.chartControl1.Legend.Name = "Default Legend";
-            this.chartControl1.Location = new System.Drawing.Point(16, 16);
-            this.chartControl1.Name = "chartControl1";
-            series1.Name = "Series 1";
-            series2.Name = "Series 2";
-            series2.View = lineSeriesView1;
-            this.chartControl1.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series1,
-        series2};
-            this.chartControl1.Size = new System.Drawing.Size(1741, 647);
-            this.chartControl1.TabIndex = 4;
+            this.chartControlMain.Diagram = xyDiagram1;
+            this.chartControlMain.Legend.Name = "Default Legend";
+            this.chartControlMain.Location = new System.Drawing.Point(16, 16);
+            this.chartControlMain.Name = "chartControlMain";
+            series1.ArgumentDataMember = "date";
+            series1.Name = "Doanh số";
+            series1.ValueDataMembersSerializable = "value";
+            this.chartControlMain.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
+        series1};
+            this.chartControlMain.Size = new System.Drawing.Size(1741, 647);
+            this.chartControlMain.TabIndex = 4;
             chartTitle1.Text = "Doanh số bán hàng";
-            this.chartControl1.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
+            this.chartControlMain.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
             chartTitle1});
+            // 
+            // chartItemBindingSource
+            // 
+            this.chartItemBindingSource.DataSource = typeof(VNShop.Models.ChartItem);
             // 
             // layoutControlGroup1
             // 
@@ -122,7 +125,7 @@
             // 
             // layoutControlItem1
             // 
-            this.layoutControlItem1.Control = this.chartControl1;
+            this.layoutControlItem1.Control = this.chartControlMain;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
             this.layoutControlItem1.Size = new System.Drawing.Size(1747, 653);
@@ -161,7 +164,7 @@
             this.btnWhole,
             this.btnCustomer,
             this.txtHello,
-            this.btnDebit});
+            this.btnRecpiect});
             this.barManager1.MainMenu = this.bar2;
             this.barManager1.MaxItemId = 18;
             this.barManager1.StatusBar = this.bar3;
@@ -244,8 +247,7 @@
             this.barSubItem3.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnRetail, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(this.btnWhole),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnPriceReport),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnDebit)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnRecpiect)});
             this.barSubItem3.Name = "barSubItem3";
             // 
             // btnRetail
@@ -264,22 +266,16 @@
             this.btnWhole.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnWhole.ImageOptions.Image")));
             this.btnWhole.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnWhole.ImageOptions.LargeImage")));
             this.btnWhole.Name = "btnWhole";
+            this.btnWhole.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnWhole_ItemClick);
             // 
-            // btnPriceReport
+            // btnRecpiect
             // 
-            this.btnPriceReport.Caption = "Báo giá";
-            this.btnPriceReport.Id = 10;
-            this.btnPriceReport.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnPriceReport.ImageOptions.Image")));
-            this.btnPriceReport.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnPriceReport.ImageOptions.LargeImage")));
-            this.btnPriceReport.Name = "btnPriceReport";
-            // 
-            // btnDebit
-            // 
-            this.btnDebit.Caption = "Sổ nợ";
-            this.btnDebit.Id = 17;
-            this.btnDebit.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDebit.ImageOptions.Image")));
-            this.btnDebit.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnDebit.ImageOptions.LargeImage")));
-            this.btnDebit.Name = "btnDebit";
+            this.btnRecpiect.Caption = "Hóa đơn";
+            this.btnRecpiect.Id = 17;
+            this.btnRecpiect.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnRecpiect.ImageOptions.Image")));
+            this.btnRecpiect.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnRecpiect.ImageOptions.LargeImage")));
+            this.btnRecpiect.Name = "btnRecpiect";
+            this.btnRecpiect.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnRecpiect_ItemClick);
             // 
             // barSubItem4
             // 
@@ -296,6 +292,7 @@
             this.btnInfo.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnInfo.ImageOptions.Image")));
             this.btnInfo.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnInfo.ImageOptions.LargeImage")));
             this.btnInfo.Name = "btnInfo";
+            this.btnInfo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnInfo_ItemClick);
             // 
             // bar3
             // 
@@ -367,6 +364,14 @@
             this.barButtonItem2.Id = 2;
             this.barButtonItem2.Name = "barButtonItem2";
             // 
+            // btnPriceReport
+            // 
+            this.btnPriceReport.Caption = "Báo giá";
+            this.btnPriceReport.Id = 10;
+            this.btnPriceReport.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnPriceReport.ImageOptions.Image")));
+            this.btnPriceReport.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnPriceReport.ImageOptions.LargeImage")));
+            this.btnPriceReport.Name = "btnPriceReport";
+            // 
             // MainApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -387,9 +392,8 @@
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(series1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(lineSeriesView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartControlMain)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartItemBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
@@ -403,7 +407,7 @@
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage2;
-        private DevExpress.XtraCharts.ChartControl chartControl1;
+        private DevExpress.XtraCharts.ChartControl chartControlMain;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraBars.BarManager barManager1;
         private DevExpress.XtraBars.Bar bar2;
@@ -428,6 +432,8 @@
         private DevExpress.XtraBars.BarButtonItem btnWhole;
         private DevExpress.XtraBars.BarButtonItem btnCustomer;
         private DevExpress.XtraBars.BarHeaderItem txtHello;
-        private DevExpress.XtraBars.BarButtonItem btnDebit;
+        private DevExpress.XtraBars.BarButtonItem btnRecpiect;
+        private DevExpress.LookAndFeel.DefaultLookAndFeel defaultLookAndFeel1;
+        private System.Windows.Forms.BindingSource chartItemBindingSource;
     }
 }

@@ -23,6 +23,8 @@ namespace VNShop
         {
             InitializeComponent();
             this.userId = userId;
+            this.AcceptButton = btnSave;
+            this.CancelButton = btnExit;
         }
 
         private void btnSave_Click(object sender, EventArgs e)

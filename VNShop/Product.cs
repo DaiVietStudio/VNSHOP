@@ -72,9 +72,9 @@ namespace VNShop
         private void btnEdit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             int[] row = gridView1.GetSelectedRows();
-            if(row.Length == 0 || row.Length > 0)
+            if(row.Length == 0 || row.Length > 1)
             {
-                XtraMessageBox.Show("Vui lòng chọn sản phẩm muốn sửa", "Chọn sản phẩm", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                XtraMessageBox.Show("Vui lòng chọn một sản phẩm muốn sửa", "Chọn một sản phẩm", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {

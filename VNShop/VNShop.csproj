@@ -125,6 +125,12 @@
     <Compile Include="CustomerForm.Designer.cs">
       <DependentUpon>CustomerForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="InfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InfoForm.Designer.cs">
+      <DependentUpon>InfoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +143,7 @@
     <Compile Include="MainApp.Designer.cs">
       <DependentUpon>MainApp.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\ChartItem.cs" />
     <Compile Include="Models\ChiTietPhieuBanHang.cs">
       <DependentUpon>ModelContext.tt</DependentUpon>
     </Compile>
@@ -234,6 +241,18 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\ResourceController.cs" />
+    <Compile Include="Receipt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Receipt.Designer.cs">
+      <DependentUpon>Receipt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WholeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WholeForm.Designer.cs">
+      <DependentUpon>WholeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="RetailForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -298,6 +317,9 @@
     <EmbeddedResource Include="CustomerForm.resx">
       <DependentUpon>CustomerForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="InfoForm.resx">
+      <DependentUpon>InfoForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -320,6 +342,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Receipt.resx">
+      <DependentUpon>Receipt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WholeForm.resx">
+      <DependentUpon>WholeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RetailForm.resx">
       <DependentUpon>RetailForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -355,6 +383,7 @@
       <DependentUpon>ModelContext.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\VNShop.Models.ChartItem.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

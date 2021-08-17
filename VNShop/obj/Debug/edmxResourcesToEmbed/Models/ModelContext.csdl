@@ -340,7 +340,7 @@
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="TenDonVi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="DiaChi" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
-    <Property Name="SoDienThoai" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="SoDienThoai" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
     <Property Name="Email" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
     <Property Name="Website" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
     <Property Name="KyTen" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />

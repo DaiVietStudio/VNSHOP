@@ -36,6 +36,7 @@
             this.xrTableCell6 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell7 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell8 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell10 = new DevExpress.XtraReports.UI.XRTableCell();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.lblPhone = new DevExpress.XtraReports.UI.XRLabel();
             this.xrTable1 = new DevExpress.XtraReports.UI.XRTable();
@@ -44,23 +45,22 @@
             this.xrTableCell2 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell3 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell4 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell9 = new DevExpress.XtraReports.UI.XRTableCell();
             this.lblDate = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
             this.lblCode = new DevExpress.XtraReports.UI.XRLabel();
             this.lblNameStore = new DevExpress.XtraReports.UI.XRLabel();
             this.lblAddress = new DevExpress.XtraReports.UI.XRLabel();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
+            this.lblDebit = new DevExpress.XtraReports.UI.XRLabel();
+            this.lblPay = new DevExpress.XtraReports.UI.XRLabel();
+            this.lblTotal = new DevExpress.XtraReports.UI.XRLabel();
+            this.lblTotalQuanity = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel3 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel2 = new DevExpress.XtraReports.UI.XRLabel();
             this.lblNameDebit = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel8 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel7 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrTableCell9 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.xrTableCell10 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.xrLabel3 = new DevExpress.XtraReports.UI.XRLabel();
-            this.lblTotalQuanity = new DevExpress.XtraReports.UI.XRLabel();
-            this.lblTotal = new DevExpress.XtraReports.UI.XRLabel();
-            this.lblPay = new DevExpress.XtraReports.UI.XRLabel();
-            this.lblDebit = new DevExpress.XtraReports.UI.XRLabel();
             this.objectDataSource1 = new DevExpress.DataAccess.ObjectBinding.ObjectDataSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
@@ -148,6 +148,17 @@
             this.xrTableCell8.StylePriority.UseTextAlignment = false;
             this.xrTableCell8.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
             this.xrTableCell8.Weight = 0.41216907623035004D;
+            // 
+            // xrTableCell10
+            // 
+            this.xrTableCell10.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Total")});
+            this.xrTableCell10.Font = new System.Drawing.Font("Times New Roman", 8F);
+            this.xrTableCell10.Name = "xrTableCell10";
+            this.xrTableCell10.StylePriority.UseFont = false;
+            this.xrTableCell10.StylePriority.UseTextAlignment = false;
+            this.xrTableCell10.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
+            this.xrTableCell10.Weight = 0.63159803300216166D;
             // 
             // TopMargin
             // 
@@ -253,10 +264,20 @@
             this.xrTableCell4.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
             this.xrTableCell4.Weight = 0.40939284539211568D;
             // 
+            // xrTableCell9
+            // 
+            this.xrTableCell9.Font = new System.Drawing.Font("Times New Roman", 8F, System.Drawing.FontStyle.Bold);
+            this.xrTableCell9.Name = "xrTableCell9";
+            this.xrTableCell9.StylePriority.UseFont = false;
+            this.xrTableCell9.StylePriority.UseTextAlignment = false;
+            this.xrTableCell9.Text = "Thành tiền";
+            this.xrTableCell9.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
+            this.xrTableCell9.Weight = 0.62734265582951432D;
+            // 
             // lblDate
             // 
-            this.lblDate.Font = new System.Drawing.Font("Times New Roman", 8F);
-            this.lblDate.LocationFloat = new DevExpress.Utils.PointFloat(201.4237F, 75.96877F);
+            this.lblDate.Font = new System.Drawing.Font("Times New Roman", 8F, System.Drawing.FontStyle.Italic);
+            this.lblDate.LocationFloat = new DevExpress.Utils.PointFloat(201.4236F, 86.38544F);
             this.lblDate.Name = "lblDate";
             this.lblDate.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.lblDate.SizeF = new System.Drawing.SizeF(104.5764F, 16.11457F);
@@ -266,19 +287,20 @@
             // xrLabel1
             // 
             this.xrLabel1.Font = new System.Drawing.Font("Times New Roman", 8F, System.Drawing.FontStyle.Bold);
-            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(8.02084F, 63.12502F);
+            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(8.020845F, 63.12502F);
+            this.xrLabel1.Multiline = true;
             this.xrLabel1.Name = "xrLabel1";
             this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel1.SizeF = new System.Drawing.SizeF(297.9792F, 12.84375F);
+            this.xrLabel1.SizeF = new System.Drawing.SizeF(297.9792F, 23.26042F);
             this.xrLabel1.StylePriority.UseFont = false;
             this.xrLabel1.StylePriority.UseTextAlignment = false;
-            this.xrLabel1.Text = "HÓA ĐƠN BÁN HÀNG";
+            this.xrLabel1.Text = "HÓA ĐƠN BÁN HÀNG\r\n---------------------------------------";
             this.xrLabel1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
             // 
             // lblCode
             // 
-            this.lblCode.Font = new System.Drawing.Font("Times New Roman", 8F);
-            this.lblCode.LocationFloat = new DevExpress.Utils.PointFloat(8.020841F, 75.96877F);
+            this.lblCode.Font = new System.Drawing.Font("Times New Roman", 8F, System.Drawing.FontStyle.Italic);
+            this.lblCode.LocationFloat = new DevExpress.Utils.PointFloat(8.020972F, 86.38544F);
             this.lblCode.Name = "lblCode";
             this.lblCode.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.lblCode.SizeF = new System.Drawing.SizeF(144.5513F, 16.11457F);
@@ -328,6 +350,60 @@
             this.BottomMargin.StylePriority.UseFont = false;
             this.BottomMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             // 
+            // lblDebit
+            // 
+            this.lblDebit.Font = new System.Drawing.Font("Times New Roman", 8F);
+            this.lblDebit.LocationFloat = new DevExpress.Utils.PointFloat(89.40971F, 56.21408F);
+            this.lblDebit.Name = "lblDebit";
+            this.lblDebit.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lblDebit.SizeF = new System.Drawing.SizeF(216.5904F, 16.11458F);
+            this.lblDebit.StylePriority.UseFont = false;
+            this.lblDebit.StylePriority.UseTextAlignment = false;
+            this.lblDebit.Text = "0";
+            // 
+            // lblPay
+            // 
+            this.lblPay.Font = new System.Drawing.Font("Times New Roman", 8F);
+            this.lblPay.LocationFloat = new DevExpress.Utils.PointFloat(89.40971F, 40.09947F);
+            this.lblPay.Name = "lblPay";
+            this.lblPay.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lblPay.SizeF = new System.Drawing.SizeF(216.5904F, 16.11458F);
+            this.lblPay.StylePriority.UseFont = false;
+            this.lblPay.StylePriority.UseTextAlignment = false;
+            this.lblPay.Text = "0";
+            // 
+            // lblTotal
+            // 
+            this.lblTotal.Font = new System.Drawing.Font("Times New Roman", 8F);
+            this.lblTotal.LocationFloat = new DevExpress.Utils.PointFloat(89.40971F, 23.98489F);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lblTotal.SizeF = new System.Drawing.SizeF(216.5904F, 16.11458F);
+            this.lblTotal.StylePriority.UseFont = false;
+            this.lblTotal.StylePriority.UseTextAlignment = false;
+            this.lblTotal.Text = "0";
+            // 
+            // lblTotalQuanity
+            // 
+            this.lblTotalQuanity.Font = new System.Drawing.Font("Times New Roman", 8F);
+            this.lblTotalQuanity.LocationFloat = new DevExpress.Utils.PointFloat(89.40971F, 7.870369F);
+            this.lblTotalQuanity.Name = "lblTotalQuanity";
+            this.lblTotalQuanity.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lblTotalQuanity.SizeF = new System.Drawing.SizeF(216.5904F, 16.11458F);
+            this.lblTotalQuanity.StylePriority.UseFont = false;
+            this.lblTotalQuanity.StylePriority.UseTextAlignment = false;
+            this.lblTotalQuanity.Text = "0";
+            // 
+            // xrLabel3
+            // 
+            this.xrLabel3.Font = new System.Drawing.Font("Times New Roman", 8F, System.Drawing.FontStyle.Bold);
+            this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(8.020823F, 40.09953F);
+            this.xrLabel3.Name = "xrLabel3";
+            this.xrLabel3.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel3.SizeF = new System.Drawing.SizeF(81.38889F, 16.11458F);
+            this.xrLabel3.StylePriority.UseFont = false;
+            this.xrLabel3.Text = "Khách trả:";
+            // 
             // xrLabel2
             // 
             this.xrLabel2.Font = new System.Drawing.Font("Times New Roman", 7F, System.Drawing.FontStyle.Italic);
@@ -343,7 +419,7 @@
             // 
             // lblNameDebit
             // 
-            this.lblNameDebit.Font = new System.Drawing.Font("Times New Roman", 8F);
+            this.lblNameDebit.Font = new System.Drawing.Font("Times New Roman", 8F, System.Drawing.FontStyle.Bold);
             this.lblNameDebit.LocationFloat = new DevExpress.Utils.PointFloat(8.020979F, 56.21408F);
             this.lblNameDebit.Name = "lblNameDebit";
             this.lblNameDebit.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -353,7 +429,7 @@
             // 
             // xrLabel8
             // 
-            this.xrLabel8.Font = new System.Drawing.Font("Times New Roman", 8F);
+            this.xrLabel8.Font = new System.Drawing.Font("Times New Roman", 8F, System.Drawing.FontStyle.Bold);
             this.xrLabel8.LocationFloat = new DevExpress.Utils.PointFloat(8.020823F, 23.98489F);
             this.xrLabel8.Name = "xrLabel8";
             this.xrLabel8.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -363,88 +439,13 @@
             // 
             // xrLabel7
             // 
-            this.xrLabel7.Font = new System.Drawing.Font("Times New Roman", 8F);
+            this.xrLabel7.Font = new System.Drawing.Font("Times New Roman", 8F, System.Drawing.FontStyle.Bold);
             this.xrLabel7.LocationFloat = new DevExpress.Utils.PointFloat(8.020823F, 7.870369F);
             this.xrLabel7.Name = "xrLabel7";
             this.xrLabel7.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel7.SizeF = new System.Drawing.SizeF(81.38889F, 16.11458F);
             this.xrLabel7.StylePriority.UseFont = false;
             this.xrLabel7.Text = "Tổng số lượng:";
-            // 
-            // xrTableCell9
-            // 
-            this.xrTableCell9.Font = new System.Drawing.Font("Times New Roman", 8F, System.Drawing.FontStyle.Bold);
-            this.xrTableCell9.Name = "xrTableCell9";
-            this.xrTableCell9.StylePriority.UseFont = false;
-            this.xrTableCell9.StylePriority.UseTextAlignment = false;
-            this.xrTableCell9.Text = "Thành tiền";
-            this.xrTableCell9.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
-            this.xrTableCell9.Weight = 0.62734265582951432D;
-            // 
-            // xrTableCell10
-            // 
-            this.xrTableCell10.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Total")});
-            this.xrTableCell10.Font = new System.Drawing.Font("Times New Roman", 8F);
-            this.xrTableCell10.Name = "xrTableCell10";
-            this.xrTableCell10.StylePriority.UseFont = false;
-            this.xrTableCell10.StylePriority.UseTextAlignment = false;
-            this.xrTableCell10.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
-            this.xrTableCell10.Weight = 0.63159803300216166D;
-            // 
-            // xrLabel3
-            // 
-            this.xrLabel3.Font = new System.Drawing.Font("Times New Roman", 8F);
-            this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(8.020823F, 40.09953F);
-            this.xrLabel3.Name = "xrLabel3";
-            this.xrLabel3.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel3.SizeF = new System.Drawing.SizeF(81.38889F, 16.11458F);
-            this.xrLabel3.StylePriority.UseFont = false;
-            this.xrLabel3.Text = "Khách trả:";
-            // 
-            // lblTotalQuanity
-            // 
-            this.lblTotalQuanity.Font = new System.Drawing.Font("Times New Roman", 8F);
-            this.lblTotalQuanity.LocationFloat = new DevExpress.Utils.PointFloat(89.40971F, 7.870369F);
-            this.lblTotalQuanity.Name = "lblTotalQuanity";
-            this.lblTotalQuanity.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblTotalQuanity.SizeF = new System.Drawing.SizeF(216.5904F, 16.11458F);
-            this.lblTotalQuanity.StylePriority.UseFont = false;
-            this.lblTotalQuanity.StylePriority.UseTextAlignment = false;
-            this.lblTotalQuanity.Text = "0";
-            // 
-            // lblTotal
-            // 
-            this.lblTotal.Font = new System.Drawing.Font("Times New Roman", 8F);
-            this.lblTotal.LocationFloat = new DevExpress.Utils.PointFloat(89.40971F, 23.98489F);
-            this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblTotal.SizeF = new System.Drawing.SizeF(216.5904F, 16.11458F);
-            this.lblTotal.StylePriority.UseFont = false;
-            this.lblTotal.StylePriority.UseTextAlignment = false;
-            this.lblTotal.Text = "0";
-            // 
-            // lblPay
-            // 
-            this.lblPay.Font = new System.Drawing.Font("Times New Roman", 8F);
-            this.lblPay.LocationFloat = new DevExpress.Utils.PointFloat(89.40971F, 40.09947F);
-            this.lblPay.Name = "lblPay";
-            this.lblPay.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblPay.SizeF = new System.Drawing.SizeF(216.5904F, 16.11458F);
-            this.lblPay.StylePriority.UseFont = false;
-            this.lblPay.StylePriority.UseTextAlignment = false;
-            this.lblPay.Text = "0";
-            // 
-            // lblDebit
-            // 
-            this.lblDebit.Font = new System.Drawing.Font("Times New Roman", 8F);
-            this.lblDebit.LocationFloat = new DevExpress.Utils.PointFloat(89.40971F, 56.21408F);
-            this.lblDebit.Name = "lblDebit";
-            this.lblDebit.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblDebit.SizeF = new System.Drawing.SizeF(216.5904F, 16.11458F);
-            this.lblDebit.StylePriority.UseFont = false;
-            this.lblDebit.StylePriority.UseTextAlignment = false;
-            this.lblDebit.Text = "0";
             // 
             // objectDataSource1
             // 

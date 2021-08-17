@@ -504,7 +504,7 @@
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "RetailForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Phần mềm quản lý bán hàng";
+            this.Text = "Bán lẻ";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.RetailForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();

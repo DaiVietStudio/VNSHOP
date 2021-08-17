@@ -230,3 +230,6 @@ C:\Users\AKINOSORA\source\repos\VNShop\VNShop\bin\Debug\es\DevExpress.Diagram.v1
 C:\Users\AKINOSORA\source\repos\VNShop\VNShop\bin\Debug\ja\DevExpress.Diagram.v17.1.Core.resources.dll
 C:\Users\AKINOSORA\source\repos\VNShop\VNShop\bin\Debug\ru\DevExpress.Diagram.v17.1.Core.resources.dll
 C:\Users\AKINOSORA\source\repos\VNShop\VNShop\obj\Debug\VNShop.RetailReport.resources
+C:\Users\AKINOSORA\source\repos\VNShop\VNShop\obj\Debug\VNShop.WholeForm.resources
+C:\Users\AKINOSORA\source\repos\VNShop\VNShop\obj\Debug\VNShop.Receipt.resources
+C:\Users\AKINOSORA\source\repos\VNShop\VNShop\obj\Debug\VNShop.InfoForm.resources
