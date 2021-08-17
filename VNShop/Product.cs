@@ -72,12 +72,20 @@ namespace VNShop
         private void btnEdit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             int[] row = gridView1.GetSelectedRows();
-            var data = gridView1.GetRow(row[0]) as SanPham;
-            ProductForm productForm = new ProductForm(data.id);
-            if (productForm.ShowDialog() == DialogResult.OK)
+            if(row.Length == 0 || row.Length > 0)
             {
-                loadData();
+                XtraMessageBox.Show("Vui lòng chọn sản phẩm muốn sửa", "Chọn sản phẩm", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            else
+            {
+                var data = gridView1.GetRow(row[0]) as SanPham;
+                ProductForm productForm = new ProductForm(data.id);
+                if (productForm.ShowDialog() == DialogResult.OK)
+                {
+                    loadData();
+                }
+            }
+           
         }
     }
 }

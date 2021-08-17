@@ -13,12 +13,12 @@ namespace VNShop
         {
             return dbContext.Tinhs.ToList();
         }
-        public List<Huyen> districtList(int province)
+        public List<Huyen> districtList(long province)
         {
             return dbContext.Huyens.Where(x => x.Tinh == province).ToList();
         }
 
-        public List<Xa> wardList(int district)
+        public List<Xa> wardList(long district)
         {
             return dbContext.Xas.Where(x => x.Huyen == district).ToList();
         }

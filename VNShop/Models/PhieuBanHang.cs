@@ -25,6 +25,7 @@ namespace VNShop.Models
         public Nullable<System.DateTime> NgayNhap { get; set; }
         public Nullable<long> KhachHang { get; set; }
         public Nullable<long> NhanVien { get; set; }
+        public Nullable<int> Loai { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietPhieuBanHang> ChiTietPhieuBanHangs { get; set; }

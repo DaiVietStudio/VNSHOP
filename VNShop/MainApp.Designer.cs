@@ -33,6 +33,7 @@
             DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series();
             DevExpress.XtraCharts.Series series2 = new DevExpress.XtraCharts.Series();
             DevExpress.XtraCharts.LineSeriesView lineSeriesView1 = new DevExpress.XtraCharts.LineSeriesView();
+            DevExpress.XtraCharts.ChartTitle chartTitle1 = new DevExpress.XtraCharts.ChartTitle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainApp));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.chartControl1 = new DevExpress.XtraCharts.ChartControl();
@@ -45,14 +46,17 @@
             this.btnUnit = new DevExpress.XtraBars.BarButtonItem();
             this.btnStorage = new DevExpress.XtraBars.BarButtonItem();
             this.btnProduct = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem9 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnUser = new DevExpress.XtraBars.BarButtonItem();
+            this.btnCustomer = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItem3 = new DevExpress.XtraBars.BarSubItem();
-            this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnRetail = new DevExpress.XtraBars.BarButtonItem();
+            this.btnWhole = new DevExpress.XtraBars.BarButtonItem();
+            this.btnPriceReport = new DevExpress.XtraBars.BarButtonItem();
+            this.btnDebit = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItem4 = new DevExpress.XtraBars.BarSubItem();
-            this.barButtonItem8 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnInfo = new DevExpress.XtraBars.BarButtonItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
+            this.txtHello = new DevExpress.XtraBars.BarHeaderItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -79,7 +83,7 @@
             this.layoutControl1.Location = new System.Drawing.Point(0, 29);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(1773, 688);
+            this.layoutControl1.Size = new System.Drawing.Size(1773, 679);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -98,8 +102,11 @@
             this.chartControl1.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
         series1,
         series2};
-            this.chartControl1.Size = new System.Drawing.Size(1741, 656);
+            this.chartControl1.Size = new System.Drawing.Size(1741, 647);
             this.chartControl1.TabIndex = 4;
+            chartTitle1.Text = "Doanh số bán hàng";
+            this.chartControl1.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
+            chartTitle1});
             // 
             // layoutControlGroup1
             // 
@@ -110,7 +117,7 @@
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.OptionsItemText.TextToControlDistance = 4;
-            this.layoutControlGroup1.Size = new System.Drawing.Size(1773, 688);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(1773, 679);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
@@ -118,7 +125,7 @@
             this.layoutControlItem1.Control = this.chartControl1;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(1747, 662);
+            this.layoutControlItem1.Size = new System.Drawing.Size(1747, 653);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -146,14 +153,17 @@
             this.btnStorage,
             this.btnProduct,
             this.barSubItem3,
-            this.barButtonItem6,
-            this.barButtonItem7,
+            this.btnRetail,
+            this.btnPriceReport,
             this.barSubItem4,
-            this.barButtonItem8,
-            this.barButtonItem9,
-            this.barButtonItem3});
+            this.btnInfo,
+            this.btnUser,
+            this.btnWhole,
+            this.btnCustomer,
+            this.txtHello,
+            this.btnDebit});
             this.barManager1.MainMenu = this.bar2;
-            this.barManager1.MaxItemId = 15;
+            this.barManager1.MaxItemId = 18;
             this.barManager1.StatusBar = this.bar3;
             // 
             // bar2
@@ -178,7 +188,8 @@
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnUnit, DevExpress.XtraBars.BarItemPaintStyle.Standard),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnStorage, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(this.btnProduct),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem9)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnUser),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnCustomer, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.barSubItem2.Name = "barSubItem2";
             // 
             // btnUnit
@@ -208,55 +219,83 @@
             this.btnProduct.Name = "btnProduct";
             this.btnProduct.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnProduct_ItemClick);
             // 
-            // barButtonItem9
+            // btnUser
             // 
-            this.barButtonItem9.Caption = "Nhân viên";
-            this.barButtonItem9.Id = 13;
-            this.barButtonItem9.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem9.ImageOptions.Image")));
-            this.barButtonItem9.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem9.ImageOptions.LargeImage")));
-            this.barButtonItem9.Name = "barButtonItem9";
+            this.btnUser.Caption = "Nhân viên";
+            this.btnUser.Id = 13;
+            this.btnUser.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnUser.ImageOptions.Image")));
+            this.btnUser.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnUser.ImageOptions.LargeImage")));
+            this.btnUser.Name = "btnUser";
+            this.btnUser.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnUser_ItemClick);
+            // 
+            // btnCustomer
+            // 
+            this.btnCustomer.Caption = "Khách hàng";
+            this.btnCustomer.Id = 15;
+            this.btnCustomer.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnCustomer.ImageOptions.Image")));
+            this.btnCustomer.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnCustomer.ImageOptions.LargeImage")));
+            this.btnCustomer.Name = "btnCustomer";
+            this.btnCustomer.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnCustomer_ItemClick);
             // 
             // barSubItem3
             // 
             this.barSubItem3.Caption = "Bán hàng";
             this.barSubItem3.Id = 8;
             this.barSubItem3.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem6),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem3),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem7)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnRetail, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnWhole),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnPriceReport),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnDebit)});
             this.barSubItem3.Name = "barSubItem3";
             // 
-            // barButtonItem6
+            // btnRetail
             // 
-            this.barButtonItem6.Caption = "Bán lẻ";
-            this.barButtonItem6.Id = 9;
-            this.barButtonItem6.Name = "barButtonItem6";
+            this.btnRetail.Caption = "Bán lẻ";
+            this.btnRetail.Id = 9;
+            this.btnRetail.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnRetail.ImageOptions.Image")));
+            this.btnRetail.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnRetail.ImageOptions.LargeImage")));
+            this.btnRetail.Name = "btnRetail";
+            this.btnRetail.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnRetail_ItemClick);
             // 
-            // barButtonItem3
+            // btnWhole
             // 
-            this.barButtonItem3.Caption = "Bán sỉ";
-            this.barButtonItem3.Id = 14;
-            this.barButtonItem3.Name = "barButtonItem3";
+            this.btnWhole.Caption = "Bán sỉ";
+            this.btnWhole.Id = 14;
+            this.btnWhole.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnWhole.ImageOptions.Image")));
+            this.btnWhole.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnWhole.ImageOptions.LargeImage")));
+            this.btnWhole.Name = "btnWhole";
             // 
-            // barButtonItem7
+            // btnPriceReport
             // 
-            this.barButtonItem7.Caption = "Báo giá";
-            this.barButtonItem7.Id = 10;
-            this.barButtonItem7.Name = "barButtonItem7";
+            this.btnPriceReport.Caption = "Báo giá";
+            this.btnPriceReport.Id = 10;
+            this.btnPriceReport.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnPriceReport.ImageOptions.Image")));
+            this.btnPriceReport.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnPriceReport.ImageOptions.LargeImage")));
+            this.btnPriceReport.Name = "btnPriceReport";
+            // 
+            // btnDebit
+            // 
+            this.btnDebit.Caption = "Sổ nợ";
+            this.btnDebit.Id = 17;
+            this.btnDebit.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDebit.ImageOptions.Image")));
+            this.btnDebit.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnDebit.ImageOptions.LargeImage")));
+            this.btnDebit.Name = "btnDebit";
             // 
             // barSubItem4
             // 
             this.barSubItem4.Caption = "Hệ thống";
             this.barSubItem4.Id = 11;
             this.barSubItem4.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem8)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnInfo, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.barSubItem4.Name = "barSubItem4";
             // 
-            // barButtonItem8
+            // btnInfo
             // 
-            this.barButtonItem8.Caption = "Thông tin đơn vị";
-            this.barButtonItem8.Id = 12;
-            this.barButtonItem8.Name = "barButtonItem8";
+            this.btnInfo.Caption = "Thông tin đơn vị";
+            this.btnInfo.Id = 12;
+            this.btnInfo.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnInfo.ImageOptions.Image")));
+            this.btnInfo.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnInfo.ImageOptions.LargeImage")));
+            this.btnInfo.Name = "btnInfo";
             // 
             // bar3
             // 
@@ -265,10 +304,18 @@
             this.bar3.DockCol = 0;
             this.bar3.DockRow = 0;
             this.bar3.DockStyle = DevExpress.XtraBars.BarDockStyle.Bottom;
+            this.bar3.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.txtHello)});
             this.bar3.OptionsBar.AllowQuickCustomization = false;
             this.bar3.OptionsBar.DrawDragBorder = false;
             this.bar3.OptionsBar.UseWholeRow = true;
             this.bar3.Text = "Status bar";
+            // 
+            // txtHello
+            // 
+            this.txtHello.Caption = "Xin chào ";
+            this.txtHello.Id = 16;
+            this.txtHello.Name = "txtHello";
             // 
             // barDockControlTop
             // 
@@ -282,9 +329,9 @@
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 717);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 708);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(1773, 25);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1773, 34);
             // 
             // barDockControlLeft
             // 
@@ -292,7 +339,7 @@
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 29);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 688);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 679);
             // 
             // barDockControlRight
             // 
@@ -300,7 +347,7 @@
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(1773, 29);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 688);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 679);
             // 
             // barButtonItem1
             // 
@@ -335,6 +382,7 @@
             this.Text = "Phần mềm bán hàng VNShop";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainApp_FormClosed);
+            this.Load += new System.EventHandler(this.MainApp_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).EndInit();
@@ -372,11 +420,14 @@
         private DevExpress.XtraBars.BarButtonItem btnStorage;
         private DevExpress.XtraBars.BarButtonItem btnProduct;
         private DevExpress.XtraBars.BarSubItem barSubItem3;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem6;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem7;
+        private DevExpress.XtraBars.BarButtonItem btnRetail;
+        private DevExpress.XtraBars.BarButtonItem btnPriceReport;
         private DevExpress.XtraBars.BarSubItem barSubItem4;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem8;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem9;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem3;
+        private DevExpress.XtraBars.BarButtonItem btnInfo;
+        private DevExpress.XtraBars.BarButtonItem btnUser;
+        private DevExpress.XtraBars.BarButtonItem btnWhole;
+        private DevExpress.XtraBars.BarButtonItem btnCustomer;
+        private DevExpress.XtraBars.BarHeaderItem txtHello;
+        private DevExpress.XtraBars.BarButtonItem btnDebit;
     }
 }

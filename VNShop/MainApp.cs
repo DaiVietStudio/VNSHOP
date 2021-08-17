@@ -45,5 +45,28 @@ namespace VNShop
             Product product = new Product();
             product.ShowDialog();
         }
+
+        private void btnUser_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            User user = new User();
+            user.ShowDialog();
+        }
+
+        private void MainApp_Load(object sender, EventArgs e)
+        {
+            txtHello.Caption = "Xin chào " + Program.nameUser;
+        }
+
+        private void btnCustomer_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Customer customer = new Customer();
+            customer.ShowDialog();
+        }
+
+        private void btnRetail_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            RetailForm retailForm = new RetailForm();
+            retailForm.ShowDialog();
+        }
     }
 }

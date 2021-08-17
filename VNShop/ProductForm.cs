@@ -52,6 +52,17 @@ namespace VNShop
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
+            bool error = false;
+
+            if(txtRetailPrice.Text == "")
+            {
+                XtraMessageBox.Show("Không được để trống giá bán lẻ", "Không được để trống giá bán lẻ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            if(txtWholePrice.Text == "")
+            {
+                XtraMessageBox.Show("Không được để trống giá bán sỉ", "Không được để trống giá bán sỉ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
 
             SanPham product = new SanPham();
             product.MaSanPham = txtBarcode.Text;
@@ -78,28 +89,42 @@ namespace VNShop
             while (gridViewUnit.IsValidRowHandle(rowHandle))
             {
                 var data = gridViewUnit.GetRow(rowHandle) as DonViTinh_SanPham;
-                listUnit.Add(data);
-                rowHandle++;
+                if(data.GiaLe > 0)
+                {
+                    listUnit.Add(data);
+                    rowHandle++;
+                }
+                else
+                {
+                    error = true;
+                    XtraMessageBox.Show("Không được để trống giá bán lẻ tại đơn vị " + data.DonViTinh1.TenDonVi, "Không được để trống giá bán lẻ vị "+ data.DonViTinh1.TenDonVi, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    break;
+                }
+                
             }
             Response result;
-            if (idEdit == 0)
+            if(error == false)
             {
-                result = productController.save(product, listUnit);
-            }
-            else
-            {
-                result = productController.update(product,idEdit, listUnit);
+                if (idEdit == 0)
+                {
+                    result = productController.save(product, listUnit);
+                }
+                else
+                {
+                    result = productController.update(product, idEdit, listUnit);
+                }
+
+                if (result.status)
+                {
+                    XtraMessageBox.Show(result.message, result.message, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.DialogResult = DialogResult.OK;
+                }
+                else
+                {
+                    XtraMessageBox.Show(result.message, result.message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
            
-            if (result.status)
-            {
-                XtraMessageBox.Show(result.message, result.message, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.DialogResult = DialogResult.OK;
-            }
-            else
-            {
-                XtraMessageBox.Show(result.message, result.message, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
 
         private void gridViewUnit_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)

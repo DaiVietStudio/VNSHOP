@@ -10,6 +10,24 @@ namespace VNShop.Controllers
 {
     class ProductController : BaseController
     {
+        public List<SanPham> retailProductList()
+        {
+            List<SanPham> productList = new List<SanPham>();
+            var list = (from p in dbContext.SanPhams select new { p.id, p.MaSanPham, p.TenSanPham, p.DonViTinh, p.GiaLe, p.DonViTinh1 }).ToList();
+            foreach(var item in list)
+            {
+                SanPham itemProduct = new SanPham();
+                itemProduct.id = item.id;
+                itemProduct.MaSanPham = item.MaSanPham;
+                itemProduct.TenSanPham = item.TenSanPham;
+                itemProduct.GiaLe = item.GiaLe;
+                itemProduct.DonViTinh = item.DonViTinh;
+                productList.Add(itemProduct);
+            }
+            return productList;
+
+        }
+
         public List<SanPham> productList()
         {
             return dbContext.SanPhams.ToList();

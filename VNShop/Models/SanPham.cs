@@ -42,10 +42,10 @@ namespace VNShop.Models
         public virtual ICollection<ChiTietPhieuBanHang> ChiTietPhieuBanHangs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietPhieuNhapKho> ChiTietPhieuNhapKhoes { get; set; }
+        public virtual DonViTinh DonViTinh1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DonViTinh_SanPham> DonViTinh_SanPham { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<KhoHang_SanPham> KhoHang_SanPham { get; set; }
-        public virtual DonViTinh DonViTinh1 { get; set; }
     }
 }

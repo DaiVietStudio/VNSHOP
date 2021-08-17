@@ -42,7 +42,7 @@ namespace VNShop.Controllers
             }
         }
 
-        public Response delete(int[] khoHangs)
+        public Response delete(List<long> khoHangs)
         {
             foreach (int item in khoHangs)
             {
