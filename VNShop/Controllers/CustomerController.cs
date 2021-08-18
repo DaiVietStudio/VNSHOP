@@ -12,6 +12,12 @@ namespace VNShop.Controllers
         {
             return dbContext.KhachHangs.ToList();
         }
+        public List<KhachHang> customerListByType(int type)
+        {
+            return dbContext.KhachHangs.Where(x => x.Loai == type).ToList();
+        }
+
+
 
         public Response save(KhachHang customer)
         {

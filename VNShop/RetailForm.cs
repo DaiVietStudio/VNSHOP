@@ -239,6 +239,9 @@ namespace VNShop
                 txtTotal.Text = "0";
                 detailCarts.Clear();
                 gridControlCart.RefreshDataSource();
+                txtMoneyReciver.Text = "0";
+                txtExcessCash.Text = "0";
+                lookUpProduct.EditValue = null;
                 XtraMessageBox.Show("Đã thanh toán hoàn tất hóa đơn", "Thanh toán hoàn tất", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
@@ -293,6 +296,9 @@ namespace VNShop
                 txtTotal.Text = "0";
                 detailCarts.Clear();
                 gridControlCart.RefreshDataSource();
+                txtMoneyReciver.Text = "0";
+                txtExcessCash.Text = "0";
+                lookUpProduct.EditValue = null;
 
             }
         }

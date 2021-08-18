@@ -23,9 +23,9 @@ namespace VNShop
 
         private void btnAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-           
+
             CustomerForm customerForm = new CustomerForm();
-            if(customerForm.ShowDialog() == DialogResult.OK)
+            if (customerForm.ShowDialog() == DialogResult.OK)
             {
                 loadData();
             }
@@ -41,6 +41,7 @@ namespace VNShop
             List<TypeCustomer> typeCustomers = new List<TypeCustomer>();
             typeCustomers.Add(new TypeCustomer(0, "Khách hàng"));
             typeCustomers.Add(new TypeCustomer(1, "Nhà phân phối"));
+            typeCustomers.Add(new TypeCustomer(2, "Tất cả"));
             cbType.Properties.DataSource = typeCustomers;
             loadData();
         }
@@ -48,7 +49,7 @@ namespace VNShop
         private void btnEdit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             int[] row = gridViewCustomer.GetSelectedRows();
-            if(row.Length == 0)
+            if (row.Length == 0)
             {
                 XtraMessageBox.Show("Xin vui lòng chọn một khách hàng muốn sửa", "Chọn khách hàng sửa", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -66,7 +67,7 @@ namespace VNShop
 
         private void btnDelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if(XtraMessageBox.Show("Bạn có muốn xóa khách hàng này không","Xác nhận xóa", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+            if (XtraMessageBox.Show("Bạn có muốn xóa khách hàng này không", "Xác nhận xóa", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
             {
                 int[] row = gridViewCustomer.GetSelectedRows();
                 KhachHang khachHang = gridViewCustomer.GetRow(row[0]) as KhachHang;
@@ -77,6 +78,26 @@ namespace VNShop
                     loadData();
                 }
             }
+        }
+
+        private void cbType_EditValueChanged(object sender, EventArgs e)
+        {
+            int type = (int)cbType.EditValue;
+            switch (type)
+            {
+                case 0:
+                    gridControlCustomer.DataSource = CustomerController.customerListByType(0);
+                    break;
+                case 1:
+                    gridControlCustomer.DataSource = CustomerController.customerListByType(1);
+
+                    break;
+                   
+                case 2:
+                    gridControlCustomer.DataSource = CustomerController.customerList();
+                    break;
+            }
+
         }
     }
 }

@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using VNShop.Controllers;
@@ -14,7 +15,7 @@ namespace VNShop
 {
     public partial class MainApp : DevExpress.XtraEditors.XtraForm
     {
-        
+
 
         public MainApp()
         {
@@ -29,14 +30,11 @@ namespace VNShop
         private void btnUnit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Unit unit = new Unit();
-           
+
             unit.ShowDialog();
         }
 
-        public void loadData()
-        {
 
-        }
 
         private void btnStorage_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -92,5 +90,12 @@ namespace VNShop
             InfoForm infoForm = new InfoForm();
             infoForm.ShowDialog();
         }
+
+        private void MainApp_FormClosing(object sender, FormClosingEventArgs e)
+        {
+           
+        }
+
+       
     }
 }

@@ -1,9 +1,12 @@
 ﻿using DevExpress.XtraEditors;
+using NPOI.SS.UserModel;
+using NPOI.XSSF.UserModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -86,6 +89,31 @@ namespace VNShop
                 }
             }
            
+        }
+
+        private void btnImport_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Title = "Chọn file excel";
+            openFileDialog.Filter = "*.xlsx";
+            if(openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                
+            }
+        }
+
+        private bool import(string fileName)
+        {
+            List<string> unitList = new List<string>();
+
+            FileStream fileStream = new FileStream(fileName, FileMode.Open);
+            XSSFWorkbook wb = new XSSFWorkbook(fileStream);
+            // Lấy sheet đầu tiên
+            ISheet sheet = wb.GetSheetAt(0);
+            int enity = 1;
+
+        
+            return false;
         }
     }
 }

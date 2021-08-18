@@ -267,6 +267,7 @@
             this.cbType.Size = new System.Drawing.Size(564, 22);
             this.cbType.StyleController = this.layoutControl1;
             this.cbType.TabIndex = 5;
+            this.cbType.EditValueChanged += new System.EventHandler(this.cbType_EditValueChanged);
             // 
             // layoutControlGroup1
             // 
