@@ -69,15 +69,30 @@ namespace VNShop
             {
                 SanPham product = new SanPham();
                 product.MaSanPham = txtBarcode.Text;
-                product.TenSanPham = txtName.Text;
-                product.GiaNhap = double.Parse(txtInputPrice.Text);
+                product.TenSanPham = txtName.Text.ToUpper();
+                if(txtInputPrice.Text != "")
+                {
+                    product.GiaNhap = double.Parse(txtInputPrice.Text);
+                }
                 product.GiaSi = double.Parse(txtWholePrice.Text);
                 product.GiaLe = double.Parse(txtRetailPrice.Text);
                 
                 product.DonViTinh = unit.id;
-                product.ThueVAT = double.Parse(txtVAT.Text);
-                product.NgaySanXuat = DateTime.Parse(txtDateOfManuFacture.EditValue.ToString());
-                product.NgayHetHan = DateTime.Parse(txtDateExp.EditValue.ToString());
+                if(txtVAT.Text != "")
+                {
+                    product.ThueVAT = double.Parse(txtVAT.Text);
+
+                }
+                if(txtDateOfManuFacture.EditValue != null)
+                {
+                    product.NgaySanXuat = DateTime.Parse(txtDateOfManuFacture.EditValue.ToString());
+
+                }
+                if (txtDateExp.EditValue != null)
+                {
+                    product.NgayHetHan = DateTime.Parse(txtDateExp.EditValue.ToString());
+                }
+               
                 product.KichHoat = chkActive.Checked;
                 product.QuanLyTonKho = chkInventory.Checked ? 1 : 0;
                 product.MoTa = txtDeciption.Text;

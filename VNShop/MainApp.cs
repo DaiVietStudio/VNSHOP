@@ -93,9 +93,21 @@ namespace VNShop
 
         private void MainApp_FormClosing(object sender, FormClosingEventArgs e)
         {
-           
+          
         }
 
-       
+
+    
+        private void barButtonItem3_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Thread theard = new Thread(()=> {
+                ResourceController resourceController = new ResourceController();
+                resourceController.backUp();
+            });
+
+            theard.Start();
+
+          
+        }
     }
 }

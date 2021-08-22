@@ -52,7 +52,7 @@ namespace VNShop.Controllers
         }
 
 
-        public Response save(SanPham sanPham, List<DonViTinh_SanPham> donViTinh_SanPhams)
+        public Response save(SanPham sanPham, List<DonViTinh_SanPham> donViTinh_SanPhams = null)
         {
             DbContextTransaction transaction = dbContext.Database.BeginTransaction();
             try
@@ -60,11 +60,14 @@ namespace VNShop.Controllers
                 dbContext.SanPhams.Add(sanPham);
                 if (dbContext.SaveChanges() > 0)
                 {
-                    foreach (DonViTinh_SanPham item in donViTinh_SanPhams)
+                    if(donViTinh_SanPhams != null)
                     {
-                        item.SanPham = sanPham.id;
-                        dbContext.DonViTinh_SanPham.Add(item);
-                        dbContext.SaveChanges();
+                        foreach (DonViTinh_SanPham item in donViTinh_SanPhams)
+                        {
+                            item.SanPham = sanPham.id;
+                            dbContext.DonViTinh_SanPham.Add(item);
+                            dbContext.SaveChanges();
+                        }
                     }
                     transaction.Commit();
                     return new Response(true, "Lưu sản phẩm thành công");

@@ -43,7 +43,6 @@ C:\Users\AKINOSORA\source\repos\VNShop\VNShop\bin\Debug\de\DevExpress.Sparkline.
 C:\Users\AKINOSORA\source\repos\VNShop\VNShop\bin\Debug\es\DevExpress.Sparkline.v17.1.Core.resources.dll
 C:\Users\AKINOSORA\source\repos\VNShop\VNShop\bin\Debug\ja\DevExpress.Sparkline.v17.1.Core.resources.dll
 C:\Users\AKINOSORA\source\repos\VNShop\VNShop\bin\Debug\ru\DevExpress.Sparkline.v17.1.Core.resources.dll
-C:\Users\AKINOSORA\source\repos\VNShop\VNShop\obj\Debug\VNShop.csprojAssemblyReference.cache
 C:\Users\AKINOSORA\source\repos\VNShop\VNShop\obj\Debug\VNShop.Login.resources
 C:\Users\AKINOSORA\source\repos\VNShop\VNShop\obj\Debug\VNShop.Properties.Resources.resources
 C:\Users\AKINOSORA\source\repos\VNShop\VNShop\obj\Debug\VNShop.csproj.GenerateResource.cache
@@ -233,3 +232,8 @@ C:\Users\AKINOSORA\source\repos\VNShop\VNShop\obj\Debug\VNShop.RetailReport.reso
 C:\Users\AKINOSORA\source\repos\VNShop\VNShop\obj\Debug\VNShop.WholeForm.resources
 C:\Users\AKINOSORA\source\repos\VNShop\VNShop\obj\Debug\VNShop.Receipt.resources
 C:\Users\AKINOSORA\source\repos\VNShop\VNShop\obj\Debug\VNShop.InfoForm.resources
+C:\Users\AKINOSORA\source\repos\VNShop\VNShop\obj\Debug\VNShop.csproj.AssemblyReference.cache
+C:\Users\AKINOSORA\source\repos\VNShop\VNShop\bin\Debug\Newtonsoft.Json.dll
+C:\Users\AKINOSORA\source\repos\VNShop\VNShop\bin\Debug\Newtonsoft.Json.xml
+C:\Users\AKINOSORA\source\repos\VNShop\VNShop\bin\Debug\Leaf.xNet.dll
+C:\Users\AKINOSORA\source\repos\VNShop\VNShop\bin\Debug\Leaf.xNet.xml

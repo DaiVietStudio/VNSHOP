@@ -62,21 +62,21 @@
             this.layoutControl1.Controls.Add(this.txtUserName);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControl1.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.layoutControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(349, 141);
+            this.layoutControl1.Size = new System.Drawing.Size(288, 140);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
             // btnSignUp
             // 
-            this.btnSignUp.Appearance.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSignUp.Appearance.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSignUp.Appearance.Options.UseFont = true;
             this.btnSignUp.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSignUp.ImageOptions.Image")));
             this.btnSignUp.Location = new System.Drawing.Point(8, 100);
             this.btnSignUp.Name = "btnSignUp";
-            this.btnSignUp.Size = new System.Drawing.Size(333, 29);
+            this.btnSignUp.Size = new System.Drawing.Size(272, 30);
             this.btnSignUp.StyleController = this.layoutControl1;
             this.btnSignUp.TabIndex = 8;
             this.btnSignUp.Text = "Đăng ký";
@@ -84,13 +84,13 @@
             // 
             // btnExit
             // 
-            this.btnExit.Appearance.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.Appearance.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.Appearance.Options.UseFont = true;
             this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnExit.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.ImageOptions.Image")));
-            this.btnExit.Location = new System.Drawing.Point(177, 64);
+            this.btnExit.Location = new System.Drawing.Point(147, 64);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(164, 29);
+            this.btnExit.Size = new System.Drawing.Size(133, 30);
             this.btnExit.StyleController = this.layoutControl1;
             this.btnExit.TabIndex = 7;
             this.btnExit.Text = "Thoát";
@@ -98,12 +98,12 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.Appearance.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogin.Appearance.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.Appearance.Options.UseFont = true;
             this.btnLogin.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnLogin.ImageOptions.Image")));
             this.btnLogin.Location = new System.Drawing.Point(8, 64);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(163, 30);
+            this.btnLogin.Size = new System.Drawing.Size(133, 30);
             this.btnLogin.StyleController = this.layoutControl1;
             this.btnLogin.TabIndex = 6;
             this.btnLogin.Text = "Đăng nhập";
@@ -114,7 +114,7 @@
             this.txtPassword.Location = new System.Drawing.Point(105, 36);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Properties.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(236, 22);
+            this.txtPassword.Size = new System.Drawing.Size(175, 22);
             this.txtPassword.StyleController = this.layoutControl1;
             this.txtPassword.TabIndex = 5;
             // 
@@ -122,7 +122,7 @@
             // 
             this.txtUserName.Location = new System.Drawing.Point(105, 8);
             this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(236, 22);
+            this.txtUserName.Size = new System.Drawing.Size(175, 22);
             this.txtUserName.StyleController = this.layoutControl1;
             this.txtUserName.TabIndex = 4;
             // 
@@ -140,7 +140,7 @@
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.OptionsItemText.TextToControlDistance = 4;
             this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.layoutControlGroup1.Size = new System.Drawing.Size(349, 141);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(288, 140);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
@@ -148,7 +148,7 @@
             this.layoutControlItem1.Control = this.txtUserName;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(339, 28);
+            this.layoutControlItem1.Size = new System.Drawing.Size(278, 28);
             this.layoutControlItem1.Text = "Tên đăng nhập";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(93, 17);
             // 
@@ -157,7 +157,7 @@
             this.layoutControlItem2.Control = this.txtPassword;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 28);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(339, 28);
+            this.layoutControlItem2.Size = new System.Drawing.Size(278, 28);
             this.layoutControlItem2.Text = "Mật khẩu";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(93, 17);
             // 
@@ -166,16 +166,16 @@
             this.layoutControlItem3.Control = this.btnLogin;
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 56);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(169, 36);
+            this.layoutControlItem3.Size = new System.Drawing.Size(139, 36);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.btnExit;
-            this.layoutControlItem4.Location = new System.Drawing.Point(169, 56);
+            this.layoutControlItem4.Location = new System.Drawing.Point(139, 56);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(170, 36);
+            this.layoutControlItem4.Size = new System.Drawing.Size(139, 36);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 
@@ -184,7 +184,7 @@
             this.layoutControlItem5.Control = this.btnSignUp;
             this.layoutControlItem5.Location = new System.Drawing.Point(0, 92);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(339, 39);
+            this.layoutControlItem5.Size = new System.Drawing.Size(278, 38);
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
             // 
@@ -192,13 +192,13 @@
             // 
             this.AcceptButton = this.btnLogin;
             this.Appearance.Options.UseFont = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnExit;
-            this.ClientSize = new System.Drawing.Size(349, 141);
+            this.ClientSize = new System.Drawing.Size(288, 140);
             this.Controls.Add(this.layoutControl1);
-            this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng nhập phần mềm VNShop";

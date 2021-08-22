@@ -14,15 +14,26 @@ namespace VNShop.Controllers
             return dbContext.DonViTinhs.ToList();
         }
 
+        public long checkUnit(string name)
+        {
+
+            DonViTinh unit = dbContext.DonViTinhs.FirstOrDefault(x => x.TenDonVi == name);
+            if (unit != null)
+            {
+                return unit.id;
+            }
+            return 0;
+        }
+
 
         public double getPriceProduct(long product, long unit, int loai)
         {
             DonViTinh_SanPham donViTinh_SanPham = dbContext.DonViTinh_SanPham.FirstOrDefault(x => x.SanPham == product && x.DonViTinh == unit);
-            if(donViTinh_SanPham != null)
+            if (donViTinh_SanPham != null)
             {
                 if (loai == 1)
                 {
-                    return (double) donViTinh_SanPham.GiaLe;
+                    return (double)donViTinh_SanPham.GiaLe;
                 }
                 else
                 {
@@ -55,12 +66,14 @@ namespace VNShop.Controllers
             List<DonViTinh_SanPham> listUnitSecond = dbContext.DonViTinh_SanPham.Where(x => x.SanPham == product).ToList();
             listUnit.Add(donViTinhprimary);
 
-            foreach(DonViTinh_SanPham item in listUnitSecond)
+            foreach (DonViTinh_SanPham item in listUnitSecond)
             {
                 listUnit.Add(item.DonViTinh1);
             }
             return listUnit;
         }
+
+       
 
         public Response store(DonViTinh donViTinh)
         {
@@ -89,19 +102,19 @@ namespace VNShop.Controllers
             }
             catch (Exception ex)
             {
-                return new Response(false, "Lưu đơn vị tính không thành công");
+                return new Response(false, ex.ToString());
             }
         }
 
         public Response delete(List<long> id)
         {
-            foreach(int item in id)
+            foreach (int item in id)
             {
                 DonViTinh find = dbContext.DonViTinhs.Where(x => x.id == item).FirstOrDefault();
                 dbContext.DonViTinhs.Remove(find);
                 dbContext.SaveChanges();
             }
-            
+
             return new Response(true, "Xóa đơn vị tính thành công");
 
         }
