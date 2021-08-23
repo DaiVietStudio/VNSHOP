@@ -55,10 +55,10 @@
             this.layoutControl1.Controls.Add(this.txtName);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.layoutControl1.Margin = new System.Windows.Forms.Padding(4);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(452, 102);
+            this.layoutControl1.Size = new System.Drawing.Size(396, 87);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -66,10 +66,10 @@
             // 
             this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnExit.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.ImageOptions.Image")));
-            this.btnExit.Location = new System.Drawing.Point(230, 44);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnExit.Location = new System.Drawing.Point(201, 38);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(4);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(206, 27);
+            this.btnExit.Size = new System.Drawing.Size(183, 27);
             this.btnExit.StyleController = this.layoutControl1;
             this.btnExit.TabIndex = 6;
             this.btnExit.Text = "Thoát";
@@ -78,10 +78,10 @@
             // btnLuu
             // 
             this.btnLuu.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnLuu.ImageOptions.Image")));
-            this.btnLuu.Location = new System.Drawing.Point(16, 44);
-            this.btnLuu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLuu.Location = new System.Drawing.Point(12, 38);
+            this.btnLuu.Margin = new System.Windows.Forms.Padding(4);
             this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(208, 27);
+            this.btnLuu.Size = new System.Drawing.Size(185, 27);
             this.btnLuu.StyleController = this.layoutControl1;
             this.btnLuu.TabIndex = 5;
             this.btnLuu.Text = "Lưu";
@@ -89,10 +89,10 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(80, 16);
-            this.txtName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtName.Location = new System.Drawing.Point(76, 12);
+            this.txtName.Margin = new System.Windows.Forms.Padding(4);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(356, 22);
+            this.txtName.Size = new System.Drawing.Size(308, 22);
             this.txtName.StyleController = this.layoutControl1;
             this.txtName.TabIndex = 4;
             // 
@@ -105,9 +105,8 @@
             this.emptySpaceItem1,
             this.layoutControlItem2,
             this.layoutControlItem3});
-            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(452, 102);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(396, 87);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
@@ -115,47 +114,47 @@
             this.layoutControlItem1.Control = this.txtName;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(426, 28);
+            this.layoutControlItem1.Size = new System.Drawing.Size(376, 26);
             this.layoutControlItem1.Text = "Tên phòng";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(61, 16);
             // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(214, 61);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(189, 57);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(212, 15);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(187, 10);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.btnLuu;
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 28);
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 26);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(214, 48);
+            this.layoutControlItem2.Size = new System.Drawing.Size(189, 41);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.btnExit;
-            this.layoutControlItem3.Location = new System.Drawing.Point(214, 28);
+            this.layoutControlItem3.Location = new System.Drawing.Point(189, 26);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(212, 33);
+            this.layoutControlItem3.Size = new System.Drawing.Size(187, 31);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
             // StorageForm
             // 
             this.AcceptButton = this.btnLuu;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnExit;
-            this.ClientSize = new System.Drawing.Size(452, 102);
+            this.ClientSize = new System.Drawing.Size(396, 87);
             this.Controls.Add(this.layoutControl1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "StorageForm";
-            this.Text = "StorageForm";
+            this.Text = "Thông tin kho hàng";
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
