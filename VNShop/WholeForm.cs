@@ -85,7 +85,7 @@ namespace VNShop
 
                 gridControlCart.RefreshDataSource();
                 calcTotal();
-                
+                lookUpProduct.EditValue = null;
             }
         }
 

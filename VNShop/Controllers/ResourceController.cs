@@ -26,35 +26,5 @@ namespace VNShop
         {
             return dbContext.Xas.Where(x => x.Huyen == district).ToList();
         }
-
-        public void backUp()
-        {
-            JsonSerializerSettings jss = new JsonSerializerSettings();
-            jss.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
-            List<SanPham> listProduct = dbContext.SanPhams.ToList();
-            List<DonViTinh> unitList = dbContext.DonViTinhs.ToList();
-            List<DonViTinh_SanPham> unitProductList = dbContext.DonViTinh_SanPham.ToList();
-            string jsonProduct = JsonConvert.SerializeObject(listProduct, jss);
-            string jsonUnit = JsonConvert.SerializeObject(unitList, jss);
-            string jsonUnitProduct = JsonConvert.SerializeObject(unitProductList, jss);
-
-            string path = @"C:\";
-            File.WriteAllText(path + "product_bk.json", jsonProduct);
-            File.WriteAllText(path + "unit_bk.json", jsonUnit);
-            File.WriteAllText(path + "unitproduct_bk.json", jsonUnitProduct);
-
-            HttpRequest httpRequest = new HttpRequest();
-            //httpRequest.AddHeader("UserAgent", "VNSHOP-CZU5A6");
-            httpRequest.UserAgent = "VNSHOP-CZU5A6";
-            var paramLogin = new RequestParams();
-            paramLogin["user_email"] = "{{hacker11357@gmail.com}}";
-            paramLogin["password"] = "{{ipwX9ebQDzHu-d-}}";
-            paramLogin["app_key"] = "{{dMnqMMZMUnN5YpvKENaEhdQQ5jxDqddt}}";
-
-            HttpResponse httpResponse = httpRequest.Post(@"https://api.fshare.vn/api/user/login", paramLogin);
-
-
-
-        }
     }
 }
