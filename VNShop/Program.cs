@@ -17,7 +17,6 @@ namespace VNShop
         [STAThread]
         static void Main()
         {
-            //DevExpress.XtraEditors.WindowsFormsSettings.DefaultFont = new Font("Time New Roman", 12);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Login());

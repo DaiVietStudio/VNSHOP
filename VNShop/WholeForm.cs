@@ -184,20 +184,20 @@ namespace VNShop
 
         private void txtPrice_EditValueChanged(object sender, EventArgs e)
         {
-            TextEdit textEdit = (TextEdit)sender;
-            if (textEdit.EditValue.ToString() != "")
-            {
-                int[] row = gridViewCart.GetSelectedRows();
-                double quanity = (double)gridViewCart.GetRowCellValue(row[0], "SoLuong");
+            //TextEdit textEdit = (TextEdit)sender;
+            //if (textEdit.EditValue.ToString() != "")
+            //{
+            //    int[] row = gridViewCart.GetSelectedRows();
+            //    double quanity = (double)gridViewCart.GetRowCellValue(row[0], "SoLuong");
 
-                double price = double.Parse(textEdit.EditValue.ToString());
-                long product = (long)gridViewCart.GetRowCellValue(row[0], "id");
-                int position = detailCarts.FindIndex(x => x.id == product);
-                detailCarts[position].SoLuong = quanity;
-                detailCarts[position].ThanhTien = quanity * price;
-                gridControlCart.RefreshDataSource();
-                calcTotal();
-            }
+            //    double price = double.Parse(textEdit.EditValue.ToString());
+            //    long product = (long)gridViewCart.GetRowCellValue(row[0], "id");
+            //    int position = detailCarts.FindIndex(x => x.id == product);
+            //    detailCarts[position].SoLuong = quanity;
+            //    detailCarts[position].ThanhTien = quanity * price;
+            //    gridControlCart.RefreshDataSource();
+            //    calcTotal();
+            //}
 
         }
 
@@ -317,6 +317,27 @@ namespace VNShop
                 detailPrints.Add(itemPrint);
             }
             return detailPrints;
+        }
+
+        private void gridViewCart_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        {
+            if (e.Column.FieldName == "GiaBan")
+            {
+                if (e.Value.ToString() != "")
+                {
+                    int[] row = gridViewCart.GetSelectedRows();
+                    double quanity = (double)gridViewCart.GetRowCellValue(row[0], "SoLuong");
+
+                    double price = double.Parse(e.Value.ToString());
+                    long product = (long)gridViewCart.GetRowCellValue(row[0], "id");
+                    int position = detailCarts.FindIndex(x => x.id == product);
+                    detailCarts[position].SoLuong = quanity;
+                    detailCarts[position].ThanhTien = quanity * price;
+                    gridControlCart.RefreshDataSource();
+                    calcTotal();
+                }
+
+            }
         }
     }
 }
