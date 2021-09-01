@@ -242,3 +242,4 @@ C:\Users\AKINOSORA\source\repos\VNShop\VNShop\obj\Debug\VNShop.csproj.CoreCompil
 C:\Users\AKINOSORA\source\repos\VNShop\VNShop\obj\Debug\VNShop.csproj.CopyComplete
 C:\Users\AKINOSORA\source\repos\VNShop\VNShop\obj\Debug\VNShop.exe
 C:\Users\AKINOSORA\source\repos\VNShop\VNShop\obj\Debug\VNShop.pdb
+C:\Users\AKINOSORA\source\repos\VNShop\VNShop\obj\Debug\VNShop.Setting.resources

@@ -95,5 +95,11 @@ namespace VNShop
         {
           
         }
+
+        private void btnSetting_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Setting setting = new Setting();
+            setting.ShowDialog();
+        }
     }
 }

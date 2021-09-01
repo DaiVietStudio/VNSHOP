@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraCharts.XYDiagram xyDiagram1 = new DevExpress.XtraCharts.XYDiagram();
-            DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.ChartTitle chartTitle1 = new DevExpress.XtraCharts.ChartTitle();
+            DevExpress.XtraCharts.XYDiagram xyDiagram2 = new DevExpress.XtraCharts.XYDiagram();
+            DevExpress.XtraCharts.Series series2 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.ChartTitle chartTitle2 = new DevExpress.XtraCharts.ChartTitle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainApp));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.chartControlMain = new DevExpress.XtraCharts.ChartControl();
@@ -64,11 +64,12 @@
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.btnPriceReport = new DevExpress.XtraBars.BarButtonItem();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
+            this.btnSetting = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartControlMain)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartItemBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
@@ -79,32 +80,34 @@
             // 
             this.layoutControl1.Controls.Add(this.chartControlMain);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl1.Location = new System.Drawing.Point(0, 30);
+            this.layoutControl1.Location = new System.Drawing.Point(0, 37);
+            this.layoutControl1.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(1775, 688);
+            this.layoutControl1.Size = new System.Drawing.Size(1942, 993);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
             // chartControlMain
             // 
             this.chartControlMain.DataSource = this.chartItemBindingSource;
-            xyDiagram1.AxisX.VisibleInPanesSerializable = "-1";
-            xyDiagram1.AxisY.VisibleInPanesSerializable = "-1";
-            this.chartControlMain.Diagram = xyDiagram1;
+            xyDiagram2.AxisX.VisibleInPanesSerializable = "-1";
+            xyDiagram2.AxisY.VisibleInPanesSerializable = "-1";
+            this.chartControlMain.Diagram = xyDiagram2;
             this.chartControlMain.Legend.Name = "Default Legend";
-            this.chartControlMain.Location = new System.Drawing.Point(12, 12);
+            this.chartControlMain.Location = new System.Drawing.Point(19, 18);
+            this.chartControlMain.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.chartControlMain.Name = "chartControlMain";
-            series1.ArgumentDataMember = "date";
-            series1.Name = "Doanh số";
-            series1.ValueDataMembersSerializable = "value";
+            series2.ArgumentDataMember = "date";
+            series2.Name = "Doanh số";
+            series2.ValueDataMembersSerializable = "value";
             this.chartControlMain.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series1};
-            this.chartControlMain.Size = new System.Drawing.Size(1751, 664);
+        series2};
+            this.chartControlMain.Size = new System.Drawing.Size(1904, 957);
             this.chartControlMain.TabIndex = 4;
-            chartTitle1.Text = "Doanh số bán hàng";
+            chartTitle2.Text = "Doanh số bán hàng";
             this.chartControlMain.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
-            chartTitle1});
+            chartTitle2});
             // 
             // chartItemBindingSource
             // 
@@ -118,7 +121,7 @@
             this.layoutControlItem1});
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.OptionsItemText.TextToControlDistance = 4;
-            this.layoutControlGroup1.Size = new System.Drawing.Size(1775, 688);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(1942, 993);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
@@ -126,7 +129,7 @@
             this.layoutControlItem1.Control = this.chartControlMain;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(1755, 668);
+            this.layoutControlItem1.Size = new System.Drawing.Size(1910, 963);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -162,9 +165,10 @@
             this.btnWhole,
             this.btnCustomer,
             this.txtHello,
-            this.btnRecpiect});
+            this.btnRecpiect,
+            this.btnSetting});
             this.barManager1.MainMenu = this.bar2;
-            this.barManager1.MaxItemId = 19;
+            this.barManager1.MaxItemId = 20;
             this.barManager1.StatusBar = this.bar3;
             // 
             // bar2
@@ -280,7 +284,8 @@
             this.barSubItem4.Caption = "Hệ thống";
             this.barSubItem4.Id = 11;
             this.barSubItem4.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnInfo, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnInfo, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnSetting)});
             this.barSubItem4.Name = "barSubItem4";
             // 
             // btnInfo
@@ -318,31 +323,35 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(1775, 30);
+            this.barDockControlTop.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.barDockControlTop.Size = new System.Drawing.Size(1942, 37);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 718);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 1030);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(1775, 27);
+            this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1942, 35);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 30);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 37);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 688);
+            this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 993);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1775, 30);
+            this.barDockControlRight.Location = new System.Drawing.Point(1942, 37);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 688);
+            this.barDockControlRight.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 993);
             // 
             // barButtonItem1
             // 
@@ -374,16 +383,26 @@
             // 
             this.defaultLookAndFeel1.LookAndFeel.SkinName = "The Bezier";
             // 
+            // btnSetting
+            // 
+            this.btnSetting.Caption = "Cài đặt";
+            this.btnSetting.Id = 19;
+            this.btnSetting.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSetting.ImageOptions.Image")));
+            this.btnSetting.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnSetting.ImageOptions.LargeImage")));
+            this.btnSetting.Name = "btnSetting";
+            this.btnSetting.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSetting_ItemClick);
+            // 
             // MainApp
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1775, 745);
+            this.ClientSize = new System.Drawing.Size(1942, 1065);
             this.Controls.Add(this.layoutControl1);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
+            this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.Name = "MainApp";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Phần mềm bán hàng VNShop";
@@ -393,8 +412,8 @@
             this.Load += new System.EventHandler(this.MainApp_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartControlMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartItemBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
@@ -438,5 +457,6 @@
         private DevExpress.XtraBars.BarButtonItem btnRecpiect;
         private DevExpress.LookAndFeel.DefaultLookAndFeel defaultLookAndFeel1;
         private System.Windows.Forms.BindingSource chartItemBindingSource;
+        private DevExpress.XtraBars.BarButtonItem btnSetting;
     }
 }
