@@ -101,5 +101,11 @@ namespace VNShop
             Setting setting = new Setting();
             setting.ShowDialog();
         }
+
+        private void btnQuote_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Quote quote = new Quote();
+            quote.ShowDialog();
+        }
     }
 }

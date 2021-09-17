@@ -38,7 +38,7 @@ namespace VNShop.Controllers
             }
             catch(Exception ex)
             {
-                return new Response(false, "Lưu kho hàng không thành công");
+                return new Response(false, ex.ToString());
             }
         }
 

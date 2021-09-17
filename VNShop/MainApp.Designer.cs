@@ -53,6 +53,7 @@
             this.btnRecpiect = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItem4 = new DevExpress.XtraBars.BarSubItem();
             this.btnInfo = new DevExpress.XtraBars.BarButtonItem();
+            this.btnSetting = new DevExpress.XtraBars.BarButtonItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.txtHello = new DevExpress.XtraBars.BarHeaderItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
@@ -64,7 +65,7 @@
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.btnPriceReport = new DevExpress.XtraBars.BarButtonItem();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
-            this.btnSetting = new DevExpress.XtraBars.BarButtonItem();
+            this.btnQuote = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartControlMain)).BeginInit();
@@ -95,7 +96,7 @@
             xyDiagram2.AxisY.VisibleInPanesSerializable = "-1";
             this.chartControlMain.Diagram = xyDiagram2;
             this.chartControlMain.Legend.Name = "Default Legend";
-            this.chartControlMain.Location = new System.Drawing.Point(19, 18);
+            this.chartControlMain.Location = new System.Drawing.Point(12, 12);
             this.chartControlMain.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.chartControlMain.Name = "chartControlMain";
             series2.ArgumentDataMember = "date";
@@ -103,7 +104,7 @@
             series2.ValueDataMembersSerializable = "value";
             this.chartControlMain.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
         series2};
-            this.chartControlMain.Size = new System.Drawing.Size(1904, 957);
+            this.chartControlMain.Size = new System.Drawing.Size(1918, 969);
             this.chartControlMain.TabIndex = 4;
             chartTitle2.Text = "Doanh số bán hàng";
             this.chartControlMain.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
@@ -129,7 +130,7 @@
             this.layoutControlItem1.Control = this.chartControlMain;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(1910, 963);
+            this.layoutControlItem1.Size = new System.Drawing.Size(1922, 973);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -166,9 +167,10 @@
             this.btnCustomer,
             this.txtHello,
             this.btnRecpiect,
-            this.btnSetting});
+            this.btnSetting,
+            this.btnQuote});
             this.barManager1.MainMenu = this.bar2;
-            this.barManager1.MaxItemId = 20;
+            this.barManager1.MaxItemId = 21;
             this.barManager1.StatusBar = this.bar3;
             // 
             // bar2
@@ -249,7 +251,8 @@
             this.barSubItem3.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnRetail, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(this.btnWhole),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnRecpiect)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnRecpiect),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnQuote, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.barSubItem3.Name = "barSubItem3";
             // 
             // btnRetail
@@ -296,6 +299,15 @@
             this.btnInfo.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnInfo.ImageOptions.LargeImage")));
             this.btnInfo.Name = "btnInfo";
             this.btnInfo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnInfo_ItemClick);
+            // 
+            // btnSetting
+            // 
+            this.btnSetting.Caption = "Cài đặt";
+            this.btnSetting.Id = 19;
+            this.btnSetting.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSetting.ImageOptions.Image")));
+            this.btnSetting.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnSetting.ImageOptions.LargeImage")));
+            this.btnSetting.Name = "btnSetting";
+            this.btnSetting.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSetting_ItemClick);
             // 
             // bar3
             // 
@@ -383,14 +395,14 @@
             // 
             this.defaultLookAndFeel1.LookAndFeel.SkinName = "The Bezier";
             // 
-            // btnSetting
+            // btnQuote
             // 
-            this.btnSetting.Caption = "Cài đặt";
-            this.btnSetting.Id = 19;
-            this.btnSetting.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSetting.ImageOptions.Image")));
-            this.btnSetting.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnSetting.ImageOptions.LargeImage")));
-            this.btnSetting.Name = "btnSetting";
-            this.btnSetting.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSetting_ItemClick);
+            this.btnQuote.Caption = "Báo giá";
+            this.btnQuote.Id = 20;
+            this.btnQuote.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem3.ImageOptions.Image")));
+            this.btnQuote.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem3.ImageOptions.LargeImage")));
+            this.btnQuote.Name = "btnQuote";
+            this.btnQuote.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnQuote_ItemClick);
             // 
             // MainApp
             // 
@@ -458,5 +470,6 @@
         private DevExpress.LookAndFeel.DefaultLookAndFeel defaultLookAndFeel1;
         private System.Windows.Forms.BindingSource chartItemBindingSource;
         private DevExpress.XtraBars.BarButtonItem btnSetting;
+        private DevExpress.XtraBars.BarButtonItem btnQuote;
     }
 }

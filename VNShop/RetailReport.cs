@@ -19,11 +19,11 @@ namespace VNShop
             lblNameStore.Text = info.TenDonVi;
             lblAddress.Text = "Địa chỉ: " + info.DiaChi;
             lblPhone.Text = "Số điện thoại:" + info.SoDienThoai;
-            lblCode.Text ="Số phiếu: "+ code;
-            lblDate.Text ="Ngày: "+ date;
+            lblCode.Text = "Số phiếu: " + code;
+            lblDate.Text = "Ngày: " + date;
             lblPay.Text = payment.ToString();
             double check = double.Parse(debit);
-            if(check < 0)
+            if (check < 0)
             {
                 lblNameDebit.Text = "Nợ: ";
                 lblDebit.Text = Math.Abs(check).ToString();
@@ -34,7 +34,7 @@ namespace VNShop
                 lblDebit.Text = Math.Abs(check).ToString();
 
             }
-            
+
             lblTotalQuanity.Text = totalQuanity.ToString();
             lblTotal.Text = totalPrice.ToString();
         }
