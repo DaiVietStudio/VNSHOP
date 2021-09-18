@@ -272,38 +272,28 @@ namespace VNShop
                 detail.GiaBan = item.GiaBan;
                 chiTietPhieuBanHangs.Add(detail);
             }
-            Response response = saleController.save(phieuBanHang, chiTietPhieuBanHangs);
-
-            if (response.status)
+            double totalQuanity = 0, totalPrice = 0;
+            foreach (DetailCart item in detailCarts)
             {
-                double totalQuanity = 0, totalPrice = 0;
-                foreach (DetailCart item in detailCarts)
-                {
 
-                    totalQuanity += (double)item.SoLuong;
-                    totalPrice += (double)item.ThanhTien;
-                }
-
-                //RetailReport retailReport = new RetailReport(totalQuanity, totalPrice, txtCode.Text, DateTime.Now.ToShortDateString(), txtMoneyReciver.Text, txtExcessCash.Text);
-
-                //retailReport.DataSource = createData();
-
-                BaoGia baoGia = new BaoGia(totalQuanity, totalPrice, txtCode.Text, DateTime.Now.ToShortDateString());
-
-                baoGia.DataSource = createData();
-                ReportPrintTool tool = new ReportPrintTool(baoGia);
-                tool.ShowPreview();
-
-                txtCode.Text = code.genarateCode("BL");
-                txtTotalQuanity.Text = "0";
-                txtTotal.Text = "0";
-                detailCarts.Clear();
-                gridControlCart.RefreshDataSource();
-                txtMoneyReciver.Text = "0";
-                txtExcessCash.Text = "0";
-                lookUpProduct.EditValue = null;
-
+                totalQuanity += (double)item.SoLuong;
+                totalPrice += (double)item.ThanhTien;
             }
+
+            BaoGia baoGia = new BaoGia(totalQuanity, totalPrice, txtCode.Text, DateTime.Now.ToShortDateString());
+
+            baoGia.DataSource = createData();
+            ReportPrintTool tool = new ReportPrintTool(baoGia);
+            tool.ShowPreview();
+
+            txtCode.Text = code.genarateCode("BL");
+            txtTotalQuanity.Text = "0";
+            txtTotal.Text = "0";
+            detailCarts.Clear();
+            gridControlCart.RefreshDataSource();
+            txtMoneyReciver.Text = "0";
+            txtExcessCash.Text = "0";
+            lookUpProduct.EditValue = null;
         }
 
         private List<DetailPrint> createData()

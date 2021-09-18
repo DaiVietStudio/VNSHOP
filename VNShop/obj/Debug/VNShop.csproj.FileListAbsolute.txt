@@ -228,7 +228,6 @@ C:\Users\AKINOSORA\source\repos\VNShop\VNShop\obj\Debug\VNShop.Properties.Resour
 C:\Users\AKINOSORA\source\repos\VNShop\VNShop\obj\Debug\VNShop.Receipt.resources
 C:\Users\AKINOSORA\source\repos\VNShop\VNShop\obj\Debug\VNShop.WholeForm.resources
 C:\Users\AKINOSORA\source\repos\VNShop\VNShop\obj\Debug\VNShop.RetailForm.resources
-C:\Users\AKINOSORA\source\repos\VNShop\VNShop\obj\Debug\VNShop.RetailReport.resources
 C:\Users\AKINOSORA\source\repos\VNShop\VNShop\obj\Debug\VNShop.SignUp.resources
 C:\Users\AKINOSORA\source\repos\VNShop\VNShop\obj\Debug\VNShop.Storage.resources
 C:\Users\AKINOSORA\source\repos\VNShop\VNShop\obj\Debug\VNShop.StorageForm.resources

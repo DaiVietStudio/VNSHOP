@@ -294,12 +294,6 @@
     <Compile Include="RetailForm.Designer.cs">
       <DependentUpon>RetailForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="RetailReport.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="RetailReport.Designer.cs">
-      <DependentUpon>RetailReport.cs</DependentUpon>
-    </Compile>
     <Compile Include="SignUp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -398,9 +392,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RetailForm.resx">
       <DependentUpon>RetailForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RetailReport.resx">
-      <DependentUpon>RetailReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SignUp.resx">
       <DependentUpon>SignUp.cs</DependentUpon>

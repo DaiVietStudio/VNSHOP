@@ -284,7 +284,7 @@ namespace VNShop
                     totalPrice += (double)item.ThanhTien;
                 }
 
-                RetailReport retailReport = new RetailReport(totalQuanity, totalPrice, txtCode.Text, DateTime.Now.ToShortDateString(), txtMoneyReciver.Text, txtExcessCash.Text);
+                HoaDon retailReport = new HoaDon(totalQuanity, totalPrice, txtCode.Text, DateTime.Now.ToShortDateString(), txtMoneyReciver.Text, txtExcessCash.Text);
 
                 retailReport.DataSource = createData();
 
