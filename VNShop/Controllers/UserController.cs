@@ -45,9 +45,14 @@ namespace VNShop.Controllers
         public Response delete(long userId)
         {
             NhanVien user = dbContext.NhanViens.FirstOrDefault(x => x.id == userId);
+            TaiKhoan taiKhoan = dbContext.TaiKhoans.FirstOrDefault(x => x.NhanVien == userId);
+            if(taiKhoan != null)
+            {
+                dbContext.TaiKhoans.Remove(taiKhoan);
+            }
             dbContext.NhanViens.Remove(user);
             dbContext.SaveChanges();
-            return new Response(true, "Đã lưu nhân viên");
+            return new Response(true, "Đã xóa nhân viên");
 
         }
     }
