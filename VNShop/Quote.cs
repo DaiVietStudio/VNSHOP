@@ -281,7 +281,7 @@ namespace VNShop
             }
 
             BaoGia baoGia = new BaoGia(totalQuanity, totalPrice, txtCode.Text, DateTime.Now.ToShortDateString());
-
+          
             baoGia.DataSource = createData();
             ReportPrintTool tool = new ReportPrintTool(baoGia);
             tool.ShowPreview();

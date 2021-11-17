@@ -20,7 +20,7 @@ namespace VNShop
             lblPhone.Text = "Số điện thoại:" + info.SoDienThoai;
             lblCode.Text = "Số phiếu: " + code;
             lblDate.Text = "Ngày: " + date;
-            
+
             lblTotalQuanity.Text = totalQuanity.ToString();
             lblTotal.Text = totalPrice.ToString();
         }

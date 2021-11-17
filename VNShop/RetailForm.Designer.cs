@@ -356,7 +356,7 @@
             // 
             // lookupCustomer
             // 
-            this.lookupCustomer.Location = new System.Drawing.Point(486, 12);
+            this.lookupCustomer.Location = new System.Drawing.Point(635, 12);
             this.lookupCustomer.Margin = new System.Windows.Forms.Padding(6);
             this.lookupCustomer.Name = "lookupCustomer";
             this.lookupCustomer.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -369,7 +369,7 @@
             this.lookupCustomer.Properties.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoComplete;
             this.lookupCustomer.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.lookupCustomer.Properties.ValueMember = "id";
-            this.lookupCustomer.Size = new System.Drawing.Size(744, 30);
+            this.lookupCustomer.Size = new System.Drawing.Size(595, 30);
             this.lookupCustomer.StyleController = this.layoutControl1;
             this.lookupCustomer.TabIndex = 7;
             this.lookupCustomer.EditValueChanged += new System.EventHandler(this.lookupCustomer_EditValueChanged);
@@ -381,7 +381,7 @@
             this.txtCode.Margin = new System.Windows.Forms.Padding(6);
             this.txtCode.Name = "txtCode";
             this.txtCode.Properties.NullText = "[EditValue is null]";
-            this.txtCode.Size = new System.Drawing.Size(130, 30);
+            this.txtCode.Size = new System.Drawing.Size(279, 30);
             this.txtCode.StyleController = this.layoutControl1;
             this.txtCode.TabIndex = 4;
             // 
@@ -410,16 +410,16 @@
             this.layoutControlItem1.Control = this.txtCode;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(304, 34);
+            this.layoutControlItem1.Size = new System.Drawing.Size(453, 34);
             this.layoutControlItem1.Text = "Mã số phiếu";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(166, 24);
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.lookupCustomer;
-            this.layoutControlItem4.Location = new System.Drawing.Point(304, 0);
+            this.layoutControlItem4.Location = new System.Drawing.Point(453, 0);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(918, 34);
+            this.layoutControlItem4.Size = new System.Drawing.Size(769, 34);
             this.layoutControlItem4.Text = "Khách hàng";
             this.layoutControlItem4.TextSize = new System.Drawing.Size(166, 24);
             // 
