@@ -49,44 +49,8 @@ namespace VNShop
         private void loadProduct()
         {
             sanPhams = productController.productList();
-            lookUpProduct.Properties.DataSource = sanPhams;
+            searchProduct.Properties.DataSource = sanPhams;
 
-        }
-
-        private void lookupCustomer_EditValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lookUpProduct_EditValueChanged(object sender, EventArgs e)
-        {
-            if (lookUpProduct.EditValue != null)
-            {
-                long productId = long.Parse(lookUpProduct.EditValue.ToString());
-                if (detailCarts.Exists(x => x.id == productId))
-                {
-                    int position = detailCarts.FindIndex(x => x.id == productId);
-                    detailCarts[position].SoLuong++;
-                    detailCarts[position].ThanhTien = detailCarts[position].SoLuong * detailCarts[position].GiaBan;
-                }
-                else
-                {
-                    SanPham sanPham = sanPhams.Where(x => x.id == long.Parse(lookUpProduct.EditValue.ToString())).FirstOrDefault();
-                    DetailCart itemCart = new DetailCart();
-                    itemCart.id = sanPham.id;
-                    itemCart.DonViTinh = (long)sanPham.DonViTinh;
-                    itemCart.TenDonVi = sanPham.DonViTinh1.TenDonVi;
-                    itemCart.TenSanPham = sanPham.TenSanPham;
-                    itemCart.SoLuong = 1;
-                    itemCart.GiaBan = sanPham.GiaLe;
-                    itemCart.ThanhTien = 1 * sanPham.GiaLe;
-                    detailCarts.Add(itemCart);
-                }
-
-                gridControlCart.RefreshDataSource();
-                calcTotal();
-                lookUpProduct.EditValue = null;
-            }
         }
 
         private void gridViewCart_CustomRowCellEdit(object sender, DevExpress.XtraGrid.Views.Grid.CustomRowCellEditEventArgs e)
@@ -241,7 +205,7 @@ namespace VNShop
                 gridControlCart.RefreshDataSource();
                 txtMoneyReciver.Text = "0";
                 txtExcessCash.Text = "0";
-                lookUpProduct.EditValue = null;
+                searchProduct.EditValue = null;
                 XtraMessageBox.Show("Đã thanh toán hoàn tất hóa đơn", "Thanh toán hoàn tất", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
@@ -298,7 +262,7 @@ namespace VNShop
                 gridControlCart.RefreshDataSource();
                 txtMoneyReciver.Text = "0";
                 txtExcessCash.Text = "0";
-                lookUpProduct.EditValue = null;
+                searchProduct.EditValue = null;
 
             }
         }
@@ -358,6 +322,37 @@ namespace VNShop
              
             }
                
+        }
+
+        private void searchProduct_EditValueChanged(object sender, EventArgs e)
+        {
+            if (searchProduct.EditValue != null)
+            {
+                long productId = long.Parse(searchProduct.EditValue.ToString());
+                if (detailCarts.Exists(x => x.id == productId))
+                {
+                    int position = detailCarts.FindIndex(x => x.id == productId);
+                    detailCarts[position].SoLuong++;
+                    detailCarts[position].ThanhTien = detailCarts[position].SoLuong * detailCarts[position].GiaBan;
+                }
+                else
+                {
+                    SanPham sanPham = sanPhams.Where(x => x.id == long.Parse(searchProduct.EditValue.ToString())).FirstOrDefault();
+                    DetailCart itemCart = new DetailCart();
+                    itemCart.id = sanPham.id;
+                    itemCart.DonViTinh = (long)sanPham.DonViTinh;
+                    itemCart.TenDonVi = sanPham.DonViTinh1.TenDonVi;
+                    itemCart.TenSanPham = sanPham.TenSanPham;
+                    itemCart.SoLuong = 1;
+                    itemCart.GiaBan = sanPham.GiaLe;
+                    itemCart.ThanhTien = 1 * sanPham.GiaLe;
+                    detailCarts.Add(itemCart);
+                }
+
+                gridControlCart.RefreshDataSource();
+                calcTotal();
+                searchProduct.EditValue = null;
+            }
         }
     }
 }
