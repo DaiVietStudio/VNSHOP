@@ -172,6 +172,7 @@ namespace VNShop
             int position = detailCarts.FindIndex(x => x.id == product);
             detailCarts.Remove(detailCarts[position]);
             gridControlCart.RefreshDataSource();
+            calcTotal();
         }
 
         private void btnPaymentWithoutPrint_Click(object sender, EventArgs e)

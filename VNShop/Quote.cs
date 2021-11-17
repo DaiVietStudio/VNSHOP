@@ -49,7 +49,7 @@ namespace VNShop
         private void loadProduct()
         {
             sanPhams = productController.productList();
-            lookUpProduct.Properties.DataSource = sanPhams;
+            searchProduct.Properties.DataSource = sanPhams;
 
         }
 
@@ -60,33 +60,7 @@ namespace VNShop
 
         private void lookUpProduct_EditValueChanged(object sender, EventArgs e)
         {
-            if (lookUpProduct.EditValue != null)
-            {
-                long productId = long.Parse(lookUpProduct.EditValue.ToString());
-                if (detailCarts.Exists(x => x.id == productId))
-                {
-                    int position = detailCarts.FindIndex(x => x.id == productId);
-                    detailCarts[position].SoLuong++;
-                    detailCarts[position].ThanhTien = detailCarts[position].SoLuong * detailCarts[position].GiaBan;
-                }
-                else
-                {
-                    SanPham sanPham = sanPhams.Where(x => x.id == long.Parse(lookUpProduct.EditValue.ToString())).FirstOrDefault();
-                    DetailCart itemCart = new DetailCart();
-                    itemCart.id = sanPham.id;
-                    itemCart.DonViTinh = (long)sanPham.DonViTinh;
-                    itemCart.TenDonVi = sanPham.DonViTinh1.TenDonVi;
-                    itemCart.TenSanPham = sanPham.TenSanPham;
-                    itemCart.SoLuong = 1;
-                    itemCart.GiaBan = sanPham.GiaLe;
-                    itemCart.ThanhTien = 1 * sanPham.GiaLe;
-                    detailCarts.Add(itemCart);
-                }
-
-                gridControlCart.RefreshDataSource();
-                calcTotal();
-                lookUpProduct.EditValue = null;
-            }
+            
         }
 
         private void gridViewCart_CustomRowCellEdit(object sender, DevExpress.XtraGrid.Views.Grid.CustomRowCellEditEventArgs e)
@@ -208,6 +182,7 @@ namespace VNShop
             int position = detailCarts.FindIndex(x => x.id == product);
             detailCarts.Remove(detailCarts[position]);
             gridControlCart.RefreshDataSource();
+            calcTotal();
         }
 
         private void btnPaymentWithoutPrint_Click(object sender, EventArgs e)
@@ -312,24 +287,7 @@ namespace VNShop
             return detailPrints;
         }
 
-        private void txtPrice_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
-        {
-           
-            //TextEdit textEdit = (TextEdit)sender;
-            //if (textEdit.EditValue.ToString() != "")
-            //{
-            //    int[] row = gridViewCart.GetSelectedRows();
-            //    double quanity = (double)gridViewCart.GetRowCellValue(row[0], "SoLuong");
-
-            //    double price = double.Parse(textEdit.EditValue.ToString());
-            //    long product = (long)gridViewCart.GetRowCellValue(row[0], "id");
-            //    int position = detailCarts.FindIndex(x => x.id == product);
-            //    detailCarts[position].SoLuong = quanity;
-            //    detailCarts[position].ThanhTien = quanity * price;
-            //    gridControlCart.RefreshDataSource();
-            //    calcTotal();
-            //}
-        }
+        
 
         private void gridViewCart_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
@@ -351,6 +309,37 @@ namespace VNShop
              
             }
                
+        }
+
+        private void searchProduct_EditValueChanged(object sender, EventArgs e)
+        {
+            if (searchProduct.EditValue != null)
+            {
+                long productId = long.Parse(searchProduct.EditValue.ToString());
+                if (detailCarts.Exists(x => x.id == productId))
+                {
+                    int position = detailCarts.FindIndex(x => x.id == productId);
+                    detailCarts[position].SoLuong++;
+                    detailCarts[position].ThanhTien = detailCarts[position].SoLuong * detailCarts[position].GiaBan;
+                }
+                else
+                {
+                    SanPham sanPham = sanPhams.Where(x => x.id == long.Parse(searchProduct.EditValue.ToString())).FirstOrDefault();
+                    DetailCart itemCart = new DetailCart();
+                    itemCart.id = sanPham.id;
+                    itemCart.DonViTinh = (long)sanPham.DonViTinh;
+                    itemCart.TenDonVi = sanPham.DonViTinh1.TenDonVi;
+                    itemCart.TenSanPham = sanPham.TenSanPham;
+                    itemCart.SoLuong = 1;
+                    itemCart.GiaBan = sanPham.GiaLe;
+                    itemCart.ThanhTien = 1 * sanPham.GiaLe;
+                    detailCarts.Add(itemCart);
+                }
+
+                gridControlCart.RefreshDataSource();
+                calcTotal();
+                searchProduct.EditValue = null;
+            }
         }
     }
 }
