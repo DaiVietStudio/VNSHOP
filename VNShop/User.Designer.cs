@@ -74,11 +74,11 @@
             // gridControlUser
             // 
             this.gridControlUser.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
-            this.gridControlUser.Location = new System.Drawing.Point(19, 18);
+            this.gridControlUser.Location = new System.Drawing.Point(12, 12);
             this.gridControlUser.MainView = this.gridViewUser;
             this.gridControlUser.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.gridControlUser.Name = "gridControlUser";
-            this.gridControlUser.Size = new System.Drawing.Size(1904, 860);
+            this.gridControlUser.Size = new System.Drawing.Size(1918, 872);
             this.gridControlUser.TabIndex = 4;
             this.gridControlUser.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewUser});
@@ -163,7 +163,7 @@
             this.layoutControlItem1.Control = this.gridControlUser;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(1910, 866);
+            this.layoutControlItem1.Size = new System.Drawing.Size(1922, 876);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 

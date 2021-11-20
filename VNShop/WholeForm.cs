@@ -198,20 +198,32 @@ namespace VNShop
                 detail.GiaBan = item.GiaBan;
                 chiTietPhieuBanHangs.Add(detail);
             }
-            Response response = saleController.save(phieuBanHang, chiTietPhieuBanHangs);
 
-            if (response.status)
+            ChiTietPhieuBanHang check = chiTietPhieuBanHangs.FirstOrDefault(s => s.GiaBan == 0 || s.SoLuong == 0);
+            if(check == null)
             {
-                txtCode.Text = code.genarateCode("BL");
-                txtTotalQuanity.Text = "0";
-                txtTotal.Text = "0";
-                detailCarts.Clear();
-                gridControlCart.RefreshDataSource();
-                txtMoneyReciver.Text = "0";
-                txtExcessCash.Text = "0";
-                searchProduct.EditValue = null;
-                XtraMessageBox.Show("Đã thanh toán hoàn tất hóa đơn", "Thanh toán hoàn tất", MessageBoxButtons.OK, MessageBoxIcon.Information);
+               
+                Response response = saleController.save(phieuBanHang, chiTietPhieuBanHangs);
+
+                if (response.status)
+                {
+                    txtCode.Text = code.genarateCode("BL");
+                    txtTotalQuanity.Text = "0";
+                    txtTotal.Text = "0";
+                    detailCarts.Clear();
+                    gridControlCart.RefreshDataSource();
+                    txtMoneyReciver.Text = "0";
+                    txtExcessCash.Text = "0";
+                    searchProduct.EditValue = null;
+                    XtraMessageBox.Show("Đã thanh toán hoàn tất hóa đơn", "Thanh toán hoàn tất", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
+            else
+            {
+                XtraMessageBox.Show("Có sản phẩm chưa được thanh toán vui lòng kiểm tra lại", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+
         }
 
         private void txtMoneyReciver_EditValueChanged(object sender, EventArgs e)
@@ -231,6 +243,7 @@ namespace VNShop
             phieuBanHang.Loai = 1;
 
             List<ChiTietPhieuBanHang> chiTietPhieuBanHangs = new List<ChiTietPhieuBanHang>();
+
             foreach (DetailCart item in detailCarts)
             {
                 ChiTietPhieuBanHang detail = new ChiTietPhieuBanHang();
@@ -240,34 +253,45 @@ namespace VNShop
                 detail.GiaBan = item.GiaBan;
                 chiTietPhieuBanHangs.Add(detail);
             }
-            Response response = saleController.save(phieuBanHang, chiTietPhieuBanHangs);
 
-            if (response.status)
+            ChiTietPhieuBanHang check = chiTietPhieuBanHangs.FirstOrDefault(s => s.GiaBan == 0 || s.SoLuong == 0);
+            if(check == null)
             {
-                double totalQuanity = 0, totalPrice = 0;
-                foreach (DetailCart item in detailCarts)
+                
+
+                Response response = saleController.save(phieuBanHang, chiTietPhieuBanHangs);
+
+                if (response.status)
                 {
+                    double totalQuanity = 0, totalPrice = 0;
+                    foreach (DetailCart item in detailCarts)
+                    {
 
-                    totalQuanity += (double)item.SoLuong;
-                    totalPrice += (double)item.ThanhTien;
+                        totalQuanity += (double)item.SoLuong;
+                        totalPrice += (double)item.ThanhTien;
+                    }
+
+                    HoaDon retailReport = new HoaDon(totalQuanity, totalPrice, txtCode.Text, DateTime.Now.ToShortDateString(), txtMoneyReciver.Text, txtExcessCash.Text);
+
+                    retailReport.DataSource = createData();
+
+                    ReportPrintTool tool = new ReportPrintTool(retailReport);
+                    tool.ShowPreview();
+
+                    txtCode.Text = code.genarateCode("BL");
+                    txtTotalQuanity.Text = "0";
+                    txtTotal.Text = "0";
+                    detailCarts.Clear();
+                    gridControlCart.RefreshDataSource();
+                    txtMoneyReciver.Text = "0";
+                    txtExcessCash.Text = "0";
+                    searchProduct.EditValue = null;
+
                 }
-
-                HoaDon retailReport = new HoaDon(totalQuanity, totalPrice, txtCode.Text, DateTime.Now.ToShortDateString(), txtMoneyReciver.Text, txtExcessCash.Text);
-
-                retailReport.DataSource = createData();
-
-                ReportPrintTool tool = new ReportPrintTool(retailReport);
-                tool.ShowPreview();
-
-                txtCode.Text = code.genarateCode("BL");
-                txtTotalQuanity.Text = "0";
-                txtTotal.Text = "0";
-                detailCarts.Clear();
-                gridControlCart.RefreshDataSource();
-                txtMoneyReciver.Text = "0";
-                txtExcessCash.Text = "0";
-                searchProduct.EditValue = null;
-
+            }
+            else
+            {
+                XtraMessageBox.Show("Có sản phẩm chưa tính tiền vui lòng kiểm tra lại", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
