@@ -1623,7 +1623,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_CDA6BE66462C4C03BE295182CF859578"
+        "MsmKey" = "8:_C8953E6E1289464B8F5504E905637C9E"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -1727,12 +1727,6 @@
         {
         "MsmKey" = "8:_F918E89C2598BAF7FF176B3E480D5BED"
         "OwnerKey" = "8:_5E63353B417605768F3721ABB706D4C2"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_2A74E719E85F546E8B2BF8E036C6AE92"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -2035,6 +2029,12 @@
         "OwnerKey" = "8:_36383DA56D47031B3A73BAB5B760A3B1"
         "MsmSig" = "8:_UNDEFINED"
         }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_2A74E719E85F546E8B2BF8E036C6AE92"
+        "MsmSig" = "8:_UNDEFINED"
+        }
     }
     "Configurations"
     {
@@ -2053,6 +2053,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
+            }
         }
         "Release"
         {
@@ -2069,6 +2085,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
+            }
         }
     }
     "Deployable"
@@ -3493,9 +3525,9 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CDA6BE66462C4C03BE295182CF859578"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C8953E6E1289464B8F5504E905637C9E"
             {
-            "SourcePath" = "8:E:\\Download\\icon_shop.ico"
+            "SourcePath" = "8:..\\VNShop\\icon_shop.ico"
             "TargetName" = "8:icon_shop.ico"
             "Tag" = "8:"
             "Folder" = "8:_4B90E8987C27406FA9AB164A9C069657"
@@ -3725,7 +3757,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:VNShop"
         "ProductCode" = "8:{C19AE615-B7EF-4D33-8617-3BD3838F6E77}"
-        "PackageCode" = "8:{386B9EF7-3EE2-44FD-A214-92A6710B306C}"
+        "PackageCode" = "8:{250089B8-315D-4E29-80A6-8E727F9229B3}"
         "UpgradeCode" = "8:{0E8ED50B-6FDF-437A-BC33-5CFD4C4DCE50}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -3742,7 +3774,7 @@
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:"
         "ARPURLINFOABOUT" = "8:"
-        "ARPPRODUCTICON" = "8:_CDA6BE66462C4C03BE295182CF859578"
+        "ARPPRODUCTICON" = "8:"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
@@ -3845,7 +3877,7 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_AFBAFDF48E3E45C88E05A51450251D21"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_6C47C5DEBEBF4CF185EBB019DD45791A"
             {
             "Name" = "8:VNSHOP"
             "Arguments" = "8:"
@@ -3856,7 +3888,7 @@
             "Target" = "8:_8F78C1BBCD3B46D9A95186175CBB3E20"
             "Folder" = "8:_8E3A18C61BB948A5BCFF604BACFC15FE"
             "WorkingFolder" = "8:_4B90E8987C27406FA9AB164A9C069657"
-            "Icon" = "8:_CDA6BE66462C4C03BE295182CF859578"
+            "Icon" = "8:_C8953E6E1289464B8F5504E905637C9E"
             "Feature" = "8:"
             }
         }

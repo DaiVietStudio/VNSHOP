@@ -216,7 +216,6 @@ C:\Users\AKINOSORA\source\repos\VNShop\VNShop\bin\Debug\de\DevExpress.Diagram.v2
 C:\Users\AKINOSORA\source\repos\VNShop\VNShop\bin\Debug\es\DevExpress.Diagram.v20.1.Core.resources.dll
 C:\Users\AKINOSORA\source\repos\VNShop\VNShop\bin\Debug\ja\DevExpress.Diagram.v20.1.Core.resources.dll
 C:\Users\AKINOSORA\source\repos\VNShop\VNShop\bin\Debug\ru\DevExpress.Diagram.v20.1.Core.resources.dll
-C:\Users\AKINOSORA\source\repos\VNShop\VNShop\obj\Debug\VNShop.csproj.AssemblyReference.cache
 C:\Users\AKINOSORA\source\repos\VNShop\VNShop\obj\Debug\VNShop.Customer.resources
 C:\Users\AKINOSORA\source\repos\VNShop\VNShop\obj\Debug\VNShop.CustomerForm.resources
 C:\Users\AKINOSORA\source\repos\VNShop\VNShop\obj\Debug\VNShop.InfoForm.resources
@@ -244,3 +243,4 @@ C:\Users\AKINOSORA\source\repos\VNShop\VNShop\obj\Debug\VNShop.pdb
 C:\Users\AKINOSORA\source\repos\VNShop\VNShop\obj\Debug\VNShop.Quote.resources
 C:\Users\AKINOSORA\source\repos\VNShop\VNShop\obj\Debug\VNShop.BaoGia.resources
 C:\Users\AKINOSORA\source\repos\VNShop\VNShop\obj\Debug\VNShop.HoaDon.resources
+C:\Users\AKINOSORA\source\repos\VNShop\VNShop\obj\Debug\VNShop.csproj.AssemblyReference.cache
