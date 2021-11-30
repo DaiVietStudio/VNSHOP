@@ -50,6 +50,10 @@
       <End Role="DonViTinh" EntitySet="DonViTinhs" />
       <End Role="DonViTinh_SanPham" EntitySet="DonViTinh_SanPham" />
     </AssociationSet>
+    <AssociationSet Name="FK_SanPham_DonViTinh" Association="QLBHModel.FK_SanPham_DonViTinh">
+      <End Role="DonViTinh" EntitySet="DonViTinhs" />
+      <End Role="SanPham" EntitySet="SanPhams" />
+    </AssociationSet>
     <AssociationSet Name="FK_DonViTinh_SanPham_SanPham1" Association="QLBHModel.FK_DonViTinh_SanPham_SanPham1">
       <End Role="SanPham" EntitySet="SanPhams" />
       <End Role="DonViTinh_SanPham" EntitySet="DonViTinh_SanPham" />
@@ -101,10 +105,6 @@
     <AssociationSet Name="FK_TaiKhoan_NhanVien" Association="QLBHModel.FK_TaiKhoan_NhanVien">
       <End Role="NhanVien" EntitySet="NhanViens" />
       <End Role="TaiKhoan" EntitySet="TaiKhoans" />
-    </AssociationSet>
-    <AssociationSet Name="FK_SanPham_DonViTinh" Association="QLBHModel.FK_SanPham_DonViTinh">
-      <End Role="DonViTinh" EntitySet="DonViTinhs" />
-      <End Role="SanPham" EntitySet="SanPhams" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="ChiTietPhieuBanHang">
@@ -193,8 +193,8 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="Loai" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="id" Type="Int64" Nullable="false" />
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Loai" Type="Int32" />
     <Property Name="TenKhachHang" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
     <Property Name="DiaChi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="SoDienThoai" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
@@ -248,6 +248,7 @@
     <Property Name="NgayNhap" Type="DateTime" Precision="0" />
     <Property Name="KhachHang" Type="Int64" />
     <Property Name="NhanVien" Type="Int64" />
+    <Property Name="Loai" Type="Int32" />
     <NavigationProperty Name="ChiTietPhieuBanHangs" Relationship="QLBHModel.FK_ChiTietPhieuBanHang_PhieuBanHang" FromRole="PhieuBanHang" ToRole="ChiTietPhieuBanHang" />
     <NavigationProperty Name="KhachHang1" Relationship="QLBHModel.FK_PhieuBanHang_KhachHang" FromRole="PhieuBanHang" ToRole="KhachHang" />
   </EntityType>
@@ -308,9 +309,9 @@
     <Property Name="GiaSi" Type="Double" />
     <NavigationProperty Name="ChiTietPhieuBanHangs" Relationship="QLBHModel.FK_ChiTietPhieuBanHang_SanPham" FromRole="SanPham" ToRole="ChiTietPhieuBanHang" />
     <NavigationProperty Name="ChiTietPhieuNhapKhoes" Relationship="QLBHModel.FK_ChiTietPhieuNhapKho_SanPham" FromRole="SanPham" ToRole="ChiTietPhieuNhapKho" />
+    <NavigationProperty Name="DonViTinh1" Relationship="QLBHModel.FK_SanPham_DonViTinh" FromRole="SanPham" ToRole="DonViTinh" />
     <NavigationProperty Name="DonViTinh_SanPham" Relationship="QLBHModel.FK_DonViTinh_SanPham_SanPham1" FromRole="SanPham" ToRole="DonViTinh_SanPham" />
     <NavigationProperty Name="KhoHang_SanPham" Relationship="QLBHModel.FK_KhoHang_SanPham_SanPham" FromRole="SanPham" ToRole="KhoHang_SanPham" />
-    <NavigationProperty Name="DonViTinh1" Relationship="QLBHModel.FK_SanPham_DonViTinh" FromRole="SanPham" ToRole="DonViTinh" />
   </EntityType>
   <EntityType Name="sysdiagram">
     <Key>
@@ -339,7 +340,7 @@
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="TenDonVi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="DiaChi" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
-    <Property Name="SoDienThoai" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="SoDienThoai" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
     <Property Name="Email" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
     <Property Name="Website" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
     <Property Name="KyTen" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
@@ -443,6 +444,18 @@
         <PropertyRef Name="id" />
       </Principal>
       <Dependent Role="DonViTinh_SanPham">
+        <PropertyRef Name="DonViTinh" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SanPham_DonViTinh">
+    <End Type="QLBHModel.DonViTinh" Role="DonViTinh" Multiplicity="0..1" />
+    <End Type="QLBHModel.SanPham" Role="SanPham" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DonViTinh">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="SanPham">
         <PropertyRef Name="DonViTinh" />
       </Dependent>
     </ReferentialConstraint>
@@ -602,18 +615,6 @@
       </Principal>
       <Dependent Role="TaiKhoan">
         <PropertyRef Name="NhanVien" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_SanPham_DonViTinh">
-    <End Type="QLBHModel.DonViTinh" Role="DonViTinh" Multiplicity="0..1" />
-    <End Type="QLBHModel.SanPham" Role="SanPham" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="DonViTinh">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="SanPham">
-        <PropertyRef Name="DonViTinh" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

@@ -75,7 +75,17 @@ namespace VNShop
             int[] rows = gridViewStorage.GetSelectedRows();
             if(XtraMessageBox.Show("Bạn có chắc chắn xóa không", "Có muốn xóa không", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)== DialogResult.OK)
             {
-                Response response = storageController.delete(rows);
+                List<long> listDelete = new List<long>();
+                foreach (int rowHandle in rows)
+                {
+                    if (gridViewStorage.IsValidRowHandle(rowHandle))
+                    {
+                        var data = gridViewStorage.GetRow(rowHandle) as KhoHang;
+                        listDelete.Add(data.id);
+                    }
+                }
+
+                    Response response = storageController.delete(listDelete);
                 if (response.status)
                 {
                     loadData();

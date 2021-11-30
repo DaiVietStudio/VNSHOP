@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Product));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.labelControlStatus = new DevExpress.XtraEditors.LabelControl();
             this.girdProduct = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.Id = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -47,7 +48,6 @@
             this.btnEdit = new DevExpress.XtraBars.BarButtonItem();
             this.btnDelete = new DevExpress.XtraBars.BarButtonItem();
             this.btnImport = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
@@ -57,6 +57,7 @@
             this.repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.girdProduct)).BeginInit();
@@ -66,29 +67,44 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.labelControlStatus);
             this.layoutControl1.Controls.Add(this.girdProduct);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl1.Location = new System.Drawing.Point(0, 30);
+            this.layoutControl1.Location = new System.Drawing.Point(0, 37);
+            this.layoutControl1.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(1369, 632);
+            this.layoutControl1.Size = new System.Drawing.Size(1942, 975);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
+            // labelControlStatus
+            // 
+            this.labelControlStatus.Location = new System.Drawing.Point(19, 933);
+            this.labelControlStatus.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.labelControlStatus.Name = "labelControlStatus";
+            this.labelControlStatus.Size = new System.Drawing.Size(1904, 24);
+            this.labelControlStatus.StyleController = this.layoutControl1;
+            this.labelControlStatus.TabIndex = 5;
+            this.labelControlStatus.Click += new System.EventHandler(this.labelControlStatus_Click);
+            // 
             // girdProduct
             // 
-            this.girdProduct.Location = new System.Drawing.Point(16, 16);
+            this.girdProduct.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
+            this.girdProduct.Location = new System.Drawing.Point(19, 18);
             this.girdProduct.MainView = this.gridView1;
+            this.girdProduct.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.girdProduct.MenuManager = this.barManager1;
             this.girdProduct.Name = "girdProduct";
             this.girdProduct.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemPictureEdit1,
             this.repositoryItemButtonEdit1});
-            this.girdProduct.Size = new System.Drawing.Size(1337, 600);
+            this.girdProduct.Size = new System.Drawing.Size(1904, 909);
             this.girdProduct.TabIndex = 4;
             this.girdProduct.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -103,74 +119,90 @@
             this.DonViTinh,
             this.GiaLe,
             this.GiaSi});
+            this.gridView1.DetailHeight = 525;
+            this.gridView1.FixedLineWidth = 3;
             this.gridView1.GridControl = this.girdProduct;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.OptionsSelection.MultiSelect = true;
             this.gridView1.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
+            this.gridView1.OptionsSelection.ShowCheckBoxSelectorInPrintExport = DevExpress.Utils.DefaultBoolean.True;
             this.gridView1.OptionsView.ShowGroupPanel = false;
-            this.gridView1.RowHeight = 100;
+            this.gridView1.RowHeight = 150;
             // 
             // Id
             // 
             this.Id.Caption = "STT";
             this.Id.FieldName = "ID";
+            this.Id.MinWidth = 31;
             this.Id.Name = "Id";
+            this.Id.Width = 118;
             // 
             // HinhAnh
             // 
             this.HinhAnh.Caption = "Hình ảnh";
             this.HinhAnh.ColumnEdit = this.repositoryItemPictureEdit1;
             this.HinhAnh.FieldName = "HinhAnh";
+            this.HinhAnh.MinWidth = 31;
             this.HinhAnh.Name = "HinhAnh";
             this.HinhAnh.Visible = true;
             this.HinhAnh.VisibleIndex = 6;
+            this.HinhAnh.Width = 118;
             // 
             // repositoryItemPictureEdit1
             // 
             this.repositoryItemPictureEdit1.Name = "repositoryItemPictureEdit1";
             this.repositoryItemPictureEdit1.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
-            this.repositoryItemPictureEdit1.ZoomAccelerationFactor = 1D;
             // 
             // TenSanPham
             // 
             this.TenSanPham.Caption = "Tên sản phẩm";
             this.TenSanPham.FieldName = "TenSanPham";
+            this.TenSanPham.MinWidth = 31;
             this.TenSanPham.Name = "TenSanPham";
             this.TenSanPham.Visible = true;
-            this.TenSanPham.VisibleIndex = 1;
+            this.TenSanPham.VisibleIndex = 2;
+            this.TenSanPham.Width = 118;
             // 
             // MaSanPham
             // 
             this.MaSanPham.Caption = "Mã sản phẩm";
             this.MaSanPham.FieldName = "MaSanPham";
+            this.MaSanPham.MinWidth = 31;
             this.MaSanPham.Name = "MaSanPham";
             this.MaSanPham.Visible = true;
-            this.MaSanPham.VisibleIndex = 2;
+            this.MaSanPham.VisibleIndex = 1;
+            this.MaSanPham.Width = 118;
             // 
             // DonViTinh
             // 
             this.DonViTinh.Caption = "Đơn vị tính";
             this.DonViTinh.FieldName = "DonViTinh1.TenDonVi";
+            this.DonViTinh.MinWidth = 31;
             this.DonViTinh.Name = "DonViTinh";
             this.DonViTinh.Visible = true;
             this.DonViTinh.VisibleIndex = 3;
+            this.DonViTinh.Width = 118;
             // 
             // GiaLe
             // 
             this.GiaLe.Caption = "Giá lẻ";
             this.GiaLe.FieldName = "GiaLe";
+            this.GiaLe.MinWidth = 31;
             this.GiaLe.Name = "GiaLe";
             this.GiaLe.Visible = true;
             this.GiaLe.VisibleIndex = 4;
+            this.GiaLe.Width = 118;
             // 
             // GiaSi
             // 
             this.GiaSi.Caption = "Giá sỉ";
             this.GiaSi.FieldName = "GiaSi";
+            this.GiaSi.MinWidth = 31;
             this.GiaSi.Name = "GiaSi";
             this.GiaSi.Visible = true;
             this.GiaSi.VisibleIndex = 5;
+            this.GiaSi.Width = 118;
             // 
             // barManager1
             // 
@@ -187,10 +219,9 @@
             this.btnEdit,
             this.btnDelete,
             this.btnNew,
-            this.btnImport,
-            this.barButtonItem2});
+            this.btnImport});
             this.barManager1.MainMenu = this.bar2;
-            this.barManager1.MaxItemId = 6;
+            this.barManager1.MaxItemId = 7;
             this.barManager1.StatusBar = this.bar3;
             // 
             // bar2
@@ -203,8 +234,7 @@
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnNew, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnEdit, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnDelete, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnImport, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem2, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnImport, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.bar2.OptionsBar.MultiLine = true;
             this.bar2.OptionsBar.UseWholeRow = true;
             this.bar2.Text = "Main menu";
@@ -222,8 +252,8 @@
             // 
             this.btnEdit.Caption = "Sửa";
             this.btnEdit.Id = 1;
-            this.btnEdit.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
-            this.btnEdit.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
+            this.btnEdit.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEdit.ImageOptions.Image")));
+            this.btnEdit.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnEdit.ImageOptions.LargeImage")));
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnEdit_ItemClick);
             // 
@@ -243,14 +273,7 @@
             this.btnImport.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnImport.ImageOptions.Image")));
             this.btnImport.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnImport.ImageOptions.LargeImage")));
             this.btnImport.Name = "btnImport";
-            // 
-            // barButtonItem2
-            // 
-            this.barButtonItem2.Caption = "Xuất file Excel";
-            this.barButtonItem2.Id = 5;
-            this.barButtonItem2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.Image")));
-            this.barButtonItem2.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.LargeImage")));
-            this.barButtonItem2.Name = "barButtonItem2";
+            this.btnImport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnImport_ItemClick);
             // 
             // bar3
             // 
@@ -270,31 +293,35 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(1369, 30);
+            this.barDockControlTop.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.barDockControlTop.Size = new System.Drawing.Size(1942, 37);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 662);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 1012);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(1369, 25);
+            this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1942, 18);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 30);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 37);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 632);
+            this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 975);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1369, 30);
+            this.barDockControlRight.Location = new System.Drawing.Point(1942, 37);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 632);
+            this.barDockControlRight.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 975);
             // 
             // btnAdd
             // 
@@ -316,11 +343,11 @@
             this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             this.layoutControlGroup1.GroupBordersVisible = false;
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem1});
-            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem1,
+            this.layoutControlItem2});
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.OptionsItemText.TextToControlDistance = 4;
-            this.layoutControlGroup1.Size = new System.Drawing.Size(1369, 632);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(1942, 975);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
@@ -328,22 +355,33 @@
             this.layoutControlItem1.Control = this.girdProduct;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(1343, 606);
+            this.layoutControlItem1.Size = new System.Drawing.Size(1910, 915);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
+            // layoutControlItem2
+            // 
+            this.layoutControlItem2.Control = this.labelControlStatus;
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 915);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(1910, 30);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem2.TextVisible = false;
+            // 
             // Product
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1369, 687);
+            this.ClientSize = new System.Drawing.Size(1942, 1030);
             this.Controls.Add(this.layoutControl1);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
+            this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.Name = "Product";
             this.Text = "Sản phẩm";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Product_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
@@ -354,6 +392,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -386,7 +425,8 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit repositoryItemPictureEdit1;
         private DevExpress.XtraBars.BarButtonItem btnNew;
         private DevExpress.XtraBars.BarButtonItem btnImport;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit1;
+        private DevExpress.XtraEditors.LabelControl labelControlStatus;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
     }
 }

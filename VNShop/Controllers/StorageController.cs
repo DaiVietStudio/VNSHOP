@@ -38,11 +38,11 @@ namespace VNShop.Controllers
             }
             catch(Exception ex)
             {
-                return new Response(false, "Lưu kho hàng không thành công");
+                return new Response(false, ex.ToString());
             }
         }
 
-        public Response delete(int[] khoHangs)
+        public Response delete(List<long> khoHangs)
         {
             foreach (int item in khoHangs)
             {

@@ -32,13 +32,15 @@ namespace VNShop.Controllers
 
         public Response login(TaiKhoan taiKhoan)
         {
-           TaiKhoan user = dbContext.TaiKhoans.Where(x => x.TenDangNhap == taiKhoan.TenDangNhap).FirstOrDefault();
-            if(user != null)
+           TaiKhoan account = dbContext.TaiKhoans.Where(x => x.TenDangNhap == taiKhoan.TenDangNhap).FirstOrDefault();
+            if(account != null)
             {
-                bool check = BCrypt.Net.BCrypt.Verify(taiKhoan.MatKhau, user.MatKhau);
+                bool check = BCrypt.Net.BCrypt.Verify(taiKhoan.MatKhau, account.MatKhau);
                 if (check)
                 {
-                   
+
+                    Program.nameUser = account.NhanVien1.HoVaTen;
+                    Program.idUser = account.NhanVien1.id;
                     return new Response(true, "Đăng nhập thành công");
 
                 }

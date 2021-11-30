@@ -73,8 +73,8 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="Loai" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="id" Type="bigint" Nullable="false" />
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Loai" Type="int" />
     <Property Name="TenKhachHang" Type="nvarchar" MaxLength="1000" />
     <Property Name="DiaChi" Type="nvarchar" MaxLength="100" />
     <Property Name="SoDienThoai" Type="nchar" MaxLength="10" />
@@ -117,6 +117,7 @@
     <Property Name="NgayNhap" Type="date" />
     <Property Name="KhachHang" Type="bigint" />
     <Property Name="NhanVien" Type="bigint" />
+    <Property Name="Loai" Type="int" />
   </EntityType>
   <EntityType Name="PhieuBaoGia">
     <Key>
@@ -194,7 +195,7 @@
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TenDonVi" Type="nvarchar" MaxLength="100" />
     <Property Name="DiaChi" Type="nvarchar" MaxLength="1000" />
-    <Property Name="SoDienThoai" Type="nchar" MaxLength="10" />
+    <Property Name="SoDienThoai" Type="nchar" MaxLength="50" />
     <Property Name="Email" Type="nchar" MaxLength="10" />
     <Property Name="Website" Type="nchar" MaxLength="10" />
     <Property Name="KyTen" Type="nvarchar" MaxLength="300" />

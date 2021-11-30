@@ -23,8 +23,8 @@ namespace VNShop.Models
             this.PhieuNoes = new HashSet<PhieuNo>();
         }
     
-        public int Loai { get; set; }
         public long id { get; set; }
+        public Nullable<int> Loai { get; set; }
         public string TenKhachHang { get; set; }
         public string DiaChi { get; set; }
         public string SoDienThoai { get; set; }

@@ -52,54 +52,98 @@ namespace VNShop
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-
-            SanPham product = new SanPham();
-            product.MaSanPham = txtBarcode.Text;
-            product.TenSanPham = txtName.Text;
-            product.GiaNhap = double.Parse(txtInputPrice.Text);
-            product.GiaSi = double.Parse(txtWholePrice.Text);
-            product.GiaLe = double.Parse(txtRetailPrice.Text);
+            bool error = false;
             DonViTinh unit = gridLookUnit.GetSelectedDataRow() as DonViTinh;
-            product.DonViTinh = unit.id;
-            product.ThueVAT = double.Parse(txtVAT.Text);
-            product.NgaySanXuat = DateTime.Parse(txtDateOfManuFacture.EditValue.ToString());
-            product.NgayHetHan = DateTime.Parse(txtDateExp.EditValue.ToString());
-            product.KichHoat = chkActive.Checked;
-            product.QuanLyTonKho = chkInventory.Checked ? 1 : 0;
-            product.MoTa = txtDeciption.Text;
-            if (picImage.EditValue != null)
+            if (double.Parse(txtRetailPrice.Text) <= 0)
             {
-                product.HinhAnh = (byte[])picImage.EditValue;
+                XtraMessageBox.Show("Giá bán lẻ phải lớn hơn 0", "Giá bán lẻ phải lớn hơn 0", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if (double.Parse(txtWholePrice.Text) <= 0)
+            {
+                XtraMessageBox.Show("Giá bán sỉ phải lớn hơn 0", "Giá bán sỉ phải lớn hơn 0", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            } else if (unit == null)
+            {
+                XtraMessageBox.Show("Chọn đơn vị tính", "Chọn đơn vị tính", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                SanPham product = new SanPham();
+                product.MaSanPham = txtBarcode.Text;
+                product.TenSanPham = txtName.Text.ToUpper();
+                if(txtInputPrice.Text != "")
+                {
+                    product.GiaNhap = double.Parse(txtInputPrice.Text);
+                }
+                product.GiaSi = double.Parse(txtWholePrice.Text);
+                product.GiaLe = double.Parse(txtRetailPrice.Text);
+                
+                product.DonViTinh = unit.id;
+                if(txtVAT.Text != "")
+                {
+                    product.ThueVAT = double.Parse(txtVAT.Text);
 
+                }
+                if(txtDateOfManuFacture.EditValue != null)
+                {
+                    product.NgaySanXuat = DateTime.Parse(txtDateOfManuFacture.EditValue.ToString());
+
+                }
+                if (txtDateExp.EditValue != null)
+                {
+                    product.NgayHetHan = DateTime.Parse(txtDateExp.EditValue.ToString());
+                }
+               
+                product.KichHoat = chkActive.Checked;
+                product.QuanLyTonKho = chkInventory.Checked ? 1 : 0;
+                product.MoTa = txtDeciption.Text;
+                if (picImage.EditValue != null)
+                {
+                    product.HinhAnh = (byte[])picImage.EditValue;
+
+                }
+                // get list unit
+                int rowHandle = 0;
+                List<DonViTinh_SanPham> listUnit = new List<DonViTinh_SanPham>();
+                while (gridViewUnit.IsValidRowHandle(rowHandle))
+                {
+                    var data = gridViewUnit.GetRow(rowHandle) as DonViTinh_SanPham;
+                    if (data.GiaLe > 0)
+                    {
+                        listUnit.Add(data);
+                        rowHandle++;
+                    }
+                    else
+                    {
+                        error = true;
+                        XtraMessageBox.Show("Không được để trống giá bán lẻ tại đơn vị " + data.DonViTinh1.TenDonVi, "Không được để trống giá bán lẻ vị " + data.DonViTinh1.TenDonVi, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        break;
+                    }
+
+                }
+                Response result;
+                if (error == false)
+                {
+                    if (idEdit == 0)
+                    {
+                        result = productController.save(product, listUnit);
+                    }
+                    else
+                    {
+                        result = productController.update(product, idEdit, listUnit);
+                    }
+
+                    if (result.status)
+                    {
+                        XtraMessageBox.Show(result.message, result.message, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.DialogResult = DialogResult.OK;
+                    }
+                    else
+                    {
+                        XtraMessageBox.Show(result.message, result.message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
-            // get list unit
-            int rowHandle = 0;
-            List<DonViTinh_SanPham> listUnit = new List<DonViTinh_SanPham>();
-            while (gridViewUnit.IsValidRowHandle(rowHandle))
-            {
-                var data = gridViewUnit.GetRow(rowHandle) as DonViTinh_SanPham;
-                listUnit.Add(data);
-                rowHandle++;
-            }
-            Response result;
-            if (idEdit == 0)
-            {
-                result = productController.save(product, listUnit);
-            }
-            else
-            {
-                result = productController.update(product,idEdit, listUnit);
-            }
-           
-            if (result.status)
-            {
-                XtraMessageBox.Show(result.message, result.message, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.DialogResult = DialogResult.OK;
-            }
-            else
-            {
-                XtraMessageBox.Show(result.message, result.message, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+
         }
 
         private void gridViewUnit_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
@@ -110,7 +154,7 @@ namespace VNShop
         private void txtBarcode_EditValueChanged(object sender, EventArgs e)
         {
 
-            if(idEdit == 0)
+            if (idEdit == 0)
             {
                 Response result = productController.checkProductExist(txtBarcode.Text);
                 if (result.status == false)
@@ -119,12 +163,12 @@ namespace VNShop
                     txtBarcode.Text = "";
                 }
             }
-           
+
         }
 
         private void ProductForm_Load(object sender, EventArgs e)
         {
-            if(idEdit > 0)
+            if (idEdit > 0)
             {
                 SanPham sanPham = productController.getDetailProduct(idEdit);
                 picImage.EditValue = sanPham.HinhAnh;

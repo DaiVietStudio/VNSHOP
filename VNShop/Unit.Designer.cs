@@ -62,20 +62,20 @@
             // 
             this.layoutControl1.Controls.Add(this.gridControlUnit);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl1.Location = new System.Drawing.Point(0, 30);
+            this.layoutControl1.Location = new System.Drawing.Point(0, 34);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(800, 395);
+            this.layoutControl1.Size = new System.Drawing.Size(802, 401);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
             // gridControlUnit
             // 
-            this.gridControlUnit.Location = new System.Drawing.Point(16, 16);
+            this.gridControlUnit.Location = new System.Drawing.Point(12, 12);
             this.gridControlUnit.MainView = this.gridUnit;
             this.gridControlUnit.MenuManager = this.barManager1;
             this.gridControlUnit.Name = "gridControlUnit";
-            this.gridControlUnit.Size = new System.Drawing.Size(768, 363);
+            this.gridControlUnit.Size = new System.Drawing.Size(778, 377);
             this.gridControlUnit.TabIndex = 0;
             this.gridControlUnit.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridUnit});
@@ -205,31 +205,31 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(800, 30);
+            this.barDockControlTop.Size = new System.Drawing.Size(802, 34);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 425);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 435);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(800, 25);
+            this.barDockControlBottom.Size = new System.Drawing.Size(802, 18);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 30);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 34);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 395);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 401);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(800, 30);
+            this.barDockControlRight.Location = new System.Drawing.Point(802, 34);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 395);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 401);
             // 
             // layoutControlGroup1
             // 
@@ -237,10 +237,9 @@
             this.layoutControlGroup1.GroupBordersVisible = false;
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1});
-            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.OptionsItemText.TextToControlDistance = 4;
-            this.layoutControlGroup1.Size = new System.Drawing.Size(800, 395);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(802, 401);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
@@ -248,7 +247,7 @@
             this.layoutControlItem1.Control = this.gridControlUnit;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(774, 369);
+            this.layoutControlItem1.Size = new System.Drawing.Size(782, 381);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -256,7 +255,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(802, 453);
             this.Controls.Add(this.layoutControl1);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);

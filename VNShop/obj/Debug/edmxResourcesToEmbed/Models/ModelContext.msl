@@ -86,8 +86,8 @@
           <ScalarProperty Name="SoDienThoai" ColumnName="SoDienThoai" />
           <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
           <ScalarProperty Name="TenKhachHang" ColumnName="TenKhachHang" />
-          <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="Loai" ColumnName="Loai" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -123,6 +123,7 @@
     <EntitySetMapping Name="PhieuBanHangs">
       <EntityTypeMapping TypeName="QLBHModel.PhieuBanHang">
         <MappingFragment StoreEntitySet="PhieuBanHang">
+          <ScalarProperty Name="Loai" ColumnName="Loai" />
           <ScalarProperty Name="NhanVien" ColumnName="NhanVien" />
           <ScalarProperty Name="KhachHang" ColumnName="KhachHang" />
           <ScalarProperty Name="NgayNhap" ColumnName="NgayNhap" />

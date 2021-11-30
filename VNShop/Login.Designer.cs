@@ -37,7 +37,6 @@
             this.txtUserName = new DevExpress.XtraEditors.TextEdit();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -48,7 +47,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtUserName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
@@ -64,18 +62,21 @@
             this.layoutControl1.Controls.Add(this.txtUserName);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl1.Margin = new System.Windows.Forms.Padding(4);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(312, 179);
+            this.layoutControl1.Size = new System.Drawing.Size(288, 144);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
             // btnSignUp
             // 
+            this.btnSignUp.Appearance.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSignUp.Appearance.Options.UseFont = true;
             this.btnSignUp.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSignUp.ImageOptions.Image")));
-            this.btnSignUp.Location = new System.Drawing.Point(16, 136);
+            this.btnSignUp.Location = new System.Drawing.Point(7, 106);
             this.btnSignUp.Name = "btnSignUp";
-            this.btnSignUp.Size = new System.Drawing.Size(280, 27);
+            this.btnSignUp.Size = new System.Drawing.Size(274, 27);
             this.btnSignUp.StyleController = this.layoutControl1;
             this.btnSignUp.TabIndex = 8;
             this.btnSignUp.Text = "Đăng ký";
@@ -83,10 +84,13 @@
             // 
             // btnExit
             // 
+            this.btnExit.Appearance.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.Appearance.Options.UseFont = true;
+            this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnExit.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.ImageOptions.Image")));
-            this.btnExit.Location = new System.Drawing.Point(158, 103);
+            this.btnExit.Location = new System.Drawing.Point(145, 75);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(138, 27);
+            this.btnExit.Size = new System.Drawing.Size(136, 27);
             this.btnExit.StyleController = this.layoutControl1;
             this.btnExit.TabIndex = 7;
             this.btnExit.Text = "Thoát";
@@ -94,10 +98,12 @@
             // 
             // btnLogin
             // 
+            this.btnLogin.Appearance.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogin.Appearance.Options.UseFont = true;
             this.btnLogin.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnLogin.ImageOptions.Image")));
-            this.btnLogin.Location = new System.Drawing.Point(16, 103);
+            this.btnLogin.Location = new System.Drawing.Point(7, 75);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(136, 27);
+            this.btnLogin.Size = new System.Drawing.Size(134, 27);
             this.btnLogin.StyleController = this.layoutControl1;
             this.btnLogin.TabIndex = 6;
             this.btnLogin.Text = "Đăng nhập";
@@ -105,18 +111,18 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(113, 44);
+            this.txtPassword.Location = new System.Drawing.Point(145, 41);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Properties.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(183, 22);
+            this.txtPassword.Size = new System.Drawing.Size(136, 30);
             this.txtPassword.StyleController = this.layoutControl1;
             this.txtPassword.TabIndex = 5;
             // 
             // txtUserName
             // 
-            this.txtUserName.Location = new System.Drawing.Point(113, 16);
+            this.txtUserName.Location = new System.Drawing.Point(145, 7);
             this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(183, 22);
+            this.txtUserName.Size = new System.Drawing.Size(136, 30);
             this.txtUserName.StyleController = this.layoutControl1;
             this.txtUserName.TabIndex = 4;
             // 
@@ -126,15 +132,14 @@
             this.layoutControlGroup1.GroupBordersVisible = false;
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1,
-            this.emptySpaceItem1,
             this.layoutControlItem2,
             this.layoutControlItem3,
             this.layoutControlItem4,
             this.layoutControlItem5});
-            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.OptionsItemText.TextToControlDistance = 4;
-            this.layoutControlGroup1.Size = new System.Drawing.Size(312, 179);
+            this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(288, 144);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
@@ -142,60 +147,57 @@
             this.layoutControlItem1.Control = this.txtUserName;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(286, 28);
+            this.layoutControlItem1.Size = new System.Drawing.Size(278, 34);
             this.layoutControlItem1.Text = "Tên đăng nhập";
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(93, 17);
-            // 
-            // emptySpaceItem1
-            // 
-            this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 56);
-            this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(286, 31);
-            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(134, 24);
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.txtPassword;
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 28);
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 34);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(286, 28);
+            this.layoutControlItem2.Size = new System.Drawing.Size(278, 34);
             this.layoutControlItem2.Text = "Mật khẩu";
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(93, 17);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(134, 24);
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.btnLogin;
-            this.layoutControlItem3.Location = new System.Drawing.Point(0, 87);
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 68);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(142, 33);
+            this.layoutControlItem3.Size = new System.Drawing.Size(138, 31);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.btnExit;
-            this.layoutControlItem4.Location = new System.Drawing.Point(142, 87);
+            this.layoutControlItem4.Location = new System.Drawing.Point(138, 68);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(144, 33);
+            this.layoutControlItem4.Size = new System.Drawing.Size(140, 31);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.btnSignUp;
-            this.layoutControlItem5.Location = new System.Drawing.Point(0, 120);
+            this.layoutControlItem5.Location = new System.Drawing.Point(0, 99);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(286, 33);
+            this.layoutControlItem5.Size = new System.Drawing.Size(278, 35);
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
             // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AcceptButton = this.btnLogin;
+            this.Appearance.Options.UseFont = true;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(312, 179);
+            this.CancelButton = this.btnExit;
+            this.ClientSize = new System.Drawing.Size(288, 144);
             this.Controls.Add(this.layoutControl1);
+            this.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng nhập phần mềm VNShop";
@@ -206,7 +208,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtUserName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
@@ -222,7 +223,6 @@
         private DevExpress.XtraEditors.TextEdit txtPassword;
         private DevExpress.XtraEditors.TextEdit txtUserName;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraEditors.SimpleButton btnExit;
         private DevExpress.XtraEditors.SimpleButton btnLogin;
