@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -22,7 +23,7 @@ namespace VNShop
 
         private void Login_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void btnExit_Click(object sender, EventArgs e)

@@ -58,6 +58,7 @@
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.btnExport = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.girdProduct)).BeginInit();
@@ -85,10 +86,10 @@
             // 
             // labelControlStatus
             // 
-            this.labelControlStatus.Location = new System.Drawing.Point(19, 933);
+            this.labelControlStatus.Location = new System.Drawing.Point(12, 939);
             this.labelControlStatus.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.labelControlStatus.Name = "labelControlStatus";
-            this.labelControlStatus.Size = new System.Drawing.Size(1904, 24);
+            this.labelControlStatus.Size = new System.Drawing.Size(1918, 24);
             this.labelControlStatus.StyleController = this.layoutControl1;
             this.labelControlStatus.TabIndex = 5;
             this.labelControlStatus.Click += new System.EventHandler(this.labelControlStatus_Click);
@@ -96,7 +97,7 @@
             // girdProduct
             // 
             this.girdProduct.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
-            this.girdProduct.Location = new System.Drawing.Point(19, 18);
+            this.girdProduct.Location = new System.Drawing.Point(12, 12);
             this.girdProduct.MainView = this.gridView1;
             this.girdProduct.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.girdProduct.MenuManager = this.barManager1;
@@ -104,7 +105,7 @@
             this.girdProduct.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemPictureEdit1,
             this.repositoryItemButtonEdit1});
-            this.girdProduct.Size = new System.Drawing.Size(1904, 909);
+            this.girdProduct.Size = new System.Drawing.Size(1918, 923);
             this.girdProduct.TabIndex = 4;
             this.girdProduct.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -219,9 +220,10 @@
             this.btnEdit,
             this.btnDelete,
             this.btnNew,
-            this.btnImport});
+            this.btnImport,
+            this.btnExport});
             this.barManager1.MainMenu = this.bar2;
-            this.barManager1.MaxItemId = 7;
+            this.barManager1.MaxItemId = 8;
             this.barManager1.StatusBar = this.bar3;
             // 
             // bar2
@@ -234,7 +236,8 @@
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnNew, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnEdit, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnDelete, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnImport, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnImport, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnExport, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.bar2.OptionsBar.MultiLine = true;
             this.bar2.OptionsBar.UseWholeRow = true;
             this.bar2.Text = "Main menu";
@@ -355,18 +358,27 @@
             this.layoutControlItem1.Control = this.girdProduct;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(1910, 915);
+            this.layoutControlItem1.Size = new System.Drawing.Size(1922, 927);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.labelControlStatus;
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 915);
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 927);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(1910, 30);
+            this.layoutControlItem2.Size = new System.Drawing.Size(1922, 28);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
+            // 
+            // btnExport
+            // 
+            this.btnExport.Caption = "Xuất Excel";
+            this.btnExport.Id = 7;
+            this.btnExport.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
+            this.btnExport.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
+            this.btnExport.Name = "btnExport";
+            this.btnExport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnExport_ItemClick);
             // 
             // Product
             // 
@@ -428,5 +440,6 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit1;
         private DevExpress.XtraEditors.LabelControl labelControlStatus;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private DevExpress.XtraBars.BarButtonItem btnExport;
     }
 }

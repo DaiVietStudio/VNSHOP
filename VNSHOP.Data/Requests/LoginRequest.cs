@@ -4,7 +4,7 @@ using System.Text;
 
 namespace VNSHOP.Data.Requests
 {
-    class LoginRequest
+   public class LoginRequest
     {
         public string username { get; set; }
         public string password { get; set; }

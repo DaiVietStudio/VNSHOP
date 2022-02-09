@@ -311,6 +311,17 @@
           "VNSHOP.Web.dll": {}
         }
       },
+      "BCrypt.Net-Next/4.0.2": {
+        "runtime": {
+          "lib/netcoreapp3.1/BCrypt.Net-Next.dll": {
+            "assemblyVersion": "4.0.2.0",
+            "fileVersion": "4.0.2.0"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.1/BCrypt.Net-Next.dll": {}
+        }
+      },
       "Humanizer.Core/2.8.26": {
         "runtime": {
           "lib/netstandard2.0/Humanizer.dll": {
@@ -1392,6 +1403,7 @@
       },
       "VNSHOP.Data/1.0.0": {
         "dependencies": {
+          "BCrypt.Net-Next": "4.0.2",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.12"
         },
         "runtime": {
@@ -3028,6 +3040,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "BCrypt.Net-Next/4.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-LyNKpIpr4GraRD9+xlTviyxxbZpF6J4xJf7DvraC1mR8PSN/KonGc4rt8C/fjkD3vaEvgA7BcvsbHFCOjgczyQ==",
+      "path": "bcrypt.net-next/4.0.2",
+      "hashPath": "bcrypt.net-next.4.0.2.nupkg.sha512"
     },
     "Humanizer.Core/2.8.26": {
       "type": "package",

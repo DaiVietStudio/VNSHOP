@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "adPqrCr05rGEBQntWLgBxv0PO7ezKf4pMni1APTZThd9wAWBSgGGu96dY/yhirSvZBeL5rE0h2Jq8BhFXQ0jRA==",
+  "dgSpecHash": "f0D0J8hwPCBm5x/n4VKLJlsZelVxFcQznIy/l2kWp5vx/4HLIB/bpKTYw7oUvNN5GIMOrRGnSyIxH02PEsyn4Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\AKINOSORA\\source\\repos\\VNShop\\VNSHOP.Data\\VNSHOP.Data.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\AKINOSORA\\.nuget\\packages\\bcrypt.net-next\\4.0.2\\bcrypt.net-next.4.0.2.nupkg.sha512",
     "C:\\Users\\AKINOSORA\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\AKINOSORA\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\AKINOSORA\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",

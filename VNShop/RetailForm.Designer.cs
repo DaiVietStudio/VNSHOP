@@ -331,6 +331,7 @@
             // txtPrice
             // 
             this.txtPrice.AutoHeight = false;
+            this.txtPrice.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.EditValueChanged += new System.EventHandler(this.txtPrice_EditValueChanged);
             this.txtPrice.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.txtPrice_EditValueChanging);

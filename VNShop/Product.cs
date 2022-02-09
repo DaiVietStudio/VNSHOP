@@ -168,5 +168,19 @@ namespace VNShop
         {
 
         }
+
+        private void btnExport_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Response export = productController.exportExcel();
+            if (export.status)
+            {
+                XtraMessageBox.Show(export.message);
+            }
+            else
+            {
+                XtraMessageBox.Show(export.message);
+
+            }
+        }
     }
 }

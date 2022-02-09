@@ -6,7 +6,7 @@ namespace VNSHOP.Data.Applications.Interfaces
 {
     interface ILogin
     {
-        ResponseRequest<Dictionary<string, string>> Login(LoginRequest loginRequest);
+        Dictionary<string, dynamic> Login(string username, string password);
 
 
     }

@@ -4,17 +4,39 @@ using System.Text;
 using VNSHOP.Data.Applications.Interfaces;
 using VNSHOP.Data.Requests;
 using VNSHOP.Data.Models;
+using System.Linq;
+
 namespace VNSHOP.Data.Applications.Services
 {
-    class LoginService : ILogin
+   public class LoginService : ILogin
     {
         private QLBHContext dbContext = new QLBHContext();
 
-        public ResponseRequest<Dictionary<string, string>> Login(LoginRequest request)
+        public Dictionary<string, dynamic> Login(string username, string password)
         {
-            Dictionary<string, string> result = new Dictionary<string, string>();
-
-            return new ResponseRequest<Dictionary<string, string>>() { data = result, message = "Login thành công" };
+            Dictionary<string, dynamic> result = new Dictionary<string, dynamic>();
+            TaiKhoan user = dbContext.TaiKhoans.FirstOrDefault(s => s.TenDangNhap == username);
+            if (user != null)
+            {
+                if (BCrypt.Net.BCrypt.Verify(password.Trim(), user.MatKhau))
+                {
+                    result["status"] = true;
+                    result["user"] = user.Id;
+                    result["name"] = user.TenDangNhap;
+                   
+                }
+                else
+                {
+                    result["status"] = false;
+                    result["error"] = "Sai mật khẩu";
+                }
+            }
+            else
+            {
+                result["status"] = false;
+                result["error"] = "Tài khoản không tồn tại";
+            }
+            return result;
         }
     }
 }
