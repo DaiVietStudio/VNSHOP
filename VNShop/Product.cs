@@ -171,16 +171,25 @@ namespace VNShop
 
         private void btnExport_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Response export = productController.exportExcel();
-            if (export.status)
+            string folder = "";
+            FolderBrowserDialog dialog = new FolderBrowserDialog();
+            DialogResult result = dialog.ShowDialog();
+            if(result== DialogResult.OK&&!string.IsNullOrWhiteSpace(dialog.SelectedPath))
             {
-                XtraMessageBox.Show(export.message);
-            }
-            else
-            {
-                XtraMessageBox.Show(export.message);
+                folder = dialog.SelectedPath;
+                Response export = productController.exportExcel(folder);
+                if (export.status)
+                {
+                    XtraMessageBox.Show(export.message);
+                }
+                else
+                {
+                    XtraMessageBox.Show(export.message);
 
+                }
             }
+
+            
         }
     }
 }

@@ -1,4 +1,7 @@
-﻿using System;
+﻿using DevExpress.XtraEditors;
+using Microsoft.SqlServer.Management.Common;
+using Microsoft.SqlServer.Management.Smo;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -93,15 +96,35 @@ namespace VNShop
 
         private void MainApp_FormClosing(object sender, FormClosingEventArgs e)
         {
-          
+
         }
 
-       
+
 
         private void btnQuote_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Quote quote = new Quote();
             quote.ShowDialog();
+        }
+
+        private void btnBackup_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Server dbServer = new Server(new ServerConnection("DESKTOP-MMSE614\\SQLEXPRESS", "sa", "123456"));
+            Backup bkpDBFull = new Backup();
+            bkpDBFull.Action = BackupActionType.Database;
+            bkpDBFull.Database = "QLBH";
+            bkpDBFull.Devices.AddDevice(@"E:QLBH.bak", DeviceType.File);
+            bkpDBFull.BackupSetName = "QLBH database Backup";
+            bkpDBFull.BackupSetDescription = "QLBH database - Full Backup";
+            bkpDBFull.ExpirationDate = DateTime.Today.AddDays(20);
+            bkpDBFull.Initialize = false;
+            bkpDBFull.Complete += Backup_Completed;
+            bkpDBFull.SqlBackup(dbServer);
+        }
+
+        private static void Backup_Completed(object sender, ServerMessageEventArgs args)
+        {
+            XtraMessageBox.Show("Đã sao lưu thành công");
         }
     }
 }

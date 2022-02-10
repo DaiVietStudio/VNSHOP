@@ -37,7 +37,7 @@ namespace VNShop.Controllers
             return dbContext.SanPhams.ToList();
         }
 
-        public Response exportExcel()
+        public Response exportExcel(string path)
         {
             try
             {
@@ -98,7 +98,7 @@ namespace VNShop.Controllers
                     rowIndex++;
                 }
 
-                FileStream fs = new FileStream(@"E:\danhsachsanpham.xlsx", FileMode.CreateNew);
+                FileStream fs = new FileStream(path + @"danhsachsanpham.xlsx", FileMode.CreateNew);
                 wb.Write(fs);
                 return new Response(true, "Xuất file Excel thành công");
             }

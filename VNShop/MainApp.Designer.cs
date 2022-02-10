@@ -54,7 +54,6 @@
             this.btnQuote = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItem4 = new DevExpress.XtraBars.BarSubItem();
             this.btnInfo = new DevExpress.XtraBars.BarButtonItem();
-            this.btnSetting = new DevExpress.XtraBars.BarButtonItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.txtHello = new DevExpress.XtraBars.BarHeaderItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
@@ -65,7 +64,9 @@
             this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.btnPriceReport = new DevExpress.XtraBars.BarButtonItem();
+            this.btnSetting = new DevExpress.XtraBars.BarButtonItem();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
+            this.btnBackup = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartControlMain)).BeginInit();
@@ -81,11 +82,11 @@
             // 
             this.layoutControl1.Controls.Add(this.chartControlMain);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl1.Location = new System.Drawing.Point(0, 37);
-            this.layoutControl1.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.layoutControl1.Location = new System.Drawing.Point(0, 30);
+            this.layoutControl1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(1942, 993);
+            this.layoutControl1.Size = new System.Drawing.Size(1589, 647);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -96,15 +97,15 @@
             xyDiagram1.AxisY.VisibleInPanesSerializable = "-1";
             this.chartControlMain.Diagram = xyDiagram1;
             this.chartControlMain.Legend.Name = "Default Legend";
-            this.chartControlMain.Location = new System.Drawing.Point(12, 12);
-            this.chartControlMain.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.chartControlMain.Location = new System.Drawing.Point(10, 10);
+            this.chartControlMain.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.chartControlMain.Name = "chartControlMain";
             series1.ArgumentDataMember = "date";
             series1.Name = "Doanh số";
             series1.ValueDataMembersSerializable = "value";
             this.chartControlMain.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
         series1};
-            this.chartControlMain.Size = new System.Drawing.Size(1918, 969);
+            this.chartControlMain.Size = new System.Drawing.Size(1569, 627);
             this.chartControlMain.TabIndex = 4;
             chartTitle1.Text = "Doanh số bán hàng";
             this.chartControlMain.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
@@ -122,7 +123,7 @@
             this.layoutControlItem1});
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.OptionsItemText.TextToControlDistance = 4;
-            this.layoutControlGroup1.Size = new System.Drawing.Size(1942, 993);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(1589, 647);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
@@ -130,7 +131,7 @@
             this.layoutControlItem1.Control = this.chartControlMain;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(1922, 973);
+            this.layoutControlItem1.Size = new System.Drawing.Size(1573, 631);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -168,9 +169,10 @@
             this.txtHello,
             this.btnRecpiect,
             this.btnSetting,
-            this.btnQuote});
+            this.btnQuote,
+            this.btnBackup});
             this.barManager1.MainMenu = this.bar2;
-            this.barManager1.MaxItemId = 22;
+            this.barManager1.MaxItemId = 23;
             this.barManager1.StatusBar = this.bar3;
             // 
             // bar2
@@ -296,7 +298,8 @@
             this.barSubItem4.Caption = "Hệ thống";
             this.barSubItem4.Id = 11;
             this.barSubItem4.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnInfo, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnInfo, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnBackup, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.barSubItem4.Name = "barSubItem4";
             // 
             // btnInfo
@@ -307,11 +310,6 @@
             this.btnInfo.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnInfo.ImageOptions.LargeImage")));
             this.btnInfo.Name = "btnInfo";
             this.btnInfo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnInfo_ItemClick);
-            // 
-            // btnSetting
-            // 
-            this.btnSetting.Id = 21;
-            this.btnSetting.Name = "btnSetting";
             // 
             // bar3
             // 
@@ -339,35 +337,35 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.barDockControlTop.Size = new System.Drawing.Size(1942, 37);
+            this.barDockControlTop.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.barDockControlTop.Size = new System.Drawing.Size(1589, 30);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 1030);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 677);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.barDockControlBottom.Size = new System.Drawing.Size(1942, 35);
+            this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1589, 28);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 37);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 30);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 993);
+            this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 647);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1942, 37);
+            this.barDockControlRight.Location = new System.Drawing.Point(1589, 30);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 993);
+            this.barDockControlRight.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 647);
             // 
             // barButtonItem1
             // 
@@ -395,21 +393,35 @@
             this.btnPriceReport.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnPriceReport.ImageOptions.LargeImage")));
             this.btnPriceReport.Name = "btnPriceReport";
             // 
+            // btnSetting
+            // 
+            this.btnSetting.Id = 21;
+            this.btnSetting.Name = "btnSetting";
+            // 
             // defaultLookAndFeel1
             // 
             this.defaultLookAndFeel1.LookAndFeel.SkinName = "The Bezier";
             // 
+            // btnBackup
+            // 
+            this.btnBackup.Caption = "Sao lưu dữ liệu";
+            this.btnBackup.Id = 22;
+            this.btnBackup.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBackup.ImageOptions.Image")));
+            this.btnBackup.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnBackup.ImageOptions.LargeImage")));
+            this.btnBackup.Name = "btnBackup";
+            this.btnBackup.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBackup_ItemClick);
+            // 
             // MainApp
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1942, 1065);
+            this.ClientSize = new System.Drawing.Size(1589, 705);
             this.Controls.Add(this.layoutControl1);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
-            this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "MainApp";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Phần mềm bán hàng VNShop";
@@ -466,5 +478,6 @@
         private System.Windows.Forms.BindingSource chartItemBindingSource;
         private DevExpress.XtraBars.BarButtonItem btnSetting;
         private DevExpress.XtraBars.BarButtonItem btnQuote;
+        private DevExpress.XtraBars.BarButtonItem btnBackup;
     }
 }
