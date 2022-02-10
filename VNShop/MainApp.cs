@@ -96,7 +96,7 @@ namespace VNShop
 
         private void MainApp_FormClosing(object sender, FormClosingEventArgs e)
         {
-
+            backup();
         }
 
 
@@ -109,22 +109,27 @@ namespace VNShop
 
         private void btnBackup_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            backup();
+        }
+
+        private static void Backup_Completed(object sender, ServerMessageEventArgs args)
+        {
+            XtraMessageBox.Show("Đã sao lưu thành công");
+        }
+
+        private void backup()
+        {
             Server dbServer = new Server(new ServerConnection("DESKTOP-MMSE614\\SQLEXPRESS", "sa", "123456"));
             Backup bkpDBFull = new Backup();
             bkpDBFull.Action = BackupActionType.Database;
             bkpDBFull.Database = "QLBH";
-            bkpDBFull.Devices.AddDevice(@"E:QLBH.bak", DeviceType.File);
+            bkpDBFull.Devices.AddDevice(System.Configuration.ConfigurationManager.AppSettings["pathbackup"] + @"QLBH.bak", DeviceType.File);
             bkpDBFull.BackupSetName = "QLBH database Backup";
             bkpDBFull.BackupSetDescription = "QLBH database - Full Backup";
             bkpDBFull.ExpirationDate = DateTime.Today.AddDays(20);
             bkpDBFull.Initialize = false;
             bkpDBFull.Complete += Backup_Completed;
             bkpDBFull.SqlBackup(dbServer);
-        }
-
-        private static void Backup_Completed(object sender, ServerMessageEventArgs args)
-        {
-            XtraMessageBox.Show("Đã sao lưu thành công");
         }
     }
 }
