@@ -54,6 +54,8 @@
             this.btnQuote = new DevExpress.XtraBars.BarButtonItem();
             this.barSubItem4 = new DevExpress.XtraBars.BarSubItem();
             this.btnInfo = new DevExpress.XtraBars.BarButtonItem();
+            this.btnBackup = new DevExpress.XtraBars.BarButtonItem();
+            this.btnDatabse = new DevExpress.XtraBars.BarButtonItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.txtHello = new DevExpress.XtraBars.BarHeaderItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
@@ -66,7 +68,6 @@
             this.btnPriceReport = new DevExpress.XtraBars.BarButtonItem();
             this.btnSetting = new DevExpress.XtraBars.BarButtonItem();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
-            this.btnBackup = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartControlMain)).BeginInit();
@@ -97,7 +98,7 @@
             xyDiagram1.AxisY.VisibleInPanesSerializable = "-1";
             this.chartControlMain.Diagram = xyDiagram1;
             this.chartControlMain.Legend.Name = "Default Legend";
-            this.chartControlMain.Location = new System.Drawing.Point(10, 10);
+            this.chartControlMain.Location = new System.Drawing.Point(12, 12);
             this.chartControlMain.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.chartControlMain.Name = "chartControlMain";
             series1.ArgumentDataMember = "date";
@@ -105,7 +106,7 @@
             series1.ValueDataMembersSerializable = "value";
             this.chartControlMain.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
         series1};
-            this.chartControlMain.Size = new System.Drawing.Size(1569, 627);
+            this.chartControlMain.Size = new System.Drawing.Size(1565, 623);
             this.chartControlMain.TabIndex = 4;
             chartTitle1.Text = "Doanh số bán hàng";
             this.chartControlMain.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
@@ -131,7 +132,7 @@
             this.layoutControlItem1.Control = this.chartControlMain;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(1573, 631);
+            this.layoutControlItem1.Size = new System.Drawing.Size(1569, 627);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -170,9 +171,10 @@
             this.btnRecpiect,
             this.btnSetting,
             this.btnQuote,
-            this.btnBackup});
+            this.btnBackup,
+            this.btnDatabse});
             this.barManager1.MainMenu = this.bar2;
-            this.barManager1.MaxItemId = 23;
+            this.barManager1.MaxItemId = 24;
             this.barManager1.StatusBar = this.bar3;
             // 
             // bar2
@@ -311,6 +313,15 @@
             this.btnInfo.Name = "btnInfo";
             this.btnInfo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnInfo_ItemClick);
             // 
+            // btnBackup
+            // 
+            this.btnBackup.Caption = "Sao lưu dữ liệu";
+            this.btnBackup.Id = 22;
+            this.btnBackup.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBackup.ImageOptions.Image")));
+            this.btnBackup.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnBackup.ImageOptions.LargeImage")));
+            this.btnBackup.Name = "btnBackup";
+            this.btnBackup.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBackup_ItemClick);
+            // 
             // bar3
             // 
             this.bar3.BarName = "Status bar";
@@ -402,15 +413,6 @@
             // 
             this.defaultLookAndFeel1.LookAndFeel.SkinName = "The Bezier";
             // 
-            // btnBackup
-            // 
-            this.btnBackup.Caption = "Sao lưu dữ liệu";
-            this.btnBackup.Id = 22;
-            this.btnBackup.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBackup.ImageOptions.Image")));
-            this.btnBackup.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnBackup.ImageOptions.LargeImage")));
-            this.btnBackup.Name = "btnBackup";
-            this.btnBackup.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBackup_ItemClick);
-            // 
             // MainApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -479,5 +481,6 @@
         private DevExpress.XtraBars.BarButtonItem btnSetting;
         private DevExpress.XtraBars.BarButtonItem btnQuote;
         private DevExpress.XtraBars.BarButtonItem btnBackup;
+        private DevExpress.XtraBars.BarButtonItem btnDatabse;
     }
 }

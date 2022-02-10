@@ -115,21 +115,21 @@
             this.layoutControl1.Margin = new System.Windows.Forms.Padding(6);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(1242, 1058);
+            this.layoutControl1.Size = new System.Drawing.Size(1242, 890);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
             // searchProduct
             // 
             this.searchProduct.EditValue = "[Tìm kiếm sản phẩm]";
-            this.searchProduct.Location = new System.Drawing.Point(176, 46);
+            this.searchProduct.Location = new System.Drawing.Point(143, 42);
             this.searchProduct.Name = "searchProduct";
             this.searchProduct.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.searchProduct.Properties.DisplayMember = "TenSanPham";
             this.searchProduct.Properties.PopupView = this.searchLookUpEdit1View;
             this.searchProduct.Properties.ValueMember = "id";
-            this.searchProduct.Size = new System.Drawing.Size(1054, 30);
+            this.searchProduct.Size = new System.Drawing.Size(1087, 26);
             this.searchProduct.StyleController = this.layoutControl1;
             this.searchProduct.TabIndex = 17;
             this.searchProduct.EditValueChanged += new System.EventHandler(this.searchProduct_EditValueChanged);
@@ -163,22 +163,22 @@
             // txtExcessCash
             // 
             this.txtExcessCash.EditValue = "0";
-            this.txtExcessCash.Location = new System.Drawing.Point(636, 1006);
+            this.txtExcessCash.Location = new System.Drawing.Point(603, 844);
             this.txtExcessCash.Name = "txtExcessCash";
             this.txtExcessCash.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtExcessCash.Properties.Appearance.Options.UseFont = true;
-            this.txtExcessCash.Size = new System.Drawing.Size(294, 40);
+            this.txtExcessCash.Size = new System.Drawing.Size(327, 34);
             this.txtExcessCash.StyleController = this.layoutControl1;
             this.txtExcessCash.TabIndex = 16;
             // 
             // txtMoneyReciver
             // 
             this.txtMoneyReciver.EditValue = "0";
-            this.txtMoneyReciver.Location = new System.Drawing.Point(176, 1006);
+            this.txtMoneyReciver.Location = new System.Drawing.Point(143, 844);
             this.txtMoneyReciver.Name = "txtMoneyReciver";
             this.txtMoneyReciver.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMoneyReciver.Properties.Appearance.Options.UseFont = true;
-            this.txtMoneyReciver.Size = new System.Drawing.Size(292, 40);
+            this.txtMoneyReciver.Size = new System.Drawing.Size(325, 34);
             this.txtMoneyReciver.StyleController = this.layoutControl1;
             this.txtMoneyReciver.TabIndex = 15;
             this.txtMoneyReciver.EditValueChanged += new System.EventHandler(this.txtMoneyReciver_EditValueChanged);
@@ -188,9 +188,9 @@
             this.btnPaymentWithoutPrint.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPaymentWithoutPrint.Appearance.Options.UseFont = true;
             this.btnPaymentWithoutPrint.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnPaymentWithoutPrint.ImageOptions.Image")));
-            this.btnPaymentWithoutPrint.Location = new System.Drawing.Point(934, 962);
+            this.btnPaymentWithoutPrint.Location = new System.Drawing.Point(934, 806);
             this.btnPaymentWithoutPrint.Name = "btnPaymentWithoutPrint";
-            this.btnPaymentWithoutPrint.Size = new System.Drawing.Size(296, 29);
+            this.btnPaymentWithoutPrint.Size = new System.Drawing.Size(296, 24);
             this.btnPaymentWithoutPrint.StyleController = this.layoutControl1;
             this.btnPaymentWithoutPrint.TabIndex = 14;
             this.btnPaymentWithoutPrint.Text = "Thanh toán không in hóa đơn";
@@ -201,9 +201,9 @@
             this.btnPaymentPrint.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPaymentPrint.Appearance.Options.UseFont = true;
             this.btnPaymentPrint.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnPaymentPrint.ImageOptions.Image")));
-            this.btnPaymentPrint.Location = new System.Drawing.Point(934, 918);
+            this.btnPaymentPrint.Location = new System.Drawing.Point(934, 768);
             this.btnPaymentPrint.Name = "btnPaymentPrint";
-            this.btnPaymentPrint.Size = new System.Drawing.Size(296, 29);
+            this.btnPaymentPrint.Size = new System.Drawing.Size(296, 24);
             this.btnPaymentPrint.StyleController = this.layoutControl1;
             this.btnPaymentPrint.TabIndex = 13;
             this.btnPaymentPrint.Text = "Thanh toán in hóa đơn";
@@ -212,7 +212,7 @@
             // txtTotal
             // 
             this.txtTotal.EditValue = "0";
-            this.txtTotal.Location = new System.Drawing.Point(176, 962);
+            this.txtTotal.Location = new System.Drawing.Point(143, 806);
             this.txtTotal.Margin = new System.Windows.Forms.Padding(6);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -220,28 +220,28 @@
             this.txtTotal.Properties.Appearance.Options.UseFont = true;
             this.txtTotal.Properties.Appearance.Options.UseForeColor = true;
             this.txtTotal.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.txtTotal.Size = new System.Drawing.Size(754, 40);
+            this.txtTotal.Size = new System.Drawing.Size(787, 34);
             this.txtTotal.StyleController = this.layoutControl1;
             this.txtTotal.TabIndex = 12;
             // 
             // txtTotalQuanity
             // 
             this.txtTotalQuanity.EditValue = "0";
-            this.txtTotalQuanity.Location = new System.Drawing.Point(176, 918);
+            this.txtTotalQuanity.Location = new System.Drawing.Point(143, 768);
             this.txtTotalQuanity.Margin = new System.Windows.Forms.Padding(6);
             this.txtTotalQuanity.Name = "txtTotalQuanity";
             this.txtTotalQuanity.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTotalQuanity.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.txtTotalQuanity.Properties.Appearance.Options.UseFont = true;
             this.txtTotalQuanity.Properties.Appearance.Options.UseForeColor = true;
-            this.txtTotalQuanity.Size = new System.Drawing.Size(754, 40);
+            this.txtTotalQuanity.Size = new System.Drawing.Size(787, 34);
             this.txtTotalQuanity.StyleController = this.layoutControl1;
             this.txtTotalQuanity.TabIndex = 11;
             // 
             // gridControlCart
             // 
             this.gridControlCart.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
-            this.gridControlCart.Location = new System.Drawing.Point(12, 80);
+            this.gridControlCart.Location = new System.Drawing.Point(12, 72);
             this.gridControlCart.MainView = this.gridViewCart;
             this.gridControlCart.Margin = new System.Windows.Forms.Padding(6);
             this.gridControlCart.Name = "gridControlCart";
@@ -251,7 +251,7 @@
             this.btnDelete,
             this.txtQuanity,
             this.txtPrice});
-            this.gridControlCart.Size = new System.Drawing.Size(1218, 834);
+            this.gridControlCart.Size = new System.Drawing.Size(1218, 692);
             this.gridControlCart.TabIndex = 9;
             this.gridControlCart.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewCart});
@@ -322,6 +322,7 @@
             // 
             this.colGiaBan.Caption = "Đơn giá";
             this.colGiaBan.ColumnEdit = this.txtPrice;
+            this.colGiaBan.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colGiaBan.FieldName = "GiaBan";
             this.colGiaBan.Name = "colGiaBan";
             this.colGiaBan.Visible = true;
@@ -331,6 +332,7 @@
             // txtPrice
             // 
             this.txtPrice.AutoHeight = false;
+            this.txtPrice.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtPrice.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.EditValueChanged += new System.EventHandler(this.txtPrice_EditValueChanged);
@@ -339,6 +341,7 @@
             // gridColumn2
             // 
             this.gridColumn2.Caption = "Thành tiền";
+            this.gridColumn2.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gridColumn2.FieldName = "ThanhTien";
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.OptionsColumn.AllowEdit = false;
@@ -380,7 +383,7 @@
             // 
             // lookupCustomer
             // 
-            this.lookupCustomer.Location = new System.Drawing.Point(629, 12);
+            this.lookupCustomer.Location = new System.Drawing.Point(596, 12);
             this.lookupCustomer.Margin = new System.Windows.Forms.Padding(6);
             this.lookupCustomer.Name = "lookupCustomer";
             this.lookupCustomer.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -393,18 +396,18 @@
             this.lookupCustomer.Properties.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoComplete;
             this.lookupCustomer.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.lookupCustomer.Properties.ValueMember = "id";
-            this.lookupCustomer.Size = new System.Drawing.Size(601, 30);
+            this.lookupCustomer.Size = new System.Drawing.Size(634, 26);
             this.lookupCustomer.StyleController = this.layoutControl1;
             this.lookupCustomer.TabIndex = 7;
             // 
             // txtCode
             // 
             this.txtCode.EditValue = "";
-            this.txtCode.Location = new System.Drawing.Point(176, 12);
+            this.txtCode.Location = new System.Drawing.Point(143, 12);
             this.txtCode.Margin = new System.Windows.Forms.Padding(6);
             this.txtCode.Name = "txtCode";
             this.txtCode.Properties.NullText = "[EditValue is null]";
-            this.txtCode.Size = new System.Drawing.Size(285, 30);
+            this.txtCode.Size = new System.Drawing.Size(318, 26);
             this.txtCode.StyleController = this.layoutControl1;
             this.txtCode.TabIndex = 4;
             // 
@@ -425,7 +428,7 @@
             this.lblsearchProduct});
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.OptionsItemText.TextToControlDistance = 4;
-            this.layoutControlGroup1.Size = new System.Drawing.Size(1242, 1058);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(1242, 890);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
@@ -433,90 +436,90 @@
             this.layoutControlItem1.Control = this.txtCode;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(453, 34);
+            this.layoutControlItem1.Size = new System.Drawing.Size(453, 30);
             this.layoutControlItem1.Text = "Mã số phiếu";
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(160, 24);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(127, 19);
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.lookupCustomer;
             this.layoutControlItem4.Location = new System.Drawing.Point(453, 0);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(769, 34);
+            this.layoutControlItem4.Size = new System.Drawing.Size(769, 30);
             this.layoutControlItem4.Text = "Khách hàng";
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(160, 24);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(127, 19);
             // 
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.gridControlCart;
-            this.layoutControlItem6.Location = new System.Drawing.Point(0, 68);
+            this.layoutControlItem6.Location = new System.Drawing.Point(0, 60);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(1222, 838);
+            this.layoutControlItem6.Size = new System.Drawing.Size(1222, 696);
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem6.TextVisible = false;
             // 
             // layoutControlItem8
             // 
             this.layoutControlItem8.Control = this.txtTotalQuanity;
-            this.layoutControlItem8.Location = new System.Drawing.Point(0, 906);
+            this.layoutControlItem8.Location = new System.Drawing.Point(0, 756);
             this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(922, 44);
+            this.layoutControlItem8.Size = new System.Drawing.Size(922, 38);
             this.layoutControlItem8.Text = "Số lượng";
-            this.layoutControlItem8.TextSize = new System.Drawing.Size(160, 24);
+            this.layoutControlItem8.TextSize = new System.Drawing.Size(127, 19);
             // 
             // layoutControlItem9
             // 
             this.layoutControlItem9.Control = this.txtTotal;
-            this.layoutControlItem9.Location = new System.Drawing.Point(0, 950);
+            this.layoutControlItem9.Location = new System.Drawing.Point(0, 794);
             this.layoutControlItem9.Name = "layoutControlItem9";
-            this.layoutControlItem9.Size = new System.Drawing.Size(922, 44);
+            this.layoutControlItem9.Size = new System.Drawing.Size(922, 38);
             this.layoutControlItem9.Text = "Thành tiền";
-            this.layoutControlItem9.TextSize = new System.Drawing.Size(160, 24);
+            this.layoutControlItem9.TextSize = new System.Drawing.Size(127, 19);
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.btnPaymentPrint;
-            this.layoutControlItem2.Location = new System.Drawing.Point(922, 906);
+            this.layoutControlItem2.Location = new System.Drawing.Point(922, 756);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(300, 44);
+            this.layoutControlItem2.Size = new System.Drawing.Size(300, 38);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.btnPaymentWithoutPrint;
-            this.layoutControlItem3.Location = new System.Drawing.Point(922, 950);
+            this.layoutControlItem3.Location = new System.Drawing.Point(922, 794);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(300, 88);
+            this.layoutControlItem3.Size = new System.Drawing.Size(300, 76);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
             // layoutControlItem7
             // 
             this.layoutControlItem7.Control = this.txtMoneyReciver;
-            this.layoutControlItem7.Location = new System.Drawing.Point(0, 994);
+            this.layoutControlItem7.Location = new System.Drawing.Point(0, 832);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(460, 44);
+            this.layoutControlItem7.Size = new System.Drawing.Size(460, 38);
             this.layoutControlItem7.Text = "Số tiền khách đưa";
-            this.layoutControlItem7.TextSize = new System.Drawing.Size(160, 24);
+            this.layoutControlItem7.TextSize = new System.Drawing.Size(127, 19);
             // 
             // layoutControlItem10
             // 
             this.layoutControlItem10.Control = this.txtExcessCash;
-            this.layoutControlItem10.Location = new System.Drawing.Point(460, 994);
+            this.layoutControlItem10.Location = new System.Drawing.Point(460, 832);
             this.layoutControlItem10.Name = "layoutControlItem10";
-            this.layoutControlItem10.Size = new System.Drawing.Size(462, 44);
+            this.layoutControlItem10.Size = new System.Drawing.Size(462, 38);
             this.layoutControlItem10.Text = "Tiền thừa";
-            this.layoutControlItem10.TextSize = new System.Drawing.Size(160, 24);
+            this.layoutControlItem10.TextSize = new System.Drawing.Size(127, 19);
             // 
             // lblsearchProduct
             // 
             this.lblsearchProduct.Control = this.searchProduct;
-            this.lblsearchProduct.Location = new System.Drawing.Point(0, 34);
+            this.lblsearchProduct.Location = new System.Drawing.Point(0, 30);
             this.lblsearchProduct.Name = "lblsearchProduct";
-            this.lblsearchProduct.Size = new System.Drawing.Size(1222, 34);
+            this.lblsearchProduct.Size = new System.Drawing.Size(1222, 30);
             this.lblsearchProduct.Text = "Sản phẩm";
-            this.lblsearchProduct.TextSize = new System.Drawing.Size(160, 24);
+            this.lblsearchProduct.TextSize = new System.Drawing.Size(127, 19);
             // 
             // directorySearcher1
             // 
@@ -527,9 +530,9 @@
             // RetailForm
             // 
             this.Appearance.Options.UseFont = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 26F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1242, 1058);
+            this.ClientSize = new System.Drawing.Size(1242, 890);
             this.Controls.Add(this.layoutControl1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(6);

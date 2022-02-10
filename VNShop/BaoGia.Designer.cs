@@ -74,7 +74,7 @@ namespace VNShop
             this.lblAddress,
             this.lblPhone,
             this.xrLabel1});
-            this.TopMargin.HeightF = 190.8824F;
+            this.TopMargin.HeightF = 172.549F;
             this.TopMargin.Name = "TopMargin";
             // 
             // xrTable1
@@ -229,7 +229,7 @@ namespace VNShop
             this.xrLabel1.SizeF = new System.Drawing.SizeF(607F, 23.26041F);
             this.xrLabel1.StylePriority.UseFont = false;
             this.xrLabel1.StylePriority.UseTextAlignment = false;
-            this.xrLabel1.Text = "HÓA ĐƠN BÁN HÀNG\r\n---------------------------------------";
+            this.xrLabel1.Text = "HÓA ĐƠN BÁN HÀNG";
             this.xrLabel1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
             // 
             // BottomMargin
@@ -338,7 +338,7 @@ namespace VNShop
             this.xrTableCell5.Name = "xrTableCell5";
             this.xrTableCell5.StylePriority.UseTextAlignment = false;
             this.xrTableCell5.Text = "xrTableCell5";
-            this.xrTableCell5.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
+            this.xrTableCell5.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             this.xrTableCell5.Weight = 1.6579368260523824D;
             // 
             // xrTableCell6
@@ -349,7 +349,8 @@ namespace VNShop
             this.xrTableCell6.Name = "xrTableCell6";
             this.xrTableCell6.StylePriority.UseTextAlignment = false;
             this.xrTableCell6.Text = "xrTableCell6";
-            this.xrTableCell6.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
+            this.xrTableCell6.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.xrTableCell6.TextFormatString = "{0:#,#}";
             this.xrTableCell6.Weight = 1.043992765122201D;
             // 
             // xrTableCell7
@@ -360,7 +361,8 @@ namespace VNShop
             this.xrTableCell7.Name = "xrTableCell7";
             this.xrTableCell7.StylePriority.UseTextAlignment = false;
             this.xrTableCell7.Text = "xrTableCell7";
-            this.xrTableCell7.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
+            this.xrTableCell7.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.xrTableCell7.TextFormatString = "{0:#,#}";
             this.xrTableCell7.Weight = 1.2561840691513224D;
             // 
             // xrTableCell8
@@ -371,7 +373,8 @@ namespace VNShop
             this.xrTableCell8.Name = "xrTableCell8";
             this.xrTableCell8.StylePriority.UseTextAlignment = false;
             this.xrTableCell8.Text = "xrTableCell8";
-            this.xrTableCell8.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
+            this.xrTableCell8.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.xrTableCell8.TextFormatString = "{0:#,#}";
             this.xrTableCell8.Weight = 0.83395447612155349D;
             // 
             // xrTableCell10
@@ -382,7 +385,8 @@ namespace VNShop
             this.xrTableCell10.Name = "xrTableCell10";
             this.xrTableCell10.StylePriority.UseTextAlignment = false;
             this.xrTableCell10.Text = "xrTableCell10";
-            this.xrTableCell10.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
+            this.xrTableCell10.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.xrTableCell10.TextFormatString = "{0:#,#}";
             this.xrTableCell10.Weight = 1.2779327790798845D;
             // 
             // objectDataSource1
@@ -400,7 +404,7 @@ namespace VNShop
             this.objectDataSource1});
             this.DataSource = this.objectDataSource1;
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margins = new System.Drawing.Printing.Margins(100, 100, 191, 150);
+            this.Margins = new System.Drawing.Printing.Margins(100, 100, 173, 150);
             this.PageHeight = 1169;
             this.PageWidth = 827;
             this.PaperKind = System.Drawing.Printing.PaperKind.A4;
