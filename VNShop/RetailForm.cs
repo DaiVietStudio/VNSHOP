@@ -49,7 +49,7 @@ namespace VNShop
         private void loadProduct()
         {
             sanPhams = productController.productList();
-            searchProduct.Properties.DataSource = sanPhams;
+           
 
         }
 
@@ -197,7 +197,7 @@ namespace VNShop
             }
 
             ChiTietPhieuBanHang check = chiTietPhieuBanHangs.FirstOrDefault(s => s.GiaBan == 0);
-            if(check == null)
+            if (check == null)
             {
                 Response response = saleController.save(phieuBanHang, chiTietPhieuBanHangs);
 
@@ -210,7 +210,7 @@ namespace VNShop
                     gridControlCart.RefreshDataSource();
                     txtMoneyReciver.Text = "0";
                     txtExcessCash.Text = "0";
-                    searchProduct.EditValue = null;
+                    txtProduct.EditValue = null;
                     XtraMessageBox.Show("Đã thanh toán hoàn tất hóa đơn", "Thanh toán hoàn tất", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
@@ -249,7 +249,7 @@ namespace VNShop
                 chiTietPhieuBanHangs.Add(detail);
             }
             ChiTietPhieuBanHang check = chiTietPhieuBanHangs.Where(s => s.GiaBan == 0).FirstOrDefault();
-            if(check == null)
+            if (check == null)
             {
                 Response response = saleController.save(phieuBanHang, chiTietPhieuBanHangs);
 
@@ -276,22 +276,22 @@ namespace VNShop
                     gridControlCart.RefreshDataSource();
                     txtMoneyReciver.Text = "0";
                     txtExcessCash.Text = "0";
-                    searchProduct.EditValue = null;
+                    txtProduct.EditValue = null;
 
                 }
             }
             else
             {
-                XtraMessageBox.Show("Đơn hàng có sản phẩm chưa có giá bán vui lòng kiểm tra lại","Cảnh báo",  MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                XtraMessageBox.Show("Đơn hàng có sản phẩm chưa có giá bán vui lòng kiểm tra lại", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
-           
+
         }
 
         private List<DetailPrint> createData()
         {
             List<DetailPrint> detailPrints = new List<DetailPrint>();
-            foreach(DetailCart item in detailCarts)
+            foreach (DetailCart item in detailCarts)
             {
                 DetailPrint itemPrint = new DetailPrint();
                 itemPrint.Name = item.TenSanPham;
@@ -306,7 +306,7 @@ namespace VNShop
 
         private void txtPrice_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
         {
-           
+
             //TextEdit textEdit = (TextEdit)sender;
             //if (textEdit.EditValue.ToString() != "")
             //{
@@ -327,7 +327,7 @@ namespace VNShop
         {
             if (e.Column.FieldName == "GiaBan")
             {
-                if(e.Value.ToString() != "")
+                if (e.Value.ToString() != "")
                 {
                     int[] row = gridViewCart.GetSelectedRows();
                     double quanity = (double)gridViewCart.GetRowCellValue(row[0], "SoLuong");
@@ -340,39 +340,80 @@ namespace VNShop
                     gridControlCart.RefreshDataSource();
                     calcTotal();
                 }
-             
+
             }
-               
+
         }
 
-        private void searchProduct_EditValueChanged(object sender, EventArgs e)
+        private void txtProduct_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
         {
-            if (searchProduct.EditValue != null)
-            {
-                long productId = long.Parse(searchProduct.EditValue.ToString());
-                if (detailCarts.Exists(x => x.id == productId))
-                {
-                    int position = detailCarts.FindIndex(x => x.id == productId);
-                    detailCarts[position].SoLuong++;
-                    detailCarts[position].ThanhTien = detailCarts[position].SoLuong * detailCarts[position].GiaBan;
-                }
-                else
-                {
-                    SanPham sanPham = sanPhams.Where(x => x.id == long.Parse(searchProduct.EditValue.ToString())).FirstOrDefault();
-                    DetailCart itemCart = new DetailCart();
-                    itemCart.id = sanPham.id;
-                    itemCart.DonViTinh = (long)sanPham.DonViTinh;
-                    itemCart.TenDonVi = sanPham.DonViTinh1.TenDonVi;
-                    itemCart.TenSanPham = sanPham.TenSanPham;
-                    itemCart.SoLuong = 1;
-                    itemCart.GiaBan = sanPham.GiaLe;
-                    itemCart.ThanhTien = 1 * sanPham.GiaLe;
-                    detailCarts.Add(itemCart);
-                }
+            //var value = e.NewValue;
+            //if (value != null)
+            //{
+            //    long productId = long.Parse(value.ToString());
+            //    if (detailCarts.Exists(x => x.id == productId))
+            //    {
+            //        int position = detailCarts.FindIndex(x => x.id == productId);
+            //        detailCarts[position].SoLuong++;
+            //        detailCarts[position].ThanhTien = detailCarts[position].SoLuong * detailCarts[position].GiaBan;
+            //    }
+            //    else
+            //    {
+            //        SanPham sanPham = sanPhams.Where(x => x.id == long.Parse(value.ToString())).FirstOrDefault();
+            //        DetailCart itemCart = new DetailCart();
+            //        itemCart.id = sanPham.id;
+            //        itemCart.DonViTinh = (long)sanPham.DonViTinh;
+            //        itemCart.TenDonVi = sanPham.DonViTinh1.TenDonVi;
+            //        itemCart.TenSanPham = sanPham.TenSanPham;
+            //        itemCart.SoLuong = 1;
+            //        itemCart.GiaBan = sanPham.GiaLe;
+            //        itemCart.ThanhTien = 1 * sanPham.GiaLe;
+            //        detailCarts.Add(itemCart);
+            //    }
 
-                gridControlCart.RefreshDataSource();
-                calcTotal();
-                searchProduct.EditValue = null;
+            //    gridControlCart.RefreshDataSource();
+            //    calcTotal();
+            //    txtProduct.EditValue = null;
+            //}
+        }
+
+        private void txtProduct_EditValueChanged(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void txtProduct_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                var value = txtProduct.EditValue.ToString();
+                if (value != null)
+                {
+                    if (detailCarts.Exists(x => x.MaSanPham == value))
+                    {
+                        int position = detailCarts.FindIndex(x => x.MaSanPham == value);
+                        detailCarts[position].SoLuong++;
+                        detailCarts[position].ThanhTien = detailCarts[position].SoLuong * detailCarts[position].GiaBan;
+                    }
+                    else
+                    {
+                        SanPham sanPham = sanPhams.Where(x => x.MaSanPham == value.ToString()).FirstOrDefault();
+                        DetailCart itemCart = new DetailCart();
+                        itemCart.id = sanPham.id;
+                        itemCart.MaSanPham = sanPham.MaSanPham;
+                        itemCart.DonViTinh = (long)sanPham.DonViTinh;
+                        itemCart.TenDonVi = sanPham.DonViTinh1.TenDonVi;
+                        itemCart.TenSanPham = sanPham.TenSanPham;
+                        itemCart.SoLuong = 1;
+                        itemCart.GiaBan = sanPham.GiaLe;
+                        itemCart.ThanhTien = 1 * sanPham.GiaLe;
+                        detailCarts.Add(itemCart);
+                    }
+
+                    gridControlCart.RefreshDataSource();
+                    calcTotal();
+                    txtProduct.EditValue = null;
+                }
             }
         }
     }

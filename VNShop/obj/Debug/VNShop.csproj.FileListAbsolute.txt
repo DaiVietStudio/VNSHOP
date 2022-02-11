@@ -252,3 +252,4 @@ C:\Users\AKINOSORA\source\repos\VNShop\VNShop\bin\Debug\Microsoft.SqlServer.SqlE
 C:\Users\AKINOSORA\source\repos\VNShop\VNShop\bin\Debug\Microsoft.SqlServer.Dmf.dll
 C:\Users\AKINOSORA\source\repos\VNShop\VNShop\bin\Debug\Microsoft.SqlServer.ServiceBrokerEnum.dll
 C:\Users\AKINOSORA\source\repos\VNShop\VNShop\bin\Debug\Microsoft.SqlServer.RegSvrEnum.dll
+C:\Users\AKINOSORA\source\repos\VNShop\VNShop\obj\Debug\VNShop.csproj.AssemblyReference.cache

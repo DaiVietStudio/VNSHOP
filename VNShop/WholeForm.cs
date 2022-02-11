@@ -50,7 +50,6 @@ namespace VNShop
         private void loadProduct()
         {
             sanPhams = productController.productList();
-            searchProduct.Properties.DataSource = sanPhams;
 
         }
 
@@ -334,34 +333,43 @@ namespace VNShop
 
         private void searchProduct_EditValueChanged(object sender, EventArgs e)
         {
-            if (searchProduct.EditValue != null)
+            
+
+        }
+
+        private void searchProduct_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
             {
-                long productId = long.Parse(searchProduct.EditValue.ToString());
-                if (detailCarts.Exists(x => x.id == productId))
+                string value = searchProduct.EditValue.ToString();
+                if (value != null)
                 {
-                    int position = detailCarts.FindIndex(x => x.id == productId);
-                    detailCarts[position].SoLuong++;
-                    detailCarts[position].ThanhTien = detailCarts[position].SoLuong * detailCarts[position].GiaBan;
+                   
+                    if (detailCarts.Exists(x => x.MaSanPham == value))
+                    {
+                        int position = detailCarts.FindIndex(x => x.MaSanPham == value);
+                        detailCarts[position].SoLuong++;
+                        detailCarts[position].ThanhTien = detailCarts[position].SoLuong * detailCarts[position].GiaBan;
+                    }
+                    else
+                    {
+                        SanPham sanPham = sanPhams.Where(x => x.MaSanPham == value).FirstOrDefault();
+                        DetailCart itemCart = new DetailCart();
+                        itemCart.id = sanPham.id;
+                        itemCart.DonViTinh = (long)sanPham.DonViTinh;
+                        itemCart.TenDonVi = sanPham.DonViTinh1.TenDonVi;
+                        itemCart.TenSanPham = sanPham.TenSanPham;
+                        itemCart.SoLuong = 1;
+                        itemCart.GiaBan = sanPham.GiaSi;
+                        itemCart.ThanhTien = 1 * sanPham.GiaSi;
+                        itemCart.MaSanPham = sanPham.MaSanPham;
+                        detailCarts.Add(itemCart);
+                    }
+                    gridControlCart.RefreshDataSource();
+                    calcTotal();
+                    searchProduct.EditValue = null;
                 }
-                else
-                {
-                    SanPham sanPham = sanPhams.Where(x => x.id == long.Parse(searchProduct.EditValue.ToString())).FirstOrDefault();
-                    DetailCart itemCart = new DetailCart();
-                    itemCart.id = sanPham.id;
-                    itemCart.DonViTinh = (long)sanPham.DonViTinh;
-                    itemCart.TenDonVi = sanPham.DonViTinh1.TenDonVi;
-                    itemCart.TenSanPham = sanPham.TenSanPham;
-                    itemCart.SoLuong = 1;
-                    itemCart.GiaBan = sanPham.GiaSi;
-                    itemCart.ThanhTien = 1 * sanPham.GiaSi;
-                    detailCarts.Add(itemCart);
-                }
-
-                gridControlCart.RefreshDataSource();
-                calcTotal();
-                searchProduct.EditValue = null;
             }
-
         }
     }
 }
