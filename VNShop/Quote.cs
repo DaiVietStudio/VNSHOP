@@ -49,7 +49,6 @@ namespace VNShop
         private void loadProduct()
         {
             sanPhams = productController.productList();
-            searchProduct.Properties.DataSource = sanPhams;
 
         }
 
@@ -311,34 +310,39 @@ namespace VNShop
                
         }
 
-        private void searchProduct_EditValueChanged(object sender, EventArgs e)
-        {
-            if (searchProduct.EditValue != null)
-            {
-                long productId = long.Parse(searchProduct.EditValue.ToString());
-                if (detailCarts.Exists(x => x.id == productId))
-                {
-                    int position = detailCarts.FindIndex(x => x.id == productId);
-                    detailCarts[position].SoLuong++;
-                    detailCarts[position].ThanhTien = detailCarts[position].SoLuong * detailCarts[position].GiaBan;
-                }
-                else
-                {
-                    SanPham sanPham = sanPhams.Where(x => x.id == long.Parse(searchProduct.EditValue.ToString())).FirstOrDefault();
-                    DetailCart itemCart = new DetailCart();
-                    itemCart.id = sanPham.id;
-                    itemCart.DonViTinh = (long)sanPham.DonViTinh;
-                    itemCart.TenDonVi = sanPham.DonViTinh1.TenDonVi;
-                    itemCart.TenSanPham = sanPham.TenSanPham;
-                    itemCart.SoLuong = 1;
-                    itemCart.GiaBan = sanPham.GiaLe;
-                    itemCart.ThanhTien = 1 * sanPham.GiaLe;
-                    detailCarts.Add(itemCart);
-                }
 
-                gridControlCart.RefreshDataSource();
-                calcTotal();
-                searchProduct.EditValue = null;
+        private void searchProduct_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                if (searchProduct.EditValue != null)
+                {
+                    string productCode = searchProduct.EditValue.ToString();
+                    if (detailCarts.Exists(x => x.MaSanPham == productCode))
+                    {
+                        int position = detailCarts.FindIndex(x => x.MaSanPham == productCode);
+                        detailCarts[position].SoLuong++;
+                        detailCarts[position].ThanhTien = detailCarts[position].SoLuong * detailCarts[position].GiaBan;
+                    }
+                    else
+                    {
+                        SanPham sanPham = sanPhams.Where(x => x.MaSanPham == searchProduct.EditValue.ToString()).FirstOrDefault();
+                        DetailCart itemCart = new DetailCart();
+                        itemCart.id = sanPham.id;
+                        itemCart.DonViTinh = (long)sanPham.DonViTinh;
+                        itemCart.TenDonVi = sanPham.DonViTinh1.TenDonVi;
+                        itemCart.TenSanPham = sanPham.TenSanPham;
+                        itemCart.SoLuong = 1;
+                        itemCart.GiaBan = sanPham.GiaLe;
+                        itemCart.ThanhTien = 1 * sanPham.GiaLe;
+                        itemCart.MaSanPham = sanPham.MaSanPham;
+                        detailCarts.Add(itemCart);
+                    }
+
+                    gridControlCart.RefreshDataSource();
+                    calcTotal();
+                    searchProduct.EditValue = null;
+                }
             }
         }
     }

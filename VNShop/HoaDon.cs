@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Drawing;
 using VNShop.Controllers;
 using VNShop.Models;
+using VNShop.Utils;
 
 namespace VNShop
 {
@@ -36,6 +37,7 @@ namespace VNShop
 
             lblTotalQuanity.Text = totalQuanity.ToString();
             lblTotal.Text = totalPrice.ToString();
+            lblBangchu.Text = NumberToText.ConvertNumber(totalPrice);
         }
 
     }

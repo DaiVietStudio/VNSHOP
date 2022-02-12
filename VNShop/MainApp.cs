@@ -114,12 +114,16 @@ namespace VNShop
 
         private static void Backup_Completed(object sender, ServerMessageEventArgs args)
         {
-            XtraMessageBox.Show("Đã sao lưu thành công");
+            XtraMessageBox.Show("Đã sao lưu thành công", "Đã sao lưu dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void backup()
         {
-            Server dbServer = new Server(new ServerConnection("DESKTOP-MMSE614\\SQLEXPRESS", "sa", "123456"));
+            string server = System.Configuration.ConfigurationManager.AppSettings["server"];
+            string username = System.Configuration.ConfigurationManager.AppSettings["username"];
+            string password = System.Configuration.ConfigurationManager.AppSettings["password"];
+
+            Server dbServer = new Server(new ServerConnection(server, username, password));
             Backup bkpDBFull = new Backup();
             bkpDBFull.Action = BackupActionType.Database;
             bkpDBFull.Database = "QLBH";

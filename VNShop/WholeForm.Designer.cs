@@ -51,6 +51,7 @@
             this.lookupProductEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.lookupCustomer = new DevExpress.XtraEditors.LookUpEdit();
             this.txtCode = new DevExpress.XtraEditors.TextEdit();
+            this.searchProduct = new DevExpress.XtraEditors.TextEdit();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -62,7 +63,6 @@
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.searchProduct = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtExcessCash.Properties)).BeginInit();
@@ -78,6 +78,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lookupProductEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookupCustomer.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCode.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchProduct.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
@@ -89,7 +90,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchProduct.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -120,7 +120,7 @@
             this.txtExcessCash.Name = "txtExcessCash";
             this.txtExcessCash.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtExcessCash.Properties.Appearance.Options.UseFont = true;
-            this.txtExcessCash.Size = new System.Drawing.Size(326, 34);
+            this.txtExcessCash.Size = new System.Drawing.Size(384, 34);
             this.txtExcessCash.StyleController = this.layoutControl1;
             this.txtExcessCash.TabIndex = 16;
             // 
@@ -141,9 +141,9 @@
             this.btnPaymentWithoutPrint.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPaymentWithoutPrint.Appearance.Options.UseFont = true;
             this.btnPaymentWithoutPrint.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnPaymentWithoutPrint.ImageOptions.Image")));
-            this.btnPaymentWithoutPrint.Location = new System.Drawing.Point(933, 806);
+            this.btnPaymentWithoutPrint.Location = new System.Drawing.Point(991, 806);
             this.btnPaymentWithoutPrint.Name = "btnPaymentWithoutPrint";
-            this.btnPaymentWithoutPrint.Size = new System.Drawing.Size(295, 24);
+            this.btnPaymentWithoutPrint.Size = new System.Drawing.Size(237, 24);
             this.btnPaymentWithoutPrint.StyleController = this.layoutControl1;
             this.btnPaymentWithoutPrint.TabIndex = 14;
             this.btnPaymentWithoutPrint.Text = "Thanh toán không in hóa đơn";
@@ -154,9 +154,9 @@
             this.btnPaymentPrint.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPaymentPrint.Appearance.Options.UseFont = true;
             this.btnPaymentPrint.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnPaymentPrint.ImageOptions.Image")));
-            this.btnPaymentPrint.Location = new System.Drawing.Point(933, 768);
+            this.btnPaymentPrint.Location = new System.Drawing.Point(991, 768);
             this.btnPaymentPrint.Name = "btnPaymentPrint";
-            this.btnPaymentPrint.Size = new System.Drawing.Size(295, 24);
+            this.btnPaymentPrint.Size = new System.Drawing.Size(237, 24);
             this.btnPaymentPrint.StyleController = this.layoutControl1;
             this.btnPaymentPrint.TabIndex = 13;
             this.btnPaymentPrint.Text = "Thanh toán in hóa đơn";
@@ -173,7 +173,7 @@
             this.txtTotal.Properties.Appearance.Options.UseFont = true;
             this.txtTotal.Properties.Appearance.Options.UseForeColor = true;
             this.txtTotal.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.txtTotal.Size = new System.Drawing.Size(786, 34);
+            this.txtTotal.Size = new System.Drawing.Size(844, 34);
             this.txtTotal.StyleController = this.layoutControl1;
             this.txtTotal.TabIndex = 12;
             // 
@@ -187,7 +187,7 @@
             this.txtTotalQuanity.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.txtTotalQuanity.Properties.Appearance.Options.UseFont = true;
             this.txtTotalQuanity.Properties.Appearance.Options.UseForeColor = true;
-            this.txtTotalQuanity.Size = new System.Drawing.Size(786, 34);
+            this.txtTotalQuanity.Size = new System.Drawing.Size(844, 34);
             this.txtTotalQuanity.StyleController = this.layoutControl1;
             this.txtTotalQuanity.TabIndex = 11;
             // 
@@ -359,6 +359,18 @@
             this.txtCode.StyleController = this.layoutControl1;
             this.txtCode.TabIndex = 4;
             // 
+            // searchProduct
+            // 
+            this.searchProduct.EditValue = "";
+            this.searchProduct.Location = new System.Drawing.Point(143, 42);
+            this.searchProduct.Name = "searchProduct";
+            this.searchProduct.Properties.NullText = "[EditValue is null]";
+            this.searchProduct.Size = new System.Drawing.Size(1085, 26);
+            this.searchProduct.StyleController = this.layoutControl1;
+            this.searchProduct.TabIndex = 17;
+            this.searchProduct.EditValueChanged += new System.EventHandler(this.searchProduct_EditValueChanged);
+            this.searchProduct.KeyDown += new System.Windows.Forms.KeyEventHandler(this.searchProduct_KeyDown);
+            // 
             // layoutControlGroup1
             // 
             this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
@@ -411,7 +423,7 @@
             this.layoutControlItem8.Control = this.txtTotalQuanity;
             this.layoutControlItem8.Location = new System.Drawing.Point(0, 756);
             this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(921, 38);
+            this.layoutControlItem8.Size = new System.Drawing.Size(979, 38);
             this.layoutControlItem8.Text = "Số lượng";
             this.layoutControlItem8.TextSize = new System.Drawing.Size(127, 19);
             // 
@@ -420,25 +432,25 @@
             this.layoutControlItem9.Control = this.txtTotal;
             this.layoutControlItem9.Location = new System.Drawing.Point(0, 794);
             this.layoutControlItem9.Name = "layoutControlItem9";
-            this.layoutControlItem9.Size = new System.Drawing.Size(921, 38);
+            this.layoutControlItem9.Size = new System.Drawing.Size(979, 38);
             this.layoutControlItem9.Text = "Thành tiền";
             this.layoutControlItem9.TextSize = new System.Drawing.Size(127, 19);
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.btnPaymentPrint;
-            this.layoutControlItem2.Location = new System.Drawing.Point(921, 756);
+            this.layoutControlItem2.Location = new System.Drawing.Point(979, 756);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(299, 38);
+            this.layoutControlItem2.Size = new System.Drawing.Size(241, 38);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.btnPaymentWithoutPrint;
-            this.layoutControlItem3.Location = new System.Drawing.Point(921, 794);
+            this.layoutControlItem3.Location = new System.Drawing.Point(979, 794);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(299, 76);
+            this.layoutControlItem3.Size = new System.Drawing.Size(241, 76);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
@@ -456,7 +468,7 @@
             this.layoutControlItem10.Control = this.txtExcessCash;
             this.layoutControlItem10.Location = new System.Drawing.Point(460, 832);
             this.layoutControlItem10.Name = "layoutControlItem10";
-            this.layoutControlItem10.Size = new System.Drawing.Size(461, 38);
+            this.layoutControlItem10.Size = new System.Drawing.Size(519, 38);
             this.layoutControlItem10.Text = "Tiền thừa";
             this.layoutControlItem10.TextSize = new System.Drawing.Size(127, 19);
             // 
@@ -468,17 +480,6 @@
             this.layoutControlItem11.Size = new System.Drawing.Size(1220, 30);
             this.layoutControlItem11.Text = "Sản phẩm";
             this.layoutControlItem11.TextSize = new System.Drawing.Size(127, 19);
-            // 
-            // searchProduct
-            // 
-            this.searchProduct.Location = new System.Drawing.Point(143, 42);
-            this.searchProduct.Name = "searchProduct";
-            this.searchProduct.Properties.NullText = "[EditValue is null]";
-            this.searchProduct.Size = new System.Drawing.Size(1085, 26);
-            this.searchProduct.StyleController = this.layoutControl1;
-            this.searchProduct.TabIndex = 17;
-            this.searchProduct.EditValueChanged += new System.EventHandler(this.searchProduct_EditValueChanged);
-            this.searchProduct.KeyDown += new System.Windows.Forms.KeyEventHandler(this.searchProduct_KeyDown);
             // 
             // WholeForm
             // 
@@ -509,6 +510,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lookupProductEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookupCustomer.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCode.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchProduct.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
@@ -520,7 +522,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.searchProduct.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

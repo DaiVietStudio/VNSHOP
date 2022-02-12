@@ -282,6 +282,7 @@
     <Compile Include="Quote.Designer.cs">
       <DependentUpon>Quote.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utils\NumberToText.cs" />
     <Compile Include="WholeForm.cs">
       <SubType>Form</SubType>
     </Compile>
