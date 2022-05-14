@@ -119,9 +119,9 @@ namespace VNShop.Controllers
         public Response checkProductExist(string barcode)
         {
             SanPham check = dbContext.SanPhams.Where(x => x.MaSanPham == barcode).FirstOrDefault();
-            if (check == null)
+            if (check != null)
             {
-                return new Response(true, "Sản phẩm chưa tồn tại");
+                return new Response(true, check.TenSanPham +" có cùng mã vạch");
 
             }
 
@@ -151,6 +151,7 @@ namespace VNShop.Controllers
                     return new Response(true, "Lưu sản phẩm thành công");
 
                 }
+                transaction.Rollback();
                 return new Response(false, "Lưu sản phẩm không thành công");
             }
             catch (Exception ex)

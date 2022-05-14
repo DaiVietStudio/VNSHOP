@@ -19,9 +19,37 @@ namespace VNShop
         ProductController productController = new ProductController();
         private long idEdit = 0;
 
-        public ProductForm(long id = 0)
+        public ProductForm()
         {
             InitializeComponent();
+            List<DonViTinh> listUnits = unitController.listUnit();
+            selectUnit.DataSource = listUnits;
+            gridLookUnit.Properties.DisplayMember = "TenDonVi";
+            gridLookUnit.Properties.ValueMember = "id";
+            gridLookUnit.Properties.DataSource = listUnits;
+        }
+
+        public ProductForm(string barcode = null)
+        {
+            InitializeComponent();
+            if (barcode != null)
+            {
+                txtBarcode.Text = barcode;
+            }
+            List<DonViTinh> listUnits = unitController.listUnit();
+            selectUnit.DataSource = listUnits;
+            gridLookUnit.Properties.DisplayMember = "TenDonVi";
+            gridLookUnit.Properties.ValueMember = "id";
+            gridLookUnit.Properties.DataSource = listUnits;
+           
+        }
+        public ProductForm(long id = 0, string barcode = null)
+        {
+            InitializeComponent();
+            if(barcode != null)
+            {
+                txtBarcode.Text = barcode;
+            }
             List<DonViTinh> listUnits = unitController.listUnit();
             selectUnit.DataSource = listUnits;
             gridLookUnit.Properties.DisplayMember = "TenDonVi";
@@ -157,10 +185,10 @@ namespace VNShop
             if (idEdit == 0)
             {
                 Response result = productController.checkProductExist(txtBarcode.Text);
-                if (result.status == false)
+                if (result.status == true)
                 {
-                    XtraMessageBox.Show(result.message, result.message, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtBarcode.Text = "";
+                    XtraMessageBox.Show(result.message, result.message, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    
                 }
             }
 

@@ -26,6 +26,8 @@ namespace VNShop
         private SaleController saleController = new SaleController();
 
         private List<SanPham> sanPhams;
+
+        private QLBHEntities context = new QLBHEntities();
         public RetailForm()
         {
             InitializeComponent();
@@ -49,7 +51,6 @@ namespace VNShop
         private void loadProduct()
         {
             sanPhams = productController.productList();
-           
 
         }
 
@@ -304,24 +305,7 @@ namespace VNShop
             return detailPrints;
         }
 
-        private void txtPrice_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
-        {
 
-            //TextEdit textEdit = (TextEdit)sender;
-            //if (textEdit.EditValue.ToString() != "")
-            //{
-            //    int[] row = gridViewCart.GetSelectedRows();
-            //    double quanity = (double)gridViewCart.GetRowCellValue(row[0], "SoLuong");
-
-            //    double price = double.Parse(textEdit.EditValue.ToString());
-            //    long product = (long)gridViewCart.GetRowCellValue(row[0], "id");
-            //    int position = detailCarts.FindIndex(x => x.id == product);
-            //    detailCarts[position].SoLuong = quanity;
-            //    detailCarts[position].ThanhTien = quanity * price;
-            //    gridControlCart.RefreshDataSource();
-            //    calcTotal();
-            //}
-        }
 
         private void gridViewCart_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
@@ -379,42 +363,128 @@ namespace VNShop
 
         private void txtProduct_EditValueChanged(object sender, EventArgs e)
         {
-          
+
         }
 
-        private void txtProduct_KeyDown(object sender, KeyEventArgs e)
+        private void addCart(dynamic barCode)
         {
-            if(e.KeyCode == Keys.Enter)
+            if (barCode != null)
             {
-                var value = txtProduct.EditValue.ToString();
-                if (value != null)
+                if (detailCarts.Exists(x => x.MaSanPham == (string)barCode || x.id == int.Parse(barCode)))
                 {
-                    if (detailCarts.Exists(x => x.MaSanPham == value))
+                    int position = detailCarts.FindIndex(x => x.MaSanPham == barCode || x.id == int.Parse(barCode));
+                    if (position != -1)
                     {
-                        int position = detailCarts.FindIndex(x => x.MaSanPham == value);
                         detailCarts[position].SoLuong++;
                         detailCarts[position].ThanhTien = detailCarts[position].SoLuong * detailCarts[position].GiaBan;
                     }
+
+                }
+                else
+                {
+                    SanPham sanPham = null;
+                    SanPham checkId = null;
+
+                    SanPham checkBarcode = sanPhams.Where(x => x.MaSanPham == barCode).FirstOrDefault();
+
+                    if (barCode.Length < 4)
+                    {
+                        checkId = sanPhams.Where(s => s.id == int.Parse(barCode)).FirstOrDefault();
+
+                    }
+                    if (checkBarcode != null)
+                    {
+                        sanPham = checkBarcode;
+                    }
+                    if (checkId != null)
+                    {
+                        sanPham = checkId;
+                    }
+                    if (sanPham != null)
+                    {
+                        addItemCart(barCode);
+                    }
                     else
                     {
-                        SanPham sanPham = sanPhams.Where(x => x.MaSanPham == value.ToString()).FirstOrDefault();
-                        DetailCart itemCart = new DetailCart();
-                        itemCart.id = sanPham.id;
-                        itemCart.MaSanPham = sanPham.MaSanPham;
-                        itemCart.DonViTinh = (long)sanPham.DonViTinh;
-                        itemCart.TenDonVi = sanPham.DonViTinh1.TenDonVi;
-                        itemCart.TenSanPham = sanPham.TenSanPham;
-                        itemCart.SoLuong = 1;
-                        itemCart.GiaBan = sanPham.GiaLe;
-                        itemCart.ThanhTien = 1 * sanPham.GiaLe;
-                        detailCarts.Add(itemCart);
+                        ProductForm productForm = new ProductForm(barCode);
+                        DialogResult result = productForm.ShowDialog();
                     }
 
-                    gridControlCart.RefreshDataSource();
-                    calcTotal();
-                    txtProduct.EditValue = null;
                 }
+
+                gridControlCart.RefreshDataSource();
+                calcTotal();
+                txtProduct.EditValue = null;
             }
+        }
+
+        private void addItemCart(string barCode)
+        {
+            SanPham sanPham = null;
+            if (barCode.Length < 4)
+            {
+                sanPham = sanPhams.Where(x => x.id == int.Parse(barCode)).FirstOrDefault();
+
+            }
+            else
+            {
+                sanPham = sanPhams.Where(x => x.MaSanPham == barCode).FirstOrDefault();
+
+            }
+
+            if (sanPham != null)
+            {
+                DetailCart itemCart = new DetailCart();
+                itemCart.id = sanPham.id;
+                itemCart.MaSanPham = sanPham.MaSanPham;
+                itemCart.DonViTinh = (long)sanPham.DonViTinh;
+                itemCart.TenDonVi = sanPham.DonViTinh1.TenDonVi;
+                itemCart.TenSanPham = sanPham.TenSanPham;
+                itemCart.SoLuong = 1;
+                itemCart.GiaBan = sanPham.GiaLe;
+                itemCart.ThanhTien = 1 * sanPham.GiaLe;
+                detailCarts.Add(itemCart);
+            }
+        }
+
+
+
+        private void txtProduct_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                List<SanPham> sanPhams = saleController.checkQuanityInStore(txtProduct.EditValue.ToString());
+                if (sanPhams.Count == 1)
+                {
+                    var value = txtProduct.EditValue.ToString();
+                    addCart(value);
+                }
+                else
+                {
+                    SelectProduct selectProduct = new SelectProduct(sanPhams);
+                    selectProduct.callBack = addCart;
+                    selectProduct.ShowDialog();
+                }
+
+            }
+        }
+
+        private void RetailForm_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == (Keys.Control | Keys.F))
+            {
+                List<SanPham> product = productController.productList();
+                SelectProduct selectProduct = new SelectProduct(sanPhams);
+                selectProduct.callBack = addCart;
+                selectProduct.ShowDialog();
+                return true;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
         }
     }
 }

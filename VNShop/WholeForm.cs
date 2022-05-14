@@ -40,7 +40,7 @@ namespace VNShop
             lookupCustomer.EditValue = (long)1;
             loadProduct();
             gridControlCart.DataSource = detailCarts;
-            
+
         }
         private void getCode()
         {
@@ -53,7 +53,7 @@ namespace VNShop
 
         }
 
-      
+
 
         private void gridViewCart_CustomRowCellEdit(object sender, DevExpress.XtraGrid.Views.Grid.CustomRowCellEditEventArgs e)
         {
@@ -150,20 +150,7 @@ namespace VNShop
 
         private void txtPrice_EditValueChanged(object sender, EventArgs e)
         {
-            //TextEdit textEdit = (TextEdit)sender;
-            //if (textEdit.EditValue.ToString() != "")
-            //{
-            //    int[] row = gridViewCart.GetSelectedRows();
-            //    double quanity = (double)gridViewCart.GetRowCellValue(row[0], "SoLuong");
 
-            //    double price = double.Parse(textEdit.EditValue.ToString());
-            //    long product = (long)gridViewCart.GetRowCellValue(row[0], "id");
-            //    int position = detailCarts.FindIndex(x => x.id == product);
-            //    detailCarts[position].SoLuong = quanity;
-            //    detailCarts[position].ThanhTien = quanity * price;
-            //    gridControlCart.RefreshDataSource();
-            //    calcTotal();
-            //}
 
         }
 
@@ -199,9 +186,9 @@ namespace VNShop
             }
 
             ChiTietPhieuBanHang check = chiTietPhieuBanHangs.FirstOrDefault(s => s.GiaBan == 0 || s.SoLuong == 0);
-            if(check == null)
+            if (check == null)
             {
-               
+
                 Response response = saleController.save(phieuBanHang, chiTietPhieuBanHangs);
 
                 if (response.status)
@@ -254,9 +241,9 @@ namespace VNShop
             }
 
             ChiTietPhieuBanHang check = chiTietPhieuBanHangs.FirstOrDefault(s => s.GiaBan == 0 || s.SoLuong == 0);
-            if(check == null)
+            if (check == null)
             {
-                
+
 
                 Response response = saleController.save(phieuBanHang, chiTietPhieuBanHangs);
 
@@ -297,7 +284,7 @@ namespace VNShop
         private List<DetailPrint> createData()
         {
             List<DetailPrint> detailPrints = new List<DetailPrint>();
-            foreach(DetailCart item in detailCarts)
+            foreach (DetailCart item in detailCarts)
             {
                 DetailPrint itemPrint = new DetailPrint();
                 itemPrint.Name = item.TenSanPham;
@@ -333,27 +320,51 @@ namespace VNShop
 
         private void searchProduct_EditValueChanged(object sender, EventArgs e)
         {
-            
+
 
         }
 
         private void searchProduct_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter)
             {
                 string value = searchProduct.EditValue.ToString();
-                if (value != null)
+                List<SanPham> listProduct = saleController.checkQuanityInStore(value);
+                if (listProduct.Count == 1)
                 {
-                   
-                    if (detailCarts.Exists(x => x.MaSanPham == value))
+                    addCart(value);
+                }
+                else
+                {
+                    SelectProduct selectProduct = new SelectProduct(sanPhams);
+                    selectProduct.callBack = addCart;
+                    selectProduct.ShowDialog();
+                }
+            }
+        }
+
+
+        public void addCart(dynamic value)
+        {
+            if (value != null)
+            {
+
+                if (detailCarts.Exists(x => x.MaSanPham == value))
+                {
+                    int position = detailCarts.FindIndex(x => x.MaSanPham == value);
+                    detailCarts[position].SoLuong++;
+                    detailCarts[position].ThanhTien = detailCarts[position].SoLuong * detailCarts[position].GiaBan;
+                }
+                else
+                {
+                    SanPham sanPham = sanPhams.Where(x => x.MaSanPham == value).FirstOrDefault();
+                    if (sanPham == null)
                     {
-                        int position = detailCarts.FindIndex(x => x.MaSanPham == value);
-                        detailCarts[position].SoLuong++;
-                        detailCarts[position].ThanhTien = detailCarts[position].SoLuong * detailCarts[position].GiaBan;
+                        ProductForm productForm = new ProductForm(value);
+                        DialogResult result = productForm.ShowDialog();
                     }
                     else
                     {
-                        SanPham sanPham = sanPhams.Where(x => x.MaSanPham == value).FirstOrDefault();
                         DetailCart itemCart = new DetailCart();
                         itemCart.id = sanPham.id;
                         itemCart.DonViTinh = (long)sanPham.DonViTinh;
@@ -365,11 +376,24 @@ namespace VNShop
                         itemCart.MaSanPham = sanPham.MaSanPham;
                         detailCarts.Add(itemCart);
                     }
-                    gridControlCart.RefreshDataSource();
-                    calcTotal();
-                    searchProduct.EditValue = null;
                 }
+                gridControlCart.RefreshDataSource();
+                calcTotal();
+                searchProduct.EditValue = null;
             }
         }
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == (Keys.Control | Keys.F))
+            {
+                List<SanPham> product = productController.productList();
+                SelectProduct selectProduct = new SelectProduct(sanPhams);
+                selectProduct.callBack = addCart;
+                selectProduct.ShowDialog();
+                return true;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
     }
 }

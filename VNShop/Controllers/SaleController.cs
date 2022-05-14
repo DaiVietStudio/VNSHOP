@@ -10,6 +10,12 @@ namespace VNShop.Controllers
     class SaleController : BaseController
     {
 
+        public List<SanPham> checkQuanityInStore(string barcode)
+        {
+            List<SanPham> sanPhams = dbContext.SanPhams.Where(s => s.id == int.Parse(barcode) || s.MaSanPham == barcode).ToList();
+            return sanPhams;
+        }
+
         public List<PhieuBanHang> receiptList()
         {
             return dbContext.PhieuBanHangs.OrderByDescending(x => x.NgayNhap).ToList();
