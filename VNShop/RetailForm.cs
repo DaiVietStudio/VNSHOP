@@ -370,7 +370,7 @@ namespace VNShop
         {
             if (barCode != null)
             {
-                if (detailCarts.Exists(x => x.MaSanPham == (string)barCode || x.id == int.Parse(barCode)))
+                if (detailCarts.Exists(x => x.MaSanPham == (string)barCode || x.id == Int64.Parse(barCode)))
                 {
                     int position = detailCarts.FindIndex(x => x.MaSanPham == barCode || x.id == int.Parse(barCode));
                     if (position != -1)

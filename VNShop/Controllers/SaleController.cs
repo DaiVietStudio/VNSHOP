@@ -12,7 +12,16 @@ namespace VNShop.Controllers
 
         public List<SanPham> checkQuanityInStore(string barcode)
         {
-            List<SanPham> sanPhams = dbContext.SanPhams.Where(s => s.id == int.Parse(barcode) || s.MaSanPham == barcode).ToList();
+            List<SanPham> sanPhams = null;
+            if (barcode.Length < 4)
+            {
+                sanPhams = dbContext.SanPhams.Where(s => s.id == Int64.Parse(barcode)).ToList();
+
+            }
+            else
+            {
+                sanPhams = dbContext.SanPhams.Where(s => s.MaSanPham == barcode).ToList();
+            }
             return sanPhams;
         }
 
