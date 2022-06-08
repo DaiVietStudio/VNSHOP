@@ -229,7 +229,7 @@ namespace VNShop
             this.xrLabel1.SizeF = new System.Drawing.SizeF(607F, 23.26041F);
             this.xrLabel1.StylePriority.UseFont = false;
             this.xrLabel1.StylePriority.UseTextAlignment = false;
-            this.xrLabel1.Text = "BÁO GIÁ SẢN PHẨM";
+            this.xrLabel1.Text = "ĐƠN HÀNG";
             this.xrLabel1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
             // 
             // BottomMargin

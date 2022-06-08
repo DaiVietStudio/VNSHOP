@@ -17,6 +17,8 @@ namespace VNShop
 
         UnitController unitController = new UnitController();
         ProductController productController = new ProductController();
+        public delegate void reload();
+        public reload callback;
         private long idEdit = 0;
 
         public ProductForm()
@@ -162,8 +164,13 @@ namespace VNShop
 
                     if (result.status)
                     {
+                        if(callback != null)
+                        {
+                            callback();
+                        }
                         XtraMessageBox.Show(result.message, result.message, MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.DialogResult = DialogResult.OK;
+
                     }
                     else
                     {

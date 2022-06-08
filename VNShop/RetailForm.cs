@@ -382,25 +382,12 @@ namespace VNShop
                 }
                 else
                 {
-                    SanPham sanPham = null;
+                    loadProduct();
+                   
                     SanPham checkId = null;
+                    checkId = sanPhams.Where(s => s.id == Int64.Parse(barCode) || s.MaSanPham == barCode).FirstOrDefault();
 
-                    SanPham checkBarcode = sanPhams.Where(x => x.MaSanPham == barCode).FirstOrDefault();
-
-                    if (barCode.Length < 4)
-                    {
-                        checkId = sanPhams.Where(s => s.id == int.Parse(barCode)).FirstOrDefault();
-
-                    }
-                    if (checkBarcode != null)
-                    {
-                        sanPham = checkBarcode;
-                    }
                     if (checkId != null)
-                    {
-                        sanPham = checkId;
-                    }
-                    if (sanPham != null)
                     {
                         addItemCart(barCode);
                     }
@@ -421,17 +408,8 @@ namespace VNShop
         private void addItemCart(string barCode)
         {
             SanPham sanPham = null;
-            if (barCode.Length < 4)
-            {
-                sanPham = sanPhams.Where(x => x.id == int.Parse(barCode)).FirstOrDefault();
-
-            }
-            else
-            {
-                sanPham = sanPhams.Where(x => x.MaSanPham == barCode).FirstOrDefault();
-
-            }
-
+            loadProduct();
+            sanPham = sanPhams.Where(x => x.MaSanPham == barCode || x.id == Int64.Parse(barCode)).FirstOrDefault();
             if (sanPham != null)
             {
                 DetailCart itemCart = new DetailCart();

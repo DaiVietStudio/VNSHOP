@@ -348,6 +348,7 @@ namespace VNShop
         {
             if (value != null)
             {
+                loadProduct();
 
                 if (detailCarts.Exists(x => x.MaSanPham == value))
                 {

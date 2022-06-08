@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using VNShop.Models;
 
 namespace VNShop
 {
@@ -28,6 +29,14 @@ namespace VNShop
             this.Close();
         }
 
+        private void refreshList()
+        {
+            VNShop.Controllers.ProductController productController = new Controllers.ProductController();
+            listProduct = productController.productList();
+
+            lookProduct.Properties.DataSource = listProduct;
+        }
+
         private void SelectProduct_Load(object sender, EventArgs e)
         {
             lookProduct.Properties.DataSource = listProduct;
@@ -40,6 +49,13 @@ namespace VNShop
             string barcode = lookProduct.EditValue.ToString();
             callBack(barcode);
             this.Close();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            ProductForm product = new ProductForm();
+            product.callback = refreshList;
+            product.ShowDialog();
         }
     }
 }
