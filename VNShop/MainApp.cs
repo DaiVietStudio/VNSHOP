@@ -6,7 +6,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -97,6 +99,7 @@ namespace VNShop
         private void MainApp_FormClosing(object sender, FormClosingEventArgs e)
         {
             backup();
+            
         }
 
 
@@ -134,6 +137,8 @@ namespace VNShop
             bkpDBFull.Initialize = false;
             bkpDBFull.Complete += Backup_Completed;
             bkpDBFull.SqlBackup(dbServer);
+
+       
         }
     }
 }
