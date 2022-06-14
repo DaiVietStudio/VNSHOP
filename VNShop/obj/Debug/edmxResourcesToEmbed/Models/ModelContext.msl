@@ -60,6 +60,7 @@
     <EntitySetMapping Name="DonViTinh_SanPham">
       <EntityTypeMapping TypeName="QLBHModel.DonViTinh_SanPham">
         <MappingFragment StoreEntitySet="DonViTinh_SanPham">
+          <ScalarProperty Name="Selected" ColumnName="Selected" />
           <ScalarProperty Name="GiaSi" ColumnName="GiaSi" />
           <ScalarProperty Name="GiaLe" ColumnName="GiaLe" />
           <ScalarProperty Name="SanPham" ColumnName="SanPham" />

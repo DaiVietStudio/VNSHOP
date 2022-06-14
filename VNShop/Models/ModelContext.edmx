@@ -65,6 +65,7 @@
           <Property Name="SanPham" Type="bigint" />
           <Property Name="GiaLe" Type="float" />
           <Property Name="GiaSi" Type="float" />
+          <Property Name="Selected" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Huyen">
           <Key>
@@ -760,6 +761,7 @@
           <Property Name="SanPham" Type="Int64" />
           <Property Name="GiaLe" Type="Double" />
           <Property Name="GiaSi" Type="Double" />
+          <Property Name="Selected" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="DonViTinh1" Relationship="QLBHModel.FK_DonViTinh_SanPham_DonViTinh" FromRole="DonViTinh_SanPham" ToRole="DonViTinh" />
           <NavigationProperty Name="SanPham1" Relationship="QLBHModel.FK_DonViTinh_SanPham_SanPham1" FromRole="DonViTinh_SanPham" ToRole="SanPham" />
         </EntityType>
@@ -1268,6 +1270,7 @@
           <EntitySetMapping Name="DonViTinh_SanPham">
             <EntityTypeMapping TypeName="QLBHModel.DonViTinh_SanPham">
               <MappingFragment StoreEntitySet="DonViTinh_SanPham">
+                <ScalarProperty Name="Selected" ColumnName="Selected" />
                 <ScalarProperty Name="GiaSi" ColumnName="GiaSi" />
                 <ScalarProperty Name="GiaLe" ColumnName="GiaLe" />
                 <ScalarProperty Name="SanPham" ColumnName="SanPham" />

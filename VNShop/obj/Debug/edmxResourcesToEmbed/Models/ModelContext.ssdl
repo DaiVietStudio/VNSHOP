@@ -60,6 +60,7 @@
     <Property Name="SanPham" Type="bigint" />
     <Property Name="GiaLe" Type="float" />
     <Property Name="GiaSi" Type="float" />
+    <Property Name="Selected" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Huyen">
     <Key>

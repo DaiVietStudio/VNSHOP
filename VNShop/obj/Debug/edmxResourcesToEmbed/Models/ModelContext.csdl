@@ -175,6 +175,7 @@
     <Property Name="SanPham" Type="Int64" />
     <Property Name="GiaLe" Type="Double" />
     <Property Name="GiaSi" Type="Double" />
+    <Property Name="Selected" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="DonViTinh1" Relationship="QLBHModel.FK_DonViTinh_SanPham_DonViTinh" FromRole="DonViTinh_SanPham" ToRole="DonViTinh" />
     <NavigationProperty Name="SanPham1" Relationship="QLBHModel.FK_DonViTinh_SanPham_SanPham1" FromRole="DonViTinh_SanPham" ToRole="SanPham" />
   </EntityType>
