@@ -140,5 +140,14 @@ namespace VNShop
 
        
         }
+
+        private void btnChuyenDoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ProductController productController = new ProductController();
+            if (productController.Convert())
+            {
+                XtraMessageBox.Show("Đã chuyển đổi dữ liệu thành công");
+            }
+        }
     }
 }

@@ -12,6 +12,7 @@ namespace VNSHOP.Data.Models
         public long? SanPham { get; set; }
         public double? GiaLe { get; set; }
         public double? GiaSi { get; set; }
+        public bool Selected { get; set; }
 
         public virtual DonViTinh DonViTinhNavigation { get; set; }
         public virtual SanPham SanPhamNavigation { get; set; }

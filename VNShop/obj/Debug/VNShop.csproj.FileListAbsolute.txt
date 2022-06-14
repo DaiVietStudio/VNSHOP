@@ -254,3 +254,4 @@ C:\Users\AKINOSORA\source\repos\VNShop\VNShop\bin\Debug\Microsoft.SqlServer.Serv
 C:\Users\AKINOSORA\source\repos\VNShop\VNShop\bin\Debug\Microsoft.SqlServer.RegSvrEnum.dll
 C:\Users\AKINOSORA\source\repos\VNShop\VNShop\obj\Debug\VNShop.SelectProduct.resources
 C:\Users\AKINOSORA\source\repos\VNShop\VNShop\obj\Debug\VNShop.ExportAll.resources
+C:\Users\AKINOSORA\source\repos\VNShop\VNShop\obj\Debug\VNShop.csproj.AssemblyReference.cache

@@ -32,6 +32,35 @@ namespace VNShop.Controllers
 
         }
 
+        public bool Convert()
+        {
+            var trans = dbContext.Database.BeginTransaction();
+            try
+            {
+                List<SanPham> sanPhams = dbContext.SanPhams.ToList();
+                foreach (SanPham item in sanPhams)
+                {
+                    DonViTinh_SanPham _donvi = new DonViTinh_SanPham();
+                    _donvi.SanPham = item.id;
+                    _donvi.DonViTinh = item.DonViTinh;
+                    _donvi.GiaLe = item.GiaLe;
+                    _donvi.GiaSi = item.GiaSi;
+                    _donvi.Selected = true;
+                    dbContext.DonViTinh_SanPham.Add(_donvi);
+                    dbContext.SaveChanges();
+                }
+                trans.Commit();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                trans.Rollback();
+                throw ex;
+            }
+           
+            return false;
+        }
+
         public List<SanPham> productList()
         {
             return dbContext.SanPhams.ToList();

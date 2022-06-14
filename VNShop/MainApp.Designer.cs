@@ -55,7 +55,6 @@
             this.barSubItem4 = new DevExpress.XtraBars.BarSubItem();
             this.btnInfo = new DevExpress.XtraBars.BarButtonItem();
             this.btnBackup = new DevExpress.XtraBars.BarButtonItem();
-            this.btnDatabse = new DevExpress.XtraBars.BarButtonItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.txtHello = new DevExpress.XtraBars.BarHeaderItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
@@ -67,7 +66,9 @@
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.btnPriceReport = new DevExpress.XtraBars.BarButtonItem();
             this.btnSetting = new DevExpress.XtraBars.BarButtonItem();
+            this.btnDatabse = new DevExpress.XtraBars.BarButtonItem();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
+            this.btnChuyenDoi = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartControlMain)).BeginInit();
@@ -87,7 +88,7 @@
             this.layoutControl1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(1589, 647);
+            this.layoutControl1.Size = new System.Drawing.Size(1460, 647);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -106,7 +107,7 @@
             series1.ValueDataMembersSerializable = "value";
             this.chartControlMain.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
         series1};
-            this.chartControlMain.Size = new System.Drawing.Size(1565, 623);
+            this.chartControlMain.Size = new System.Drawing.Size(1436, 623);
             this.chartControlMain.TabIndex = 4;
             chartTitle1.Text = "Doanh số bán hàng";
             this.chartControlMain.Titles.AddRange(new DevExpress.XtraCharts.ChartTitle[] {
@@ -124,7 +125,7 @@
             this.layoutControlItem1});
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.OptionsItemText.TextToControlDistance = 4;
-            this.layoutControlGroup1.Size = new System.Drawing.Size(1589, 647);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(1460, 647);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
@@ -132,7 +133,7 @@
             this.layoutControlItem1.Control = this.chartControlMain;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(1569, 627);
+            this.layoutControlItem1.Size = new System.Drawing.Size(1440, 627);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -172,9 +173,10 @@
             this.btnSetting,
             this.btnQuote,
             this.btnBackup,
-            this.btnDatabse});
+            this.btnDatabse,
+            this.btnChuyenDoi});
             this.barManager1.MainMenu = this.bar2;
-            this.barManager1.MaxItemId = 24;
+            this.barManager1.MaxItemId = 26;
             this.barManager1.StatusBar = this.bar3;
             // 
             // bar2
@@ -186,7 +188,8 @@
             this.bar2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem2),
             new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem3),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem4)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem4),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnChuyenDoi)});
             this.bar2.OptionsBar.MultiLine = true;
             this.bar2.OptionsBar.UseWholeRow = true;
             this.bar2.Text = "Main menu";
@@ -349,7 +352,7 @@
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
             this.barDockControlTop.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.barDockControlTop.Size = new System.Drawing.Size(1589, 30);
+            this.barDockControlTop.Size = new System.Drawing.Size(1460, 30);
             // 
             // barDockControlBottom
             // 
@@ -358,7 +361,7 @@
             this.barDockControlBottom.Location = new System.Drawing.Point(0, 677);
             this.barDockControlBottom.Manager = this.barManager1;
             this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.barDockControlBottom.Size = new System.Drawing.Size(1589, 28);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1460, 28);
             // 
             // barDockControlLeft
             // 
@@ -373,7 +376,7 @@
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1589, 30);
+            this.barDockControlRight.Location = new System.Drawing.Point(1460, 30);
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 647);
@@ -409,15 +412,27 @@
             this.btnSetting.Id = 21;
             this.btnSetting.Name = "btnSetting";
             // 
+            // btnDatabse
+            // 
+            this.btnDatabse.Id = 24;
+            this.btnDatabse.Name = "btnDatabse";
+            // 
             // defaultLookAndFeel1
             // 
             this.defaultLookAndFeel1.LookAndFeel.SkinName = "The Bezier";
+            // 
+            // btnChuyenDoi
+            // 
+            this.btnChuyenDoi.Caption = "Chuyển đổi";
+            this.btnChuyenDoi.Id = 25;
+            this.btnChuyenDoi.Name = "btnChuyenDoi";
+            this.btnChuyenDoi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnChuyenDoi_ItemClick);
             // 
             // MainApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1589, 705);
+            this.ClientSize = new System.Drawing.Size(1460, 705);
             this.Controls.Add(this.layoutControl1);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
@@ -482,5 +497,6 @@
         private DevExpress.XtraBars.BarButtonItem btnQuote;
         private DevExpress.XtraBars.BarButtonItem btnBackup;
         private DevExpress.XtraBars.BarButtonItem btnDatabse;
+        private DevExpress.XtraBars.BarButtonItem btnChuyenDoi;
     }
 }
