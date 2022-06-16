@@ -366,14 +366,15 @@ namespace VNShop
                     }
                     else
                     {
+                        DonViTinh_SanPham donVi = sanPham.DonViTinh_SanPham.Where(s => s.Selected == true).First();
                         DetailCart itemCart = new DetailCart();
                         itemCart.id = sanPham.id;
-                        itemCart.DonViTinh = (long)sanPham.DonViTinh;
-                        itemCart.TenDonVi = sanPham.DonViTinh1.TenDonVi;
+                        itemCart.DonViTinh = (long) donVi.DonViTinh;
+                        itemCart.TenDonVi = donVi.DonViTinh1.TenDonVi;
                         itemCart.TenSanPham = sanPham.TenSanPham;
                         itemCart.SoLuong = 1;
-                        itemCart.GiaBan = sanPham.GiaSi;
-                        itemCart.ThanhTien = 1 * sanPham.GiaSi;
+                        itemCart.GiaBan = donVi.GiaSi;
+                        itemCart.ThanhTien = 1 * donVi.GiaSi;
                         itemCart.MaSanPham = sanPham.MaSanPham;
                         detailCarts.Add(itemCart);
                     }

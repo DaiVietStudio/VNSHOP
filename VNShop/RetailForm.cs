@@ -412,15 +412,17 @@ namespace VNShop
             sanPham = sanPhams.Where(x => x.MaSanPham == barCode || x.id == Int64.Parse(barCode)).FirstOrDefault();
             if (sanPham != null)
             {
+                DonViTinh_SanPham unit = sanPham.DonViTinh_SanPham.Where(s => s.Selected == true).FirstOrDefault();
+
                 DetailCart itemCart = new DetailCart();
                 itemCart.id = sanPham.id;
                 itemCart.MaSanPham = sanPham.MaSanPham;
-                itemCart.DonViTinh = (long)sanPham.DonViTinh;
-                itemCart.TenDonVi = sanPham.DonViTinh1.TenDonVi;
+                itemCart.DonViTinh = (long)unit.DonViTinh;
+                itemCart.TenDonVi = unit.DonViTinh1.TenDonVi;
                 itemCart.TenSanPham = sanPham.TenSanPham;
                 itemCart.SoLuong = 1;
-                itemCart.GiaBan = sanPham.GiaLe;
-                itemCart.ThanhTien = 1 * sanPham.GiaLe;
+                itemCart.GiaBan = unit.GiaLe;
+                itemCart.ThanhTien = 1 * unit.GiaLe;
                 detailCarts.Add(itemCart);
             }
         }

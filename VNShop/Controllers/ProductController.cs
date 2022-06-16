@@ -38,6 +38,12 @@ namespace VNShop.Controllers
             try
             {
                 List<SanPham> sanPhams = dbContext.SanPhams.ToList();
+                List<DonViTinh_SanPham> donViTinh_SanPhams = dbContext.DonViTinh_SanPham.Where(s => s.Selected == true).ToList();
+                if (donViTinh_SanPhams.Count > 0)
+                {
+                    dbContext.DonViTinh_SanPham.RemoveRange(donViTinh_SanPhams);
+                    dbContext.SaveChanges();
+                }
                 foreach (SanPham item in sanPhams)
                 {
                     DonViTinh_SanPham _donvi = new DonViTinh_SanPham();
@@ -57,7 +63,7 @@ namespace VNShop.Controllers
                 trans.Rollback();
                 throw ex;
             }
-           
+
             return false;
         }
 
@@ -100,11 +106,11 @@ namespace VNShop.Controllers
 
                     newRow.CreateCell(0).SetCellValue(item.MaSanPham);
                     newRow.CreateCell(1).SetCellValue(item.TenSanPham);
-                    newRow.CreateCell(2).SetCellValue(item.MoTa != null? item.MoTa :"");
-                    newRow.CreateCell(3).SetCellValue(item.GiaNhap != null? (double)item.GiaNhap: 0);
-                    newRow.CreateCell(4).SetCellValue(item.GiaLe != null? (double)item.GiaLe: 0);
-                    newRow.CreateCell(5).SetCellValue(item.GiaSi != null? (double)item.GiaSi: 0);
-                    newRow.CreateCell(6).SetCellValue(item.ThueVAT != null? (double)item.ThueVAT : 0);
+                    newRow.CreateCell(2).SetCellValue(item.MoTa != null ? item.MoTa : "");
+                    newRow.CreateCell(3).SetCellValue(item.GiaNhap != null ? (double)item.GiaNhap : 0);
+                    newRow.CreateCell(4).SetCellValue(item.GiaLe != null ? (double)item.GiaLe : 0);
+                    newRow.CreateCell(5).SetCellValue(item.GiaSi != null ? (double)item.GiaSi : 0);
+                    newRow.CreateCell(6).SetCellValue(item.ThueVAT != null ? (double)item.ThueVAT : 0);
                     newRow.CreateCell(7).SetCellValue(item.DonViTinh1.TenDonVi);
                     if (item.DonViTinh_SanPham.Count > 0)
                     {
@@ -117,9 +123,9 @@ namespace VNShop.Controllers
 
                             newRow.CreateCell(0).SetCellValue(item.MaSanPham);
                             newRow.CreateCell(1).SetCellValue(item.TenSanPham);
-                            newRow.CreateCell(2).SetCellValue(item.MoTa != null? item.MoTa:"");
-                            newRow.CreateCell(4).SetCellValue(itemUnit.GiaLe != null? (double)itemUnit.GiaLe:0);
-                            newRow.CreateCell(5).SetCellValue(itemUnit.GiaSi != null?(double)itemUnit.GiaSi:0);
+                            newRow.CreateCell(2).SetCellValue(item.MoTa != null ? item.MoTa : "");
+                            newRow.CreateCell(4).SetCellValue(itemUnit.GiaLe != null ? (double)itemUnit.GiaLe : 0);
+                            newRow.CreateCell(5).SetCellValue(itemUnit.GiaSi != null ? (double)itemUnit.GiaSi : 0);
                             newRow.CreateCell(7).SetCellValue(itemUnit.DonViTinh1.TenDonVi);
                         }
                     }
@@ -145,16 +151,16 @@ namespace VNShop.Controllers
             return dbContext.SanPhams.Where(x => x.id == id).FirstOrDefault();
         }
 
-        public Response checkProductExist(string barcode)
+        public bool checkProductExist(string barcode)
         {
             SanPham check = dbContext.SanPhams.Where(x => x.MaSanPham == barcode).FirstOrDefault();
             if (check != null)
             {
-                return new Response(true, check.TenSanPham +" có cùng mã vạch");
+                return true;
 
             }
 
-            return new Response(false, "Sản phẩm đã tồn tại");
+            return false;
 
         }
 
@@ -245,14 +251,25 @@ namespace VNShop.Controllers
 
         public Response delete(List<long> products)
         {
+            int unDelete = 0;
+            int delete = 0;
             foreach (int item in products)
             {
                 SanPham find = dbContext.SanPhams.Where(x => x.id == item).FirstOrDefault();
+                if (find.ChiTietPhieuBanHangs.Count == 0)
+                {
+                    dbContext.SanPhams.Remove(find);
+                    dbContext.SaveChanges();
+                    delete++;
+                }
+                else
+                {
+                    unDelete++;
+                }
 
-                dbContext.SanPhams.Remove(find);
-                dbContext.SaveChanges();
+
             }
-            return new Response(true, "Đã xóa sản phẩm");
+            return new Response(true, "Đã xóa " + delete + " sản phẩm và không thể xóa " + unDelete + " do sản phẩm đã phát sinh dữ liệu");
 
         }
     }

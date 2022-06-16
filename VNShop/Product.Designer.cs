@@ -29,19 +29,24 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Product));
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.labelControlStatus = new DevExpress.XtraEditors.LabelControl();
             this.girdProduct = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.Id = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.HinhAnh = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryItemPictureEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit();
             this.TenSanPham = new DevExpress.XtraGrid.Columns.GridColumn();
             this.MaSanPham = new DevExpress.XtraGrid.Columns.GridColumn();
             this.DonViTinh = new DevExpress.XtraGrid.Columns.GridColumn();
             this.GiaLe = new DevExpress.XtraGrid.Columns.GridColumn();
             this.GiaSi = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.btnItemEdit = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.btnNew = new DevExpress.XtraBars.BarButtonItem();
@@ -55,7 +60,6 @@
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.btnAdd = new DevExpress.XtraBars.BarSubItem();
-            this.repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -63,9 +67,8 @@
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.girdProduct)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnItemEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
@@ -86,10 +89,10 @@
             // 
             // labelControlStatus
             // 
-            this.labelControlStatus.Location = new System.Drawing.Point(10, 628);
+            this.labelControlStatus.Location = new System.Drawing.Point(12, 626);
             this.labelControlStatus.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.labelControlStatus.Name = "labelControlStatus";
-            this.labelControlStatus.Size = new System.Drawing.Size(1175, 19);
+            this.labelControlStatus.Size = new System.Drawing.Size(1171, 19);
             this.labelControlStatus.StyleController = this.layoutControl1;
             this.labelControlStatus.TabIndex = 5;
             this.labelControlStatus.Click += new System.EventHandler(this.labelControlStatus_Click);
@@ -97,15 +100,14 @@
             // girdProduct
             // 
             this.girdProduct.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.girdProduct.Location = new System.Drawing.Point(10, 10);
+            this.girdProduct.Location = new System.Drawing.Point(12, 12);
             this.girdProduct.MainView = this.gridView1;
             this.girdProduct.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.girdProduct.MenuManager = this.barManager1;
             this.girdProduct.Name = "girdProduct";
             this.girdProduct.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemPictureEdit1,
-            this.repositoryItemButtonEdit1});
-            this.girdProduct.Size = new System.Drawing.Size(1175, 614);
+            this.btnItemEdit});
+            this.girdProduct.Size = new System.Drawing.Size(1171, 610);
             this.girdProduct.TabIndex = 4;
             this.girdProduct.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -114,45 +116,28 @@
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.Id,
-            this.HinhAnh,
             this.TenSanPham,
             this.MaSanPham,
             this.DonViTinh,
             this.GiaLe,
-            this.GiaSi});
-            this.gridView1.DetailHeight = 416;
+            this.GiaSi,
+            this.gridColumn1});
+            this.gridView1.DetailHeight = 200;
             this.gridView1.GridControl = this.girdProduct;
             this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.OptionsSelection.MultiSelect = true;
             this.gridView1.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
             this.gridView1.OptionsSelection.ShowCheckBoxSelectorInPrintExport = DevExpress.Utils.DefaultBoolean.True;
             this.gridView1.OptionsView.ShowGroupPanel = false;
-            this.gridView1.RowHeight = 119;
+            this.gridView1.RowHeight = 30;
             // 
             // Id
             // 
             this.Id.Caption = "STT";
-            this.Id.FieldName = "ID";
+            this.Id.FieldName = "id";
             this.Id.MinWidth = 25;
             this.Id.Name = "Id";
             this.Id.Width = 97;
-            // 
-            // HinhAnh
-            // 
-            this.HinhAnh.Caption = "Hình ảnh";
-            this.HinhAnh.ColumnEdit = this.repositoryItemPictureEdit1;
-            this.HinhAnh.FieldName = "HinhAnh";
-            this.HinhAnh.MinWidth = 25;
-            this.HinhAnh.Name = "HinhAnh";
-            this.HinhAnh.Visible = true;
-            this.HinhAnh.VisibleIndex = 6;
-            this.HinhAnh.Width = 97;
-            // 
-            // repositoryItemPictureEdit1
-            // 
-            this.repositoryItemPictureEdit1.Name = "repositoryItemPictureEdit1";
-            this.repositoryItemPictureEdit1.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
             // 
             // TenSanPham
             // 
@@ -177,7 +162,7 @@
             // DonViTinh
             // 
             this.DonViTinh.Caption = "Đơn vị tính";
-            this.DonViTinh.FieldName = "DonViTinh1.TenDonVi";
+            this.DonViTinh.FieldName = "DonVi";
             this.DonViTinh.MinWidth = 25;
             this.DonViTinh.Name = "DonViTinh";
             this.DonViTinh.Visible = true;
@@ -187,6 +172,7 @@
             // GiaLe
             // 
             this.GiaLe.Caption = "Giá lẻ";
+            this.GiaLe.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.GiaLe.FieldName = "GiaLe";
             this.GiaLe.MinWidth = 25;
             this.GiaLe.Name = "GiaLe";
@@ -197,12 +183,32 @@
             // GiaSi
             // 
             this.GiaSi.Caption = "Giá sỉ";
+            this.GiaSi.DisplayFormat.FormatString = "##.###";
+            this.GiaSi.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.GiaSi.FieldName = "GiaSi";
             this.GiaSi.MinWidth = 25;
             this.GiaSi.Name = "GiaSi";
             this.GiaSi.Visible = true;
             this.GiaSi.VisibleIndex = 5;
             this.GiaSi.Width = 97;
+            // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "Sửa";
+            this.gridColumn1.ColumnEdit = this.btnItemEdit;
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 6;
+            // 
+            // btnItemEdit
+            // 
+            this.btnItemEdit.AutoHeight = false;
+            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
+            this.btnItemEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.btnItemEdit.Name = "btnItemEdit";
+            this.btnItemEdit.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.btnItemEdit.Click += new System.EventHandler(this.btnItemEdit_Click);
             // 
             // barManager1
             // 
@@ -342,13 +348,6 @@
             this.btnAdd.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnAdd.ImageOptions.LargeImage")));
             this.btnAdd.Name = "btnAdd";
             // 
-            // repositoryItemButtonEdit1
-            // 
-            this.repositoryItemButtonEdit1.AutoHeight = false;
-            this.repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
-            // 
             // layoutControlGroup1
             // 
             this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
@@ -366,16 +365,16 @@
             this.layoutControlItem1.Control = this.girdProduct;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(1179, 618);
+            this.layoutControlItem1.Size = new System.Drawing.Size(1175, 614);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.labelControlStatus;
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 618);
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 614);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(1179, 23);
+            this.layoutControlItem2.Size = new System.Drawing.Size(1175, 23);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
@@ -398,9 +397,8 @@
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.girdProduct)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnItemEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
@@ -432,13 +430,12 @@
         private DevExpress.XtraGrid.Columns.GridColumn DonViTinh;
         private DevExpress.XtraGrid.Columns.GridColumn GiaLe;
         private DevExpress.XtraGrid.Columns.GridColumn GiaSi;
-        private DevExpress.XtraGrid.Columns.GridColumn HinhAnh;
-        private DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit repositoryItemPictureEdit1;
         private DevExpress.XtraBars.BarButtonItem btnNew;
         private DevExpress.XtraBars.BarButtonItem btnImport;
-        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit1;
         private DevExpress.XtraEditors.LabelControl labelControlStatus;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraBars.BarButtonItem btnExport;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnItemEdit;
     }
 }

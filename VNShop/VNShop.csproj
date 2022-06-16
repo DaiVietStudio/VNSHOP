@@ -121,6 +121,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddUnit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddUnit.Designer.cs">
+      <DependentUpon>AddUnit.cs</DependentUpon>
+    </Compile>
     <Compile Include="BaoGia.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -241,6 +247,7 @@
     <Compile Include="Models\PhieuNo.cs">
       <DependentUpon>ModelContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ProductGrid.cs" />
     <Compile Include="Models\Response.cs" />
     <Compile Include="Models\SanPham.cs">
       <DependentUpon>ModelContext.tt</DependentUpon>
@@ -258,6 +265,7 @@
       <DependentUpon>ModelContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TypeCustomer.cs" />
+    <Compile Include="Models\UnitList.cs" />
     <Compile Include="Models\Xa.cs">
       <DependentUpon>ModelContext.tt</DependentUpon>
     </Compile>
@@ -353,6 +361,9 @@
     <Compile Include="Utils\MakeError.cs" />
     <Compile Include="Validator\CustomerValidator.cs" />
     <Compile Include="Validator\UserValidator.cs" />
+    <EmbeddedResource Include="AddUnit.resx">
+      <DependentUpon>AddUnit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BaoGia.resx">
       <DependentUpon>BaoGia.cs</DependentUpon>
     </EmbeddedResource>

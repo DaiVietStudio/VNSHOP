@@ -14,21 +14,18 @@ namespace VNShop
 {
     public partial class ProductForm : XtraForm
     {
-
+        
         UnitController unitController = new UnitController();
         ProductController productController = new ProductController();
         public delegate void reload();
         public reload callback;
         private long idEdit = 0;
+        private List<UnitList> unitLists = new List<UnitList>();
+        private bool same = false;
 
         public ProductForm()
         {
             InitializeComponent();
-            List<DonViTinh> listUnits = unitController.listUnit();
-            selectUnit.DataSource = listUnits;
-            gridLookUnit.Properties.DisplayMember = "TenDonVi";
-            gridLookUnit.Properties.ValueMember = "id";
-            gridLookUnit.Properties.DataSource = listUnits;
         }
 
         public ProductForm(string barcode = null)
@@ -38,25 +35,17 @@ namespace VNShop
             {
                 txtBarcode.Text = barcode;
             }
-            List<DonViTinh> listUnits = unitController.listUnit();
-            selectUnit.DataSource = listUnits;
-            gridLookUnit.Properties.DisplayMember = "TenDonVi";
-            gridLookUnit.Properties.ValueMember = "id";
-            gridLookUnit.Properties.DataSource = listUnits;
            
         }
         public ProductForm(long id = 0, string barcode = null)
         {
             InitializeComponent();
-            if(barcode != null)
+            if (barcode != null)
             {
                 txtBarcode.Text = barcode;
             }
-            List<DonViTinh> listUnits = unitController.listUnit();
-            selectUnit.DataSource = listUnits;
-            gridLookUnit.Properties.DisplayMember = "TenDonVi";
-            gridLookUnit.Properties.ValueMember = "id";
-            gridLookUnit.Properties.DataSource = listUnits;
+            
+
             if (id > 0)
             {
                 idEdit = id;
@@ -83,7 +72,7 @@ namespace VNShop
         private void btnLuu_Click(object sender, EventArgs e)
         {
             bool error = false;
-            DonViTinh unit = gridLookUnit.GetSelectedDataRow() as DonViTinh;
+
             if (double.Parse(txtRetailPrice.Text) <= 0)
             {
                 XtraMessageBox.Show("Giá bán lẻ phải lớn hơn 0", "Giá bán lẻ phải lớn hơn 0", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -91,92 +80,102 @@ namespace VNShop
             else if (double.Parse(txtWholePrice.Text) <= 0)
             {
                 XtraMessageBox.Show("Giá bán sỉ phải lớn hơn 0", "Giá bán sỉ phải lớn hơn 0", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            } else if (unit == null)
+            }
+            else if (unitLists.Count == 0)
             {
-                XtraMessageBox.Show("Chọn đơn vị tính", "Chọn đơn vị tính", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                XtraMessageBox.Show("Thêm đơn vị tính", "Thêm đơn vị tính", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                SanPham product = new SanPham();
-                product.MaSanPham = txtBarcode.Text;
-                product.TenSanPham = txtName.Text.ToUpper();
-                if(txtInputPrice.Text != "")
+                if(same == false)
                 {
-                    product.GiaNhap = double.Parse(txtInputPrice.Text);
-                }
-                product.GiaSi = double.Parse(txtWholePrice.Text);
-                product.GiaLe = double.Parse(txtRetailPrice.Text);
-                
-                product.DonViTinh = unit.id;
-                if(txtVAT.Text != "")
-                {
-                    product.ThueVAT = double.Parse(txtVAT.Text);
-
-                }
-                if(txtDateOfManuFacture.EditValue != null)
-                {
-                    product.NgaySanXuat = DateTime.Parse(txtDateOfManuFacture.EditValue.ToString());
-
-                }
-                if (txtDateExp.EditValue != null)
-                {
-                    product.NgayHetHan = DateTime.Parse(txtDateExp.EditValue.ToString());
-                }
-               
-                product.KichHoat = chkActive.Checked;
-                product.QuanLyTonKho = chkInventory.Checked ? 1 : 0;
-                product.MoTa = txtDeciption.Text;
-                if (picImage.EditValue != null)
-                {
-                    product.HinhAnh = (byte[])picImage.EditValue;
-
-                }
-                // get list unit
-                int rowHandle = 0;
-                List<DonViTinh_SanPham> listUnit = new List<DonViTinh_SanPham>();
-                while (gridViewUnit.IsValidRowHandle(rowHandle))
-                {
-                    var data = gridViewUnit.GetRow(rowHandle) as DonViTinh_SanPham;
-                    if (data.GiaLe > 0)
+                    SanPham product = new SanPham();
+                    product.MaSanPham = txtBarcode.Text;
+                    product.TenSanPham = txtName.Text.ToUpper();
+                    if (txtInputPrice.Text != "")
                     {
-                        listUnit.Add(data);
-                        rowHandle++;
+                        product.GiaNhap = double.Parse(txtInputPrice.Text);
                     }
-                    else
+                    product.GiaSi = double.Parse(txtWholePrice.Text);
+                    product.GiaLe = double.Parse(txtRetailPrice.Text);
+
+                    //product.DonViTinh = unit.id;
+                    if (txtVAT.Text != "")
                     {
-                        error = true;
-                        XtraMessageBox.Show("Không được để trống giá bán lẻ tại đơn vị " + data.DonViTinh1.TenDonVi, "Không được để trống giá bán lẻ vị " + data.DonViTinh1.TenDonVi, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        break;
+                        product.ThueVAT = double.Parse(txtVAT.Text);
+
+                    }
+                    if (txtDateOfManuFacture.EditValue != null)
+                    {
+                        product.NgaySanXuat = DateTime.Parse(txtDateOfManuFacture.EditValue.ToString());
+
+                    }
+                    if (txtDateExp.EditValue != null)
+                    {
+                        product.NgayHetHan = DateTime.Parse(txtDateExp.EditValue.ToString());
                     }
 
-                }
-                Response result;
-                if (error == false)
-                {
-                    if (idEdit == 0)
+                    product.KichHoat = chkActive.Checked;
+                    product.QuanLyTonKho = chkInventory.Checked ? 1 : 0;
+                    product.MoTa = txtDeciption.Text;
+                    if (picImage.EditValue != null)
                     {
-                        result = productController.save(product, listUnit);
-                    }
-                    else
-                    {
-                        result = productController.update(product, idEdit, listUnit);
-                    }
+                        product.HinhAnh = (byte[])picImage.EditValue;
 
-                    if (result.status)
+                    }
+                    // get list unit
+
+                    List<DonViTinh_SanPham> listUnit = new List<DonViTinh_SanPham>();
+                    foreach (UnitList item in unitLists)
                     {
-                        if(callback != null)
+                        listUnit.Add(new DonViTinh_SanPham()
                         {
-                            callback();
-                        }
-                        XtraMessageBox.Show(result.message, result.message, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.DialogResult = DialogResult.OK;
-
+                            DonViTinh = item.id,
+                            GiaLe = item.GiaLe,
+                            GiaSi = item.GiaSi,
+                            Selected = item.Chinh
+                        });
                     }
-                    else
+                    Response result;
+                    if (error == false)
                     {
-                        XtraMessageBox.Show(result.message, result.message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        if (idEdit == 0)
+                        {
+                            result = productController.save(product, listUnit);
+                        }
+                        else
+                        {
+                            result = productController.update(product, idEdit, listUnit);
+                        }
+
+                        if (result.status)
+                        {
+                            DialogResult dialogResult = XtraMessageBox.Show(result.message, result.message, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            if(dialogResult == DialogResult.OK)
+                            {
+                                if (callback != null)
+                                {
+                                    callback();
+                                }
+
+                                this.Close();
+                            }
+                            
+                            
+
+                        }
+                        else
+                        {
+                            XtraMessageBox.Show(result.message, result.message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                 }
+                else
+                {
+                            XtraMessageBox.Show("Không thể thêm hai sản phẩm trùng nhau", "Không thể thêm hai sản phẩm trùng nhau", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+
             }
 
         }
@@ -191,11 +190,11 @@ namespace VNShop
 
             if (idEdit == 0)
             {
-                Response result = productController.checkProductExist(txtBarcode.Text);
-                if (result.status == true)
+                bool result = productController.checkProductExist(txtBarcode.Text);
+                if (result == true)
                 {
-                    XtraMessageBox.Show(result.message, result.message, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    
+                    same = true;
+                    XtraMessageBox.Show("Sản phẩm cùng mã vạch đã tồn tại trong hệ thống", "Sản phẩm cùng mã vạch đã tồn tại trong hệ thống", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
 
@@ -203,6 +202,7 @@ namespace VNShop
 
         private void ProductForm_Load(object sender, EventArgs e)
         {
+            gridControlUnit.DataSource = unitLists;
             if (idEdit > 0)
             {
                 SanPham sanPham = productController.getDetailProduct(idEdit);
@@ -212,7 +212,6 @@ namespace VNShop
                 txtInputPrice.Text = sanPham.GiaNhap.ToString();
                 txtWholePrice.Text = sanPham.GiaSi.ToString();
                 txtRetailPrice.Text = sanPham.GiaLe.ToString();
-                gridLookUnit.EditValue = sanPham.DonViTinh;
                 txtVAT.Text = sanPham.ThueVAT.ToString();
                 txtDateOfManuFacture.EditValue = sanPham.NgaySanXuat;
                 txtDateExp.EditValue = sanPham.NgayHetHan;
@@ -237,9 +236,67 @@ namespace VNShop
                 txtDeciption.Text = sanPham.MoTa;
 
                 List<DonViTinh_SanPham> listUnit = sanPham.DonViTinh_SanPham.ToList();
-                gridControlUnit.DataSource = new BindingList<DonViTinh_SanPham>(listUnit);
+                listUnit.ForEach(item =>
+                {
+                    unitLists.Add(new UnitList()
+                    {
+                        id = item.DonViTinh != null ? (long)item.DonViTinh: 0,
+                        TenDonVi = item.DonViTinh1 != null?  item.DonViTinh1.TenDonVi:"", 
+                        GiaLe = (double) item.GiaLe, 
+                        GiaSi =(double) item.GiaSi, Chinh = item.Selected
+                        
+                    });
+                });
+                gridViewUnit.RefreshData();
 
             }
+        }
+
+        private void btnAddUnit_Click(object sender, EventArgs e)
+        {
+            AddUnit addUnit = new AddUnit();
+            addUnit.callBack = addUnitList;
+            addUnit.ShowDialog();
+        }
+
+        private void addUnitList(Models.UnitList unitList, bool edit = false, long unitId = 0)
+        {
+            if(unitList.Chinh == true)
+            {
+                int oldPorimary = unitLists.FindIndex(s => s.Chinh == true);
+                if(oldPorimary != -1)
+                {
+                    unitLists[oldPorimary].Chinh = false;
+                }
+                
+            }
+            if (edit == false)
+            {
+                unitLists.Add(unitList);
+            }
+            else
+            {
+                Models.UnitList find = unitLists.Find(s => s.id == unitId);
+                unitLists.Remove(find);
+                unitLists.Add(unitList);
+
+            }
+            gridViewUnit.RefreshData();
+        }
+
+        private void btnDel_Click(object sender, EventArgs e)
+        {
+            UnitList unitList = (UnitList)gridViewUnit.GetFocusedRow();
+            unitLists.Remove(unitList);
+            gridViewUnit.RefreshData();
+        }
+
+        private void btnEdit_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            UnitList unitList = (UnitList)gridViewUnit.GetFocusedRow();
+            AddUnit addUnit = new AddUnit(unitList);
+            addUnit.callBack = addUnitList;
+            addUnit.ShowDialog();
         }
     }
 }
