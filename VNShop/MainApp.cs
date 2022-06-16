@@ -64,6 +64,7 @@ namespace VNShop
             SaleController saleController = new SaleController();
             txtHello.Caption = "Xin chào " + Program.nameUser;
             chartControlMain.DataSource = saleController.chart();
+            
         }
 
         private void btnCustomer_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

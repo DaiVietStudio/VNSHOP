@@ -55,6 +55,7 @@
             this.barSubItem4 = new DevExpress.XtraBars.BarSubItem();
             this.btnInfo = new DevExpress.XtraBars.BarButtonItem();
             this.btnBackup = new DevExpress.XtraBars.BarButtonItem();
+            this.btnChuyenDoi = new DevExpress.XtraBars.BarButtonItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.txtHello = new DevExpress.XtraBars.BarHeaderItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
@@ -68,7 +69,6 @@
             this.btnSetting = new DevExpress.XtraBars.BarButtonItem();
             this.btnDatabse = new DevExpress.XtraBars.BarButtonItem();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
-            this.btnChuyenDoi = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartControlMain)).BeginInit();
@@ -325,6 +325,14 @@
             this.btnBackup.Name = "btnBackup";
             this.btnBackup.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBackup_ItemClick);
             // 
+            // btnChuyenDoi
+            // 
+            this.btnChuyenDoi.Caption = "Chuyển đổi";
+            this.btnChuyenDoi.Id = 25;
+            this.btnChuyenDoi.Name = "btnChuyenDoi";
+            this.btnChuyenDoi.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.btnChuyenDoi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnChuyenDoi_ItemClick);
+            // 
             // bar3
             // 
             this.bar3.BarName = "Status bar";
@@ -420,13 +428,6 @@
             // defaultLookAndFeel1
             // 
             this.defaultLookAndFeel1.LookAndFeel.SkinName = "The Bezier";
-            // 
-            // btnChuyenDoi
-            // 
-            this.btnChuyenDoi.Caption = "Chuyển đổi";
-            this.btnChuyenDoi.Id = 25;
-            this.btnChuyenDoi.Name = "btnChuyenDoi";
-            this.btnChuyenDoi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnChuyenDoi_ItemClick);
             // 
             // MainApp
             // 
