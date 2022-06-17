@@ -44,15 +44,31 @@ namespace VNShop
             list.ForEach(item =>
             {
                 DonViTinh_SanPham donViTinh = item.DonViTinh_SanPham.FirstOrDefault(s => s.Selected == true);
-                grid.Add(new ProductGrid()
+                if (donViTinh != null)
                 {
-                    id = item.id,
-                    TenSanPham = item.TenSanPham,
-                    MaSanPham = item.MaSanPham, 
-                    DonVi = donViTinh.DonViTinh1 != null? donViTinh.DonViTinh1.TenDonVi:"",
-                    GiaLe = (double)donViTinh.GiaLe, 
-                    GiaSi = (double)donViTinh.GiaSi,
-                });
+                    grid.Add(new ProductGrid()
+                    {
+                        id = item.id,
+                        TenSanPham = item.TenSanPham,
+                        MaSanPham = item.MaSanPham,
+                        DonVi = (donViTinh.DonViTinh1 != null) ? donViTinh.DonViTinh1.TenDonVi : "",
+                        GiaLe = (double)donViTinh.GiaLe,
+                        GiaSi = (double)donViTinh.GiaSi,
+                    });
+                }
+                else
+                {
+                    grid.Add(new ProductGrid()
+                    {
+                        id = item.id,
+                        TenSanPham = item.TenSanPham,
+                        MaSanPham = item.MaSanPham,
+                        DonVi = "",
+                        GiaLe = 0,
+                        GiaSi = 0,
+                    });
+                }
+                
             });
             girdProduct.RefreshDataSource();
         }

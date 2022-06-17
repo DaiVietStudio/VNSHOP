@@ -31,6 +31,7 @@ namespace VNShop
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddUnit));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.chkPrimary = new DevExpress.XtraEditors.CheckEdit();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.txtWhole = new DevExpress.XtraEditors.TextEdit();
@@ -43,10 +44,10 @@ namespace VNShop
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.chkPrimary = new DevExpress.XtraEditors.CheckEdit();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chkPrimary.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtWhole.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRetail.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbUnit.Properties)).BeginInit();
@@ -57,7 +58,6 @@ namespace VNShop
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkPrimary.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,6 +76,16 @@ namespace VNShop
             this.layoutControl1.Size = new System.Drawing.Size(488, 165);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // chkPrimary
+            // 
+            this.chkPrimary.Location = new System.Drawing.Point(12, 102);
+            this.chkPrimary.Name = "chkPrimary";
+            this.chkPrimary.Properties.Caption = "Đơn vị chính(Đơn vị được sử dụng thường xuyên nhất)";
+            this.chkPrimary.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
+            this.chkPrimary.Size = new System.Drawing.Size(464, 23);
+            this.chkPrimary.StyleController = this.layoutControl1;
+            this.chkPrimary.TabIndex = 9;
             // 
             // simpleButton2
             // 
@@ -203,16 +213,6 @@ namespace VNShop
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
             // 
-            // chkPrimary
-            // 
-            this.chkPrimary.Location = new System.Drawing.Point(12, 102);
-            this.chkPrimary.Name = "chkPrimary";
-            this.chkPrimary.Properties.Caption = "Đơn vị chính";
-            this.chkPrimary.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
-            this.chkPrimary.Size = new System.Drawing.Size(464, 23);
-            this.chkPrimary.StyleController = this.layoutControl1;
-            this.chkPrimary.TabIndex = 9;
-            // 
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.chkPrimary;
@@ -234,6 +234,7 @@ namespace VNShop
             this.Load += new System.EventHandler(this.AddUnit_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chkPrimary.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtWhole.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRetail.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbUnit.Properties)).EndInit();
@@ -244,7 +245,6 @@ namespace VNShop
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkPrimary.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             this.ResumeLayout(false);
 
