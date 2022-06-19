@@ -62,8 +62,10 @@ namespace VNShop
         private void MainApp_Load(object sender, EventArgs e)
         {
             SaleController saleController = new SaleController();
-            txtHello.Caption = "Xin chào " + Program.nameUser;
+            string now = DateTime.Now.ToShortDateString();
+            txtHello.Caption = "Phiên làm việc ngày " + now;
             chartControlMain.DataSource = saleController.chart();
+            new ResourceController().setUser();
             
         }
 

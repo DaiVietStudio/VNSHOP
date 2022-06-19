@@ -19,7 +19,7 @@ namespace VNShop.Models
         public Nullable<long> SanPham { get; set; }
         public Nullable<double> GiaLe { get; set; }
         public Nullable<double> GiaSi { get; set; }
-        public bool Selected { get; set; }
+        public Nullable<bool> Selected { get; set; }
     
         public virtual DonViTinh DonViTinh1 { get; set; }
         public virtual SanPham SanPham1 { get; set; }

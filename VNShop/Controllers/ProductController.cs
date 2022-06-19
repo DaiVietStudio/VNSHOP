@@ -17,14 +17,13 @@ namespace VNShop.Controllers
         public List<SanPham> retailProductList()
         {
             List<SanPham> productList = new List<SanPham>();
-            var list = (from p in dbContext.SanPhams select new { p.id, p.MaSanPham, p.TenSanPham, p.DonViTinh, p.GiaLe, p.DonViTinh1 }).ToList();
+            var list = dbContext.SanPhams.Include("DonViTinh_SanPham").ToList();
             foreach (var item in list)
             {
                 SanPham itemProduct = new SanPham();
                 itemProduct.id = item.id;
                 itemProduct.MaSanPham = item.MaSanPham;
                 itemProduct.TenSanPham = item.TenSanPham;
-                itemProduct.GiaLe = item.GiaLe;
                 itemProduct.DonViTinh = item.DonViTinh;
                 productList.Add(itemProduct);
             }
@@ -37,24 +36,30 @@ namespace VNShop.Controllers
             var trans = dbContext.Database.BeginTransaction();
             try
             {
-                List<SanPham> sanPhams = dbContext.SanPhams.ToList();
-                List<DonViTinh_SanPham> donViTinh_SanPhams = dbContext.DonViTinh_SanPham.Where(s => s.Selected == true).ToList();
-                if (donViTinh_SanPhams.Count > 0)
+                //List<SanPham> sanPhams = dbContext.SanPhams.ToList();
+                //List<DonViTinh_SanPham> donViTinh_SanPhams = dbContext.DonViTinh_SanPham.Where(s => s.Selected == true).ToList();
+                //if (donViTinh_SanPhams.Count > 0)
+                //{
+                //    dbContext.DonViTinh_SanPham.RemoveRange(donViTinh_SanPhams);
+                //    dbContext.SaveChanges();
+                //}
+                //foreach (SanPham item in sanPhams)
+                //{
+                //    DonViTinh_SanPham _donvi = new DonViTinh_SanPham();
+                //    _donvi.SanPham = item.id;
+                //    _donvi.DonViTinh = item.DonViTinh;
+                //    _donvi.Selected = true;
+                //    dbContext.DonViTinh_SanPham.Add(_donvi);
+                //    dbContext.SaveChanges();
+                //}
+
+                List<DonViTinh_SanPham> donViTinh_SanPhams = dbContext.DonViTinh_SanPham.Where(s => s.DonViTinh == null).ToList();
+                donViTinh_SanPhams.ForEach(item =>
                 {
-                    dbContext.DonViTinh_SanPham.RemoveRange(donViTinh_SanPhams);
+                    item.DonViTinh = 14;
                     dbContext.SaveChanges();
-                }
-                foreach (SanPham item in sanPhams)
-                {
-                    DonViTinh_SanPham _donvi = new DonViTinh_SanPham();
-                    _donvi.SanPham = item.id;
-                    _donvi.DonViTinh = item.DonViTinh;
-                    _donvi.GiaLe = item.GiaLe;
-                    _donvi.GiaSi = item.GiaSi;
-                    _donvi.Selected = true;
-                    dbContext.DonViTinh_SanPham.Add(_donvi);
-                    dbContext.SaveChanges();
-                }
+                });
+
                 trans.Commit();
                 return true;
             }
@@ -108,8 +113,7 @@ namespace VNShop.Controllers
                     newRow.CreateCell(1).SetCellValue(item.TenSanPham);
                     newRow.CreateCell(2).SetCellValue(item.MoTa != null ? item.MoTa : "");
                     newRow.CreateCell(3).SetCellValue(item.GiaNhap != null ? (double)item.GiaNhap : 0);
-                    newRow.CreateCell(4).SetCellValue(item.GiaLe != null ? (double)item.GiaLe : 0);
-                    newRow.CreateCell(5).SetCellValue(item.GiaSi != null ? (double)item.GiaSi : 0);
+                 
                     newRow.CreateCell(6).SetCellValue(item.ThueVAT != null ? (double)item.ThueVAT : 0);
                     newRow.CreateCell(7).SetCellValue(item.DonViTinh1.TenDonVi);
                     if (item.DonViTinh_SanPham.Count > 0)
@@ -206,8 +210,6 @@ namespace VNShop.Controllers
                 find.TenSanPham = sanPham.TenSanPham;
                 find.MaSanPham = sanPham.MaSanPham;
                 find.GiaNhap = sanPham.GiaNhap;
-                find.GiaSi = sanPham.GiaSi;
-                find.GiaLe = sanPham.GiaLe;
                 find.DonViTinh = sanPham.DonViTinh;
                 find.ThueVAT = sanPham.ThueVAT;
                 find.NgaySanXuat = sanPham.NgaySanXuat;

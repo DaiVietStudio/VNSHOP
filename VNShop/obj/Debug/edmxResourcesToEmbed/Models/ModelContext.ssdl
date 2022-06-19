@@ -60,7 +60,7 @@
     <Property Name="SanPham" Type="bigint" />
     <Property Name="GiaLe" Type="float" />
     <Property Name="GiaSi" Type="float" />
-    <Property Name="Selected" Type="bit" Nullable="false" />
+    <Property Name="Selected" Type="bit" />
   </EntityType>
   <EntityType Name="Huyen">
     <Key>
@@ -160,7 +160,6 @@
     <Property Name="MaSanPham" Type="nvarchar" MaxLength="50" />
     <Property Name="MoTa" Type="nvarchar" MaxLength="100" />
     <Property Name="GiaNhap" Type="float" />
-    <Property Name="GiaLe" Type="float" />
     <Property Name="DonViTinh" Type="bigint" />
     <Property Name="ThueVAT" Type="float" />
     <Property Name="KichHoat" Type="bit" />
@@ -168,17 +167,6 @@
     <Property Name="QuanLyTonKho" Type="bigint" />
     <Property Name="NgaySanXuat" Type="date" />
     <Property Name="NgayHetHan" Type="date" />
-    <Property Name="GiaSi" Type="float" />
-  </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="principal_id" Type="int" Nullable="false" />
-    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="version" Type="int" />
-    <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
   <EntityType Name="TaiKhoan">
     <Key>
@@ -487,7 +475,6 @@
     <EntitySet Name="PhieuNhapKho" EntityType="Self.PhieuNhapKho" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PhieuNo" EntityType="Self.PhieuNo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SanPham" EntityType="Self.SanPham" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TaiKhoan" EntityType="Self.TaiKhoan" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ThongTinDonVi" EntityType="Self.ThongTinDonVi" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Tinh" EntityType="Self.Tinh" Schema="dbo" store:Type="Tables" />

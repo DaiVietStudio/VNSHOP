@@ -173,8 +173,7 @@ namespace VNShop
                 }
 
                 product.KichHoat = true;
-                product.GiaLe = nowRow.GetCell(3).NumericCellValue;
-                product.GiaSi = nowRow.GetCell(3).NumericCellValue;
+               
                 product.QuanLyTonKho = 0;
                 productController.save(product);
                 enity++;

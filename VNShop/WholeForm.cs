@@ -344,21 +344,44 @@ namespace VNShop
         }
 
 
-        public void addCart(dynamic value)
+        public void addCart(dynamic value, int type = 0)
         {
             if (value != null)
             {
                 loadProduct();
 
-                if (detailCarts.Exists(x => x.MaSanPham == value))
+                // check exist
+                bool exist = false;
+                int position = 0;
+                if (type == 0)
                 {
-                    int position = detailCarts.FindIndex(x => x.MaSanPham == value);
+                    exist = detailCarts.Exists(x => x.MaSanPham == value);
+                    position = detailCarts.FindIndex(x => x.MaSanPham == value);
+                }
+                else
+                {
+                    exist = detailCarts.Exists(x => x.id == long.Parse(value));
+                    position = detailCarts.FindIndex(x => x.id == long.Parse(value));
+                }
+
+                if (exist)
+                {
                     detailCarts[position].SoLuong++;
                     detailCarts[position].ThanhTien = detailCarts[position].SoLuong * detailCarts[position].GiaBan;
                 }
                 else
                 {
-                    SanPham sanPham = sanPhams.Where(x => x.MaSanPham == value).FirstOrDefault();
+                    SanPham sanPham = null;
+                    if (type == 0)
+                    {
+                        sanPham = sanPhams.Where(x => x.MaSanPham == value).FirstOrDefault();
+
+                    }
+                    else if (type == 1)
+                    {
+                        sanPham = sanPhams.Where(x => x.id == long.Parse(value)).FirstOrDefault();
+
+                    }
                     if (sanPham == null)
                     {
                         ProductForm productForm = new ProductForm(value);
@@ -369,7 +392,7 @@ namespace VNShop
                         DonViTinh_SanPham donVi = sanPham.DonViTinh_SanPham.Where(s => s.Selected == true).First();
                         DetailCart itemCart = new DetailCart();
                         itemCart.id = sanPham.id;
-                        itemCart.DonViTinh = (long) donVi.DonViTinh;
+                        itemCart.DonViTinh = (long)donVi.DonViTinh;
                         itemCart.TenDonVi = donVi.DonViTinh1.TenDonVi;
                         itemCart.TenSanPham = sanPham.TenSanPham;
                         itemCart.SoLuong = 1;

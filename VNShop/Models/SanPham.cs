@@ -28,7 +28,6 @@ namespace VNShop.Models
         public string MaSanPham { get; set; }
         public string MoTa { get; set; }
         public Nullable<double> GiaNhap { get; set; }
-        public Nullable<double> GiaLe { get; set; }
         public Nullable<long> DonViTinh { get; set; }
         public Nullable<double> ThueVAT { get; set; }
         public Nullable<bool> KichHoat { get; set; }
@@ -36,7 +35,6 @@ namespace VNShop.Models
         public Nullable<long> QuanLyTonKho { get; set; }
         public Nullable<System.DateTime> NgaySanXuat { get; set; }
         public Nullable<System.DateTime> NgayHetHan { get; set; }
-        public Nullable<double> GiaSi { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietPhieuBanHang> ChiTietPhieuBanHangs { get; set; }

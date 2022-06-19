@@ -37,6 +37,7 @@ namespace VNShop
 
         private void RetailForm_Load(object sender, EventArgs e)
         {
+            
             getCode();
             lookupCustomer.Properties.DataSource = customerController.customerList();
             lookupCustomer.EditValue = (long)1;
@@ -365,8 +366,8 @@ namespace VNShop
         {
 
         }
-
-        private void addCart(dynamic barCode)
+        // tham so kieu nhap la type neu type = 0 thi la nhap barcode con la 1 thi la chon san pham
+        private void addCart(dynamic barCode,int type = 0)
         {
             if (barCode != null)
             {
@@ -385,11 +386,20 @@ namespace VNShop
                     loadProduct();
                    
                     SanPham checkId = null;
-                    checkId = sanPhams.Where(s => s.id == Int64.Parse(barCode) || s.MaSanPham == barCode).FirstOrDefault();
+                   
+                    if (type == 1)
+                    {
+                        checkId = sanPhams.Where(s => s.id == Int64.Parse(barCode)).FirstOrDefault();
+                    }
+                    else
+                    {
+                        checkId = sanPhams.Where(s => s.MaSanPham == barCode).FirstOrDefault();
+                    }
+                   
 
                     if (checkId != null)
                     {
-                        addItemCart(barCode);
+                        addItemCart(barCode, type);
                     }
                     else
                     {
@@ -405,11 +415,20 @@ namespace VNShop
             }
         }
 
-        private void addItemCart(string barCode)
+        private void addItemCart(string barCode, int type = 0)
         {
             SanPham sanPham = null;
             loadProduct();
-            sanPham = sanPhams.Where(x => x.MaSanPham == barCode || x.id == Int64.Parse(barCode)).FirstOrDefault();
+            if (type == 1)
+            {
+                sanPham = sanPhams.Where(x => x.id == Int64.Parse(barCode)).FirstOrDefault();
+
+            }
+            else if(type == 0)
+            {
+                sanPham = sanPhams.Where(x => x.MaSanPham == barCode).FirstOrDefault();
+            }
+            
             if (sanPham != null)
             {
                 DonViTinh_SanPham unit = sanPham.DonViTinh_SanPham.Where(s => s.Selected == true).FirstOrDefault();
@@ -424,6 +443,10 @@ namespace VNShop
                 itemCart.GiaBan = unit.GiaLe;
                 itemCart.ThanhTien = 1 * unit.GiaLe;
                 detailCarts.Add(itemCart);
+            }
+            else
+            {
+                XtraMessageBox.Show("Không tìm thấy sản phẩm", "Không tìm thấy sản phẩm", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

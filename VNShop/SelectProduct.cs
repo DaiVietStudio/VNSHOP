@@ -15,7 +15,7 @@ namespace VNShop
     public partial class SelectProduct : DevExpress.XtraEditors.XtraForm
     {
         private List<Models.SanPham> listProduct;
-        public delegate void addCart(dynamic barcode);
+        public delegate void addCart(dynamic barcode, int type);
 
         public addCart callBack;
         public SelectProduct(List<Models.SanPham> sanPhams)
@@ -41,13 +41,13 @@ namespace VNShop
         {
             lookProduct.Properties.DataSource = listProduct;
             lookProduct.Properties.DisplayMember = "TenSanPham";
-            lookProduct.Properties.ValueMember = "MaSanPham";
+            lookProduct.Properties.ValueMember = "id";
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
             string barcode = lookProduct.EditValue.ToString();
-            callBack(barcode);
+            callBack(barcode, 1);
             this.Close();
         }
 

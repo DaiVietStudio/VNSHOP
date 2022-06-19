@@ -14,7 +14,7 @@ namespace VNShop
 {
     public partial class ProductForm : XtraForm
     {
-        
+
         UnitController unitController = new UnitController();
         ProductController productController = new ProductController();
         public delegate void reload();
@@ -35,7 +35,7 @@ namespace VNShop
             {
                 txtBarcode.Text = barcode;
             }
-           
+
         }
         public ProductForm(long id = 0, string barcode = null)
         {
@@ -44,7 +44,7 @@ namespace VNShop
             {
                 txtBarcode.Text = barcode;
             }
-            
+
 
             if (id > 0)
             {
@@ -73,21 +73,14 @@ namespace VNShop
         {
             bool error = false;
 
-            if (double.Parse(txtRetailPrice.Text) <= 0)
-            {
-                XtraMessageBox.Show("Giá bán lẻ phải lớn hơn 0", "Giá bán lẻ phải lớn hơn 0", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else if (double.Parse(txtWholePrice.Text) <= 0)
-            {
-                XtraMessageBox.Show("Giá bán sỉ phải lớn hơn 0", "Giá bán sỉ phải lớn hơn 0", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else if (unitLists.Count == 0)
+            if (unitLists.Count == 0)
             {
                 XtraMessageBox.Show("Thêm đơn vị tính", "Thêm đơn vị tính", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                if(same == false)
+                // Kiem tra xem san pham co trung nhau khong
+                if (same == false)
                 {
                     SanPham product = new SanPham();
                     product.MaSanPham = txtBarcode.Text;
@@ -96,8 +89,7 @@ namespace VNShop
                     {
                         product.GiaNhap = double.Parse(txtInputPrice.Text);
                     }
-                    product.GiaSi = double.Parse(txtWholePrice.Text);
-                    product.GiaLe = double.Parse(txtRetailPrice.Text);
+
 
                     //product.DonViTinh = unit.id;
                     if (txtVAT.Text != "")
@@ -151,7 +143,7 @@ namespace VNShop
                         if (result.status)
                         {
                             DialogResult dialogResult = XtraMessageBox.Show(result.message, result.message, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            if(dialogResult == DialogResult.OK)
+                            if (dialogResult == DialogResult.OK)
                             {
                                 if (callback != null)
                                 {
@@ -160,8 +152,8 @@ namespace VNShop
 
                                 this.Close();
                             }
-                            
-                            
+
+
 
                         }
                         else
@@ -172,7 +164,7 @@ namespace VNShop
                 }
                 else
                 {
-                            XtraMessageBox.Show("Không thể thêm hai sản phẩm trùng nhau", "Không thể thêm hai sản phẩm trùng nhau", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    XtraMessageBox.Show("Không thể thêm hai sản phẩm trùng nhau", "Không thể thêm hai sản phẩm trùng nhau", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 }
 
@@ -210,8 +202,7 @@ namespace VNShop
                 txtBarcode.Text = sanPham.MaSanPham;
                 txtName.Text = sanPham.TenSanPham;
                 txtInputPrice.Text = sanPham.GiaNhap.ToString();
-                txtWholePrice.Text = sanPham.GiaSi.ToString();
-                txtRetailPrice.Text = sanPham.GiaLe.ToString();
+
                 txtVAT.Text = sanPham.ThueVAT.ToString();
                 txtDateOfManuFacture.EditValue = sanPham.NgaySanXuat;
                 txtDateExp.EditValue = sanPham.NgayHetHan;
@@ -240,11 +231,12 @@ namespace VNShop
                 {
                     unitLists.Add(new UnitList()
                     {
-                        id = item.DonViTinh != null ? (long)item.DonViTinh: 0,
-                        TenDonVi = item.DonViTinh1 != null?  item.DonViTinh1.TenDonVi:"", 
-                        GiaLe = (double) item.GiaLe, 
-                        GiaSi =(double) item.GiaSi, Chinh = item.Selected
-                        
+                        id = item.DonViTinh != null ? (long)item.DonViTinh : 0,
+                        TenDonVi = item.DonViTinh1 != null ? item.DonViTinh1.TenDonVi : "",
+                        GiaLe = (double)item.GiaLe,
+                        GiaSi = (double)item.GiaSi,
+                        Chinh = (bool)item.Selected
+
                     });
                 });
                 gridViewUnit.RefreshData();
@@ -261,14 +253,13 @@ namespace VNShop
 
         private void addUnitList(Models.UnitList unitList, bool edit = false, long unitId = 0)
         {
-            if(unitList.Chinh == true)
+            if (unitList.Chinh == true)
             {
                 int oldPorimary = unitLists.FindIndex(s => s.Chinh == true);
-                if(oldPorimary != -1)
+                if (oldPorimary != -1)
                 {
                     unitLists[oldPorimary].Chinh = false;
                 }
-                
             }
             if (edit == false)
             {
