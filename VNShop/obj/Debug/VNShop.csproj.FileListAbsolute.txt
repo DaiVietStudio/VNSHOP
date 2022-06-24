@@ -255,11 +255,16 @@ C:\Users\AKINOSORA\source\repos\VNShop\VNShop\obj\Debug\VNShop.csproj.CoreCompil
 C:\Users\AKINOSORA\source\repos\VNShop\VNShop\obj\Debug\VNShop.csproj.CopyComplete
 C:\Users\AKINOSORA\source\repos\VNShop\VNShop\obj\Debug\VNShop.exe
 C:\Users\AKINOSORA\source\repos\VNShop\VNShop\obj\Debug\VNShop.pdb
+D:\repos\VNShop\VNShop\bin\Debug\runtimes\win-x86\native\WebView2Loader.dll
+D:\repos\VNShop\VNShop\bin\Debug\runtimes\win-x64\native\WebView2Loader.dll
+D:\repos\VNShop\VNShop\bin\Debug\runtimes\win-arm64\native\WebView2Loader.dll
 D:\repos\VNShop\VNShop\bin\Debug\VNShop.exe.config
 D:\repos\VNShop\VNShop\bin\Debug\VNShop.exe
 D:\repos\VNShop\VNShop\bin\Debug\VNShop.pdb
+D:\repos\VNShop\VNShop\bin\Debug\AutoUpdater.NET.dll
 D:\repos\VNShop\VNShop\bin\Debug\BCrypt.Net-Next.dll
 D:\repos\VNShop\VNShop\bin\Debug\BouncyCastle.Crypto.dll
+D:\repos\VNShop\VNShop\bin\Debug\DevExpress.BonusSkins.v20.1.dll
 D:\repos\VNShop\VNShop\bin\Debug\DevExpress.Charts.v20.1.Core.dll
 D:\repos\VNShop\VNShop\bin\Debug\DevExpress.CodeParser.v20.1.dll
 D:\repos\VNShop\VNShop\bin\Debug\DevExpress.Data.Desktop.v20.1.dll
@@ -298,6 +303,9 @@ D:\repos\VNShop\VNShop\bin\Debug\Microsoft.SqlServer.ConnectionInfo.dll
 D:\repos\VNShop\VNShop\bin\Debug\Microsoft.SqlServer.ConnectionInfoExtended.dll
 D:\repos\VNShop\VNShop\bin\Debug\Microsoft.SqlServer.Smo.dll
 D:\repos\VNShop\VNShop\bin\Debug\Microsoft.SqlServer.SmoExtended.dll
+D:\repos\VNShop\VNShop\bin\Debug\Microsoft.Web.WebView2.Core.dll
+D:\repos\VNShop\VNShop\bin\Debug\Microsoft.Web.WebView2.WinForms.dll
+D:\repos\VNShop\VNShop\bin\Debug\Microsoft.Web.WebView2.Wpf.dll
 D:\repos\VNShop\VNShop\bin\Debug\Newtonsoft.Json.dll
 D:\repos\VNShop\VNShop\bin\Debug\NPOI.dll
 D:\repos\VNShop\VNShop\bin\Debug\NPOI.OOXML.dll
@@ -316,6 +324,8 @@ D:\repos\VNShop\VNShop\bin\Debug\Microsoft.SqlServer.ServiceBrokerEnum.dll
 D:\repos\VNShop\VNShop\bin\Debug\Microsoft.SqlServer.RegSvrEnum.dll
 D:\repos\VNShop\VNShop\bin\Debug\DevExpress.XtraDiagram.v20.1.dll
 D:\repos\VNShop\VNShop\bin\Debug\DevExpress.Diagram.v20.1.Core.dll
+D:\repos\VNShop\VNShop\bin\Debug\AutoUpdater.NET.pdb
+D:\repos\VNShop\VNShop\bin\Debug\AutoUpdater.NET.xml
 D:\repos\VNShop\VNShop\bin\Debug\BCrypt.Net-Next.xml
 D:\repos\VNShop\VNShop\bin\Debug\BouncyCastle.Crypto.xml
 D:\repos\VNShop\VNShop\bin\Debug\DevExpress.Data.v20.1.xml
@@ -350,6 +360,9 @@ D:\repos\VNShop\VNShop\bin\Debug\FluentValidation.xml
 D:\repos\VNShop\VNShop\bin\Debug\ICSharpCode.SharpZipLib.pdb
 D:\repos\VNShop\VNShop\bin\Debug\ICSharpCode.SharpZipLib.xml
 D:\repos\VNShop\VNShop\bin\Debug\Leaf.xNet.xml
+D:\repos\VNShop\VNShop\bin\Debug\Microsoft.Web.WebView2.Core.xml
+D:\repos\VNShop\VNShop\bin\Debug\Microsoft.Web.WebView2.WinForms.xml
+D:\repos\VNShop\VNShop\bin\Debug\Microsoft.Web.WebView2.Wpf.xml
 D:\repos\VNShop\VNShop\bin\Debug\Newtonsoft.Json.xml
 D:\repos\VNShop\VNShop\bin\Debug\NPOI.xml
 D:\repos\VNShop\VNShop\bin\Debug\NPOI.OOXML.xml
@@ -482,7 +495,6 @@ D:\repos\VNShop\VNShop\bin\Debug\de\DevExpress.Diagram.v20.1.Core.resources.dll
 D:\repos\VNShop\VNShop\bin\Debug\es\DevExpress.Diagram.v20.1.Core.resources.dll
 D:\repos\VNShop\VNShop\bin\Debug\ja\DevExpress.Diagram.v20.1.Core.resources.dll
 D:\repos\VNShop\VNShop\bin\Debug\ru\DevExpress.Diagram.v20.1.Core.resources.dll
-D:\repos\VNShop\VNShop\obj\Debug\VNShop.csproj.AssemblyReference.cache
 D:\repos\VNShop\VNShop\obj\Debug\VNShop.AddUnit.resources
 D:\repos\VNShop\VNShop\obj\Debug\VNShop.BaoGia.resources
 D:\repos\VNShop\VNShop\obj\Debug\VNShop.Customer.resources
@@ -513,4 +525,4 @@ D:\repos\VNShop\VNShop\obj\Debug\VNShop.csproj.CoreCompileInputs.cache
 D:\repos\VNShop\VNShop\obj\Debug\VNShop.csproj.CopyComplete
 D:\repos\VNShop\VNShop\obj\Debug\VNShop.exe
 D:\repos\VNShop\VNShop\obj\Debug\VNShop.pdb
-D:\repos\VNShop\VNShop\bin\Debug\DevExpress.BonusSkins.v20.1.dll
+D:\repos\VNShop\VNShop\obj\Debug\VNShop.csproj.AssemblyReference.cache

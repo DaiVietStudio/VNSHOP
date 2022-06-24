@@ -79,9 +79,14 @@ namespace VNShop
             }
             else
             {
+
+
                 // Kiem tra xem san pham co trung nhau khong
                 if (same == false)
                 {
+
+
+
                     SanPham product = new SanPham();
                     product.MaSanPham = txtBarcode.Text;
                     product.TenSanPham = txtName.Text.ToUpper();
@@ -128,38 +133,47 @@ namespace VNShop
                             Selected = item.Chinh
                         });
                     }
-                    Response result;
+                    Response result = null;
                     if (error == false)
                     {
                         if (idEdit == 0)
                         {
-                            result = productController.save(product, listUnit);
+                            DonViTinh_SanPham frimaryUnit = listUnit.FirstOrDefault(s => s.Selected == true);
+                            if (frimaryUnit != null)
+                            {
+                                result = productController.save(product, listUnit);
+                            }
+                            else
+                            {
+                                XtraMessageBox.Show("Không có đơn vị chính", "Vui lòng chọn đơn vị chính", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
                         }
                         else
                         {
                             result = productController.update(product, idEdit, listUnit);
                         }
-
-                        if (result.status)
+                        if(result != null)
                         {
-                            DialogResult dialogResult = XtraMessageBox.Show(result.message, result.message, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            if (dialogResult == DialogResult.OK)
+                            if (result.status)
                             {
-                                if (callback != null)
+                                DialogResult dialogResult = XtraMessageBox.Show(result.message, result.message, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                if (dialogResult == DialogResult.OK)
                                 {
-                                    callback();
+                                    if (callback != null)
+                                    {
+                                        callback();
+                                    }
+
+                                    this.Close();
                                 }
-
-                                this.Close();
                             }
-
-
-
+                            else
+                            {
+                                XtraMessageBox.Show(result.message, result.message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
                         }
-                        else
-                        {
-                            XtraMessageBox.Show(result.message, result.message, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
+
+                        
                     }
                 }
                 else
@@ -177,20 +191,7 @@ namespace VNShop
 
         }
 
-        private void txtBarcode_EditValueChanged(object sender, EventArgs e)
-        {
-
-            if (idEdit == 0)
-            {
-                bool result = productController.checkProductExist(txtBarcode.Text);
-                if (result == true)
-                {
-                    same = true;
-                    XtraMessageBox.Show("Sản phẩm cùng mã vạch đã tồn tại trong hệ thống", "Sản phẩm cùng mã vạch đã tồn tại trong hệ thống", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            }
-
-        }
+      
 
         private void ProductForm_Load(object sender, EventArgs e)
         {
@@ -288,6 +289,22 @@ namespace VNShop
             AddUnit addUnit = new AddUnit(unitList);
             addUnit.callBack = addUnitList;
             addUnit.ShowDialog();
+        }
+
+        private void txtBarcode_Properties_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                if (idEdit == 0)
+                {
+                    bool result = productController.checkProductExist(txtBarcode.Text);
+                    if (result == true)
+                    {
+                        same = true;
+                        XtraMessageBox.Show("Sản phẩm cùng mã vạch đã tồn tại trong hệ thống", "Sản phẩm cùng mã vạch đã tồn tại trong hệ thống", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+            }
         }
     }
 }

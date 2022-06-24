@@ -155,7 +155,7 @@
             this.btnAddUnit.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAddUnit.ImageOptions.Image")));
             this.btnAddUnit.Location = new System.Drawing.Point(1025, 189);
             this.btnAddUnit.Name = "btnAddUnit";
-            this.btnAddUnit.Size = new System.Drawing.Size(150, 26);
+            this.btnAddUnit.Size = new System.Drawing.Size(150, 24);
             this.btnAddUnit.StyleController = this.layoutControl1;
             this.btnAddUnit.TabIndex = 22;
             this.btnAddUnit.Text = "Thêm đơn vị tính";
@@ -165,14 +165,14 @@
             // 
             this.gridControlUnit.AllowRestoreSelectionAndFocusedRow = DevExpress.Utils.DefaultBoolean.True;
             this.gridControlUnit.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.gridControlUnit.Location = new System.Drawing.Point(212, 242);
+            this.gridControlUnit.Location = new System.Drawing.Point(212, 240);
             this.gridControlUnit.MainView = this.gridViewUnit;
             this.gridControlUnit.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.gridControlUnit.Name = "gridControlUnit";
             this.gridControlUnit.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.btnEdit,
             this.btnDel});
-            this.gridControlUnit.Size = new System.Drawing.Size(963, 275);
+            this.gridControlUnit.Size = new System.Drawing.Size(963, 277);
             this.gridControlUnit.TabIndex = 21;
             this.gridControlUnit.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewUnit});
@@ -264,10 +264,10 @@
             // 
             this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnExit.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.ImageOptions.Image")));
-            this.btnExit.Location = new System.Drawing.Point(1058, 531);
+            this.btnExit.Location = new System.Drawing.Point(1058, 533);
             this.btnExit.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(117, 26);
+            this.btnExit.Size = new System.Drawing.Size(117, 24);
             this.btnExit.StyleController = this.layoutControl1;
             this.btnExit.TabIndex = 20;
             this.btnExit.Text = "Thoát";
@@ -276,10 +276,10 @@
             // btnLuu
             // 
             this.btnLuu.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnLuu.ImageOptions.Image")));
-            this.btnLuu.Location = new System.Drawing.Point(955, 531);
+            this.btnLuu.Location = new System.Drawing.Point(955, 533);
             this.btnLuu.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(99, 26);
+            this.btnLuu.Size = new System.Drawing.Size(99, 24);
             this.btnLuu.StyleController = this.layoutControl1;
             this.btnLuu.TabIndex = 19;
             this.btnLuu.Text = "Lưu";
@@ -319,7 +319,7 @@
             this.btnImage.Location = new System.Drawing.Point(12, 246);
             this.btnImage.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnImage.Name = "btnImage";
-            this.btnImage.Size = new System.Drawing.Size(196, 26);
+            this.btnImage.Size = new System.Drawing.Size(196, 24);
             this.btnImage.StyleController = this.layoutControl1;
             this.btnImage.TabIndex = 14;
             this.btnImage.Text = "Chọn...";
@@ -360,10 +360,11 @@
             this.txtBarcode.Location = new System.Drawing.Point(317, 12);
             this.txtBarcode.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtBarcode.Name = "txtBarcode";
+            this.txtBarcode.Properties.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBarcode_Properties_KeyDown);
             this.txtBarcode.Size = new System.Drawing.Size(317, 26);
             this.txtBarcode.StyleController = this.layoutControl1;
             this.txtBarcode.TabIndex = 7;
-            this.txtBarcode.EditValueChanged += new System.EventHandler(this.txtBarcode_EditValueChanged);
+      
             // 
             // picImage
             // 
@@ -528,7 +529,7 @@
             this.layoutControlItem11.Control = this.btnImage;
             this.layoutControlItem11.Location = new System.Drawing.Point(0, 234);
             this.layoutControlItem11.Name = "layoutControlItem11";
-            this.layoutControlItem11.Size = new System.Drawing.Size(200, 30);
+            this.layoutControlItem11.Size = new System.Drawing.Size(200, 28);
             this.layoutControlItem11.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem11.TextVisible = false;
             // 
@@ -544,18 +545,18 @@
             // layoutControlItem15
             // 
             this.layoutControlItem15.Control = this.btnLuu;
-            this.layoutControlItem15.Location = new System.Drawing.Point(943, 519);
+            this.layoutControlItem15.Location = new System.Drawing.Point(943, 521);
             this.layoutControlItem15.Name = "layoutControlItem15";
-            this.layoutControlItem15.Size = new System.Drawing.Size(103, 30);
+            this.layoutControlItem15.Size = new System.Drawing.Size(103, 28);
             this.layoutControlItem15.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem15.TextVisible = false;
             // 
             // layoutControlItem16
             // 
             this.layoutControlItem16.Control = this.btnExit;
-            this.layoutControlItem16.Location = new System.Drawing.Point(1046, 519);
+            this.layoutControlItem16.Location = new System.Drawing.Point(1046, 521);
             this.layoutControlItem16.Name = "layoutControlItem16";
-            this.layoutControlItem16.Size = new System.Drawing.Size(121, 30);
+            this.layoutControlItem16.Size = new System.Drawing.Size(121, 28);
             this.layoutControlItem16.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem16.TextVisible = false;
             // 
@@ -572,7 +573,7 @@
             this.emptySpaceItem2.AllowHotTrack = false;
             this.emptySpaceItem2.Location = new System.Drawing.Point(943, 509);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(103, 10);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(103, 12);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem3
@@ -580,15 +581,15 @@
             this.emptySpaceItem3.AllowHotTrack = false;
             this.emptySpaceItem3.Location = new System.Drawing.Point(1046, 509);
             this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(121, 10);
+            this.emptySpaceItem3.Size = new System.Drawing.Size(121, 12);
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem17
             // 
             this.layoutControlItem17.Control = this.gridControlUnit;
-            this.layoutControlItem17.Location = new System.Drawing.Point(200, 207);
+            this.layoutControlItem17.Location = new System.Drawing.Point(200, 205);
             this.layoutControlItem17.Name = "layoutControlItem17";
-            this.layoutControlItem17.Size = new System.Drawing.Size(967, 302);
+            this.layoutControlItem17.Size = new System.Drawing.Size(967, 304);
             this.layoutControlItem17.Text = "Đơn vị tính";
             this.layoutControlItem17.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItem17.TextSize = new System.Drawing.Size(101, 19);
@@ -596,9 +597,9 @@
             // emptySpaceItem4
             // 
             this.emptySpaceItem4.AllowHotTrack = false;
-            this.emptySpaceItem4.Location = new System.Drawing.Point(0, 264);
+            this.emptySpaceItem4.Location = new System.Drawing.Point(0, 262);
             this.emptySpaceItem4.Name = "emptySpaceItem4";
-            this.emptySpaceItem4.Size = new System.Drawing.Size(200, 285);
+            this.emptySpaceItem4.Size = new System.Drawing.Size(200, 287);
             this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem5
@@ -614,7 +615,7 @@
             this.layoutControlItem8.Control = this.btnAddUnit;
             this.layoutControlItem8.Location = new System.Drawing.Point(1013, 177);
             this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(154, 30);
+            this.layoutControlItem8.Size = new System.Drawing.Size(154, 28);
             this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem8.TextVisible = false;
             // 
@@ -623,7 +624,7 @@
             this.emptySpaceItem6.AllowHotTrack = false;
             this.emptySpaceItem6.Location = new System.Drawing.Point(200, 177);
             this.emptySpaceItem6.Name = "emptySpaceItem6";
-            this.emptySpaceItem6.Size = new System.Drawing.Size(813, 30);
+            this.emptySpaceItem6.Size = new System.Drawing.Size(813, 28);
             this.emptySpaceItem6.TextSize = new System.Drawing.Size(0, 0);
             // 
             // openFileDialogImage

@@ -332,34 +332,7 @@ namespace VNShop
 
         private void txtProduct_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
         {
-            //var value = e.NewValue;
-            //if (value != null)
-            //{
-            //    long productId = long.Parse(value.ToString());
-            //    if (detailCarts.Exists(x => x.id == productId))
-            //    {
-            //        int position = detailCarts.FindIndex(x => x.id == productId);
-            //        detailCarts[position].SoLuong++;
-            //        detailCarts[position].ThanhTien = detailCarts[position].SoLuong * detailCarts[position].GiaBan;
-            //    }
-            //    else
-            //    {
-            //        SanPham sanPham = sanPhams.Where(x => x.id == long.Parse(value.ToString())).FirstOrDefault();
-            //        DetailCart itemCart = new DetailCart();
-            //        itemCart.id = sanPham.id;
-            //        itemCart.DonViTinh = (long)sanPham.DonViTinh;
-            //        itemCart.TenDonVi = sanPham.DonViTinh1.TenDonVi;
-            //        itemCart.TenSanPham = sanPham.TenSanPham;
-            //        itemCart.SoLuong = 1;
-            //        itemCart.GiaBan = sanPham.GiaLe;
-            //        itemCart.ThanhTien = 1 * sanPham.GiaLe;
-            //        detailCarts.Add(itemCart);
-            //    }
-
-            //    gridControlCart.RefreshDataSource();
-            //    calcTotal();
-            //    txtProduct.EditValue = null;
-            //}
+           
         }
 
         private void txtProduct_EditValueChanged(object sender, EventArgs e)
@@ -371,7 +344,18 @@ namespace VNShop
         {
             if (barCode != null)
             {
-                if (detailCarts.Exists(x => x.MaSanPham == (string)barCode || x.id == Int64.Parse(barCode)))
+                bool checkExist = false;
+                if(type == 0)
+                {
+                  checkExist =   detailCarts.Exists(x => x.MaSanPham == (string)barCode);
+                }
+                else if(type == 1)
+                {
+                    checkExist = detailCarts.Exists(x => x.id == Int64.Parse(barCode));
+
+                }
+
+                if (checkExist)
                 {
                     int position = detailCarts.FindIndex(x => x.MaSanPham == barCode || x.id == int.Parse(barCode));
                     if (position != -1)
@@ -389,7 +373,7 @@ namespace VNShop
                    
                     if (type == 1)
                     {
-                        checkId = sanPhams.Where(s => s.id == Int64.Parse(barCode)).FirstOrDefault();
+                        checkId = sanPhams.Where(s => s.id == long.Parse(barCode)).FirstOrDefault();
                     }
                     else
                     {
