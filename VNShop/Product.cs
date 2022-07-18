@@ -27,7 +27,7 @@ namespace VNShop
         public Product()
         {
             InitializeComponent();
-            girdProduct.DataSource = grid;
+            
         }
 
         private void btnNew_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -70,12 +70,13 @@ namespace VNShop
                 }
                 
             });
+           
             girdProduct.RefreshDataSource();
         }
 
         private void Product_Load(object sender, EventArgs e)
         {
-
+            girdProduct.DataSource = grid;
             loadData();
 
         }
@@ -225,6 +226,11 @@ namespace VNShop
             productForm.callback = loadData;
             productForm.ShowDialog();
 
+        }
+
+        private void btnRefresh_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            loadData();
         }
     }
 }

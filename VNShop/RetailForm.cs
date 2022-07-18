@@ -150,20 +150,7 @@ namespace VNShop
 
         private void txtPrice_EditValueChanged(object sender, EventArgs e)
         {
-            //TextEdit textEdit = (TextEdit)sender;
-            //if (textEdit.EditValue.ToString() != "")
-            //{
-            //    int[] row = gridViewCart.GetSelectedRows();
-            //    double quanity = (double)gridViewCart.GetRowCellValue(row[0], "SoLuong");
-
-            //    double price = double.Parse(textEdit.EditValue.ToString());
-            //    long product = (long)gridViewCart.GetRowCellValue(row[0], "id");
-            //    int position = detailCarts.FindIndex(x => x.id == product);
-            //    detailCarts[position].SoLuong = quanity;
-            //    detailCarts[position].ThanhTien = quanity * price;
-            //    gridControlCart.RefreshDataSource();
-            //    calcTotal();
-            //}
+          
 
         }
 
@@ -349,9 +336,9 @@ namespace VNShop
                 {
                   checkExist =   detailCarts.Exists(x => x.MaSanPham == (string)barCode);
                 }
-                else if(type == 1)
+                else
                 {
-                    checkExist = detailCarts.Exists(x => x.id == Int64.Parse(barCode));
+                    checkExist = detailCarts.Exists(x => x.id == long.Parse(barCode));
 
                 }
 
@@ -367,7 +354,7 @@ namespace VNShop
                 }
                 else
                 {
-                    loadProduct();
+                    //loadProduct();
                    
                     SanPham checkId = null;
                    
@@ -402,10 +389,10 @@ namespace VNShop
         private void addItemCart(string barCode, int type = 0)
         {
             SanPham sanPham = null;
-            loadProduct();
+            //loadProduct();
             if (type == 1)
             {
-                sanPham = sanPhams.Where(x => x.id == Int64.Parse(barCode)).FirstOrDefault();
+                sanPham = sanPhams.Where(x => x.id == long.Parse(barCode)).FirstOrDefault();
 
             }
             else if(type == 0)
@@ -444,7 +431,7 @@ namespace VNShop
                 if (sanPhams.Count == 1)
                 {
                     var value = txtProduct.EditValue.ToString();
-                    addCart(value);
+                    addCart(value, 0);
                 }
                 else
                 {

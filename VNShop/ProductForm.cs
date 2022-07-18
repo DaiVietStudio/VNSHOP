@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using VNShop.Models;
 using VNShop.Controllers;
+using System.Threading;
+
 namespace VNShop
 {
     public partial class ProductForm : XtraForm
@@ -159,6 +161,7 @@ namespace VNShop
                                 DialogResult dialogResult = XtraMessageBox.Show(result.message, result.message, MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 if (dialogResult == DialogResult.OK)
                                 {
+                                   
                                     if (callback != null)
                                     {
                                         callback();

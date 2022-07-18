@@ -332,7 +332,7 @@ namespace VNShop
                 List<SanPham> listProduct = saleController.checkQuanityInStore(value);
                 if (listProduct.Count == 1)
                 {
-                    addCart(value);
+                    addCart(value, 0);
                 }
                 else
                 {
@@ -348,8 +348,6 @@ namespace VNShop
         {
             if (value != null)
             {
-                loadProduct();
-
                 // check exist
                 bool exist = false;
                 int position = 0;

@@ -69,21 +69,21 @@ namespace VNShop
             new ResourceController().setUser();
 
             // Check update
-            System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
-            System.Diagnostics.FileVersionInfo fvi = System.Diagnostics.FileVersionInfo.GetVersionInfo(assembly.Location);
-            AutoUpdater.CheckForUpdateEvent += AutoUpdaterOnCheckForUpdateEvent;
-            string version = fvi.FileVersion;
-            AutoUpdater.DownloadPath = "update";
-            System.Timers.Timer timer = new System.Timers.Timer
-            {
-                Interval = 15 * 60 * 1000,
-                SynchronizingObject = this
-            };
-            timer.Elapsed += delegate
-            {
-                AutoUpdater.Start("https://lightnovelvietsub.000webhostapp.com/update.xml");
-            };
-            timer.Start();
+            //System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
+            //System.Diagnostics.FileVersionInfo fvi = System.Diagnostics.FileVersionInfo.GetVersionInfo(assembly.Location);
+            //AutoUpdater.CheckForUpdateEvent += AutoUpdaterOnCheckForUpdateEvent;
+            //string version = fvi.FileVersion;
+            //AutoUpdater.DownloadPath = "update";
+            //System.Timers.Timer timer = new System.Timers.Timer
+            //{
+            //    Interval = 15 * 60 * 1000,
+            //    SynchronizingObject = this
+            //};
+            //timer.Elapsed += delegate
+            //{
+            //    AutoUpdater.Start("https://lightnovelvietsub.000webhostapp.com/update.xml");
+            //};
+            //timer.Start();
 
         }
 
@@ -156,8 +156,6 @@ namespace VNShop
             backup();
 
         }
-
-
 
         private void btnQuote_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {

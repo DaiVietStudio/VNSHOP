@@ -9,6 +9,7 @@ using NPOI.XSSF.UserModel;
 using NPOI.SS.UserModel;
 using NPOI.SS.Util;
 using System.IO;
+using System.Data.Entity;
 
 namespace VNShop.Controllers
 {
@@ -74,7 +75,8 @@ namespace VNShop.Controllers
 
         public List<SanPham> productList()
         {
-            return dbContext.SanPhams.ToList();
+            List<SanPham> list = dbContext.SanPhams.AsNoTracking().ToList();
+            return list;
         }
 
         public Response exportExcel(string path)
@@ -113,7 +115,7 @@ namespace VNShop.Controllers
                     newRow.CreateCell(1).SetCellValue(item.TenSanPham);
                     newRow.CreateCell(2).SetCellValue(item.MoTa != null ? item.MoTa : "");
                     newRow.CreateCell(3).SetCellValue(item.GiaNhap != null ? (double)item.GiaNhap : 0);
-                 
+
                     newRow.CreateCell(6).SetCellValue(item.ThueVAT != null ? (double)item.ThueVAT : 0);
                     newRow.CreateCell(7).SetCellValue(item.DonViTinh1.TenDonVi);
                     if (item.DonViTinh_SanPham.Count > 0)
@@ -226,7 +228,6 @@ namespace VNShop.Controllers
                     // Delete old
                     foreach (DonViTinh_SanPham item in old)
                     {
-
                         dbContext.DonViTinh_SanPham.Remove(item);
                         dbContext.SaveChanges();
                     }
@@ -240,6 +241,7 @@ namespace VNShop.Controllers
 
                 }
                 transaction.Commit();
+
                 return new Response(true, "Lưu sản phẩm thành công");
 
             }
