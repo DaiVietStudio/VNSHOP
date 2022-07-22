@@ -22,28 +22,61 @@ namespace VNShop
     {
         private ProductController productController = new ProductController();
         private UnitController unitController = new UnitController();
+        private List<SanPham> list = new List<SanPham>();
+        private List<ProductGrid> grid = new List<ProductGrid>();
         public Product()
         {
             InitializeComponent();
+            
         }
 
         private void btnNew_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             ProductForm productForm = new ProductForm();
-            if (productForm.ShowDialog() == DialogResult.OK)
-            {
-                loadData();
-            }
+            productForm.callback = loadData;
+            productForm.ShowDialog();
         }
 
         private void loadData()
         {
-            List<SanPham> list = productController.productList();
-            girdProduct.DataSource = list;
+            list = productController.productList();
+            grid.Clear();
+            list.ForEach(item =>
+            {
+                DonViTinh_SanPham donViTinh = item.DonViTinh_SanPham.FirstOrDefault(s => s.Selected == true);
+                if (donViTinh != null)
+                {
+                    grid.Add(new ProductGrid()
+                    {
+                        id = item.id,
+                        TenSanPham = item.TenSanPham,
+                        MaSanPham = item.MaSanPham,
+                        DonVi = (donViTinh.DonViTinh1 != null) ? donViTinh.DonViTinh1.TenDonVi : "",
+                        GiaLe = (double)donViTinh.GiaLe,
+                        GiaSi = (double)donViTinh.GiaSi,
+                    });
+                }
+                else
+                {
+                    grid.Add(new ProductGrid()
+                    {
+                        id = item.id,
+                        TenSanPham = item.TenSanPham,
+                        MaSanPham = item.MaSanPham,
+                        DonVi = "",
+                        GiaLe = 0,
+                        GiaSi = 0,
+                    });
+                }
+                
+            });
+           
+            girdProduct.RefreshDataSource();
         }
 
         private void Product_Load(object sender, EventArgs e)
         {
+            girdProduct.DataSource = grid;
             loadData();
 
         }
@@ -58,7 +91,7 @@ namespace VNShop
                 {
                     if (gridView1.IsValidRowHandle(rowHandle))
                     {
-                        var data = gridView1.GetRow(rowHandle) as SanPham;
+                        var data = gridView1.GetRow(rowHandle) as ProductGrid;
                         listDelete.Add(data.id);
                     }
                 }
@@ -78,20 +111,7 @@ namespace VNShop
 
         private void btnEdit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            int[] row = gridView1.GetSelectedRows();
-            if (row.Length == 0 || row.Length > 1)
-            {
-                XtraMessageBox.Show("Vui lòng chọn một sản phẩm muốn sửa", "Chọn một sản phẩm", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else
-            {
-                var data = gridView1.GetRow(row[0]) as SanPham;
-                ProductForm productForm = new ProductForm(data.id);
-                if (productForm.ShowDialog() == DialogResult.OK)
-                {
-                    loadData();
-                }
-            }
+            
 
         }
 
@@ -103,8 +123,8 @@ namespace VNShop
             {
                 Thread t = new Thread(() =>
                 {
-                   bool success =  import(openFileDialog.FileName);
-                   
+                    bool success = import(openFileDialog.FileName);
+
                 });
                 t.Start();
                 loadData();
@@ -154,8 +174,7 @@ namespace VNShop
                 }
 
                 product.KichHoat = true;
-                product.GiaLe = nowRow.GetCell(3).NumericCellValue;
-                product.GiaSi = nowRow.GetCell(3).NumericCellValue;
+               
                 product.QuanLyTonKho = 0;
                 productController.save(product);
                 enity++;
@@ -198,6 +217,20 @@ namespace VNShop
 
 
 
+        }
+
+        private void btnItemEdit_Click(object sender, EventArgs e)
+        {
+            ProductGrid obj =(ProductGrid) gridView1.GetFocusedRow();
+            ProductForm productForm = new ProductForm(obj.id);
+            productForm.callback = loadData;
+            productForm.ShowDialog();
+
+        }
+
+        private void btnRefresh_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            loadData();
         }
     }
 }

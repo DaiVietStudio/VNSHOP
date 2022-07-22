@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VNShop", "VNShop\VNShop.csp
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{6DE8BC14-D014-4C0E-83E0-45E5686EF825}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VNSHOP.Data", "VNSHOP.Data\VNSHOP.Data.csproj", "{6B88D785-540B-4903-AD46-82724AF87296}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VNSHOP.Web", "VNSHOP.Web\VNSHOP.Web.csproj", "{AAE1DE6A-1048-41B3-A40D-DAB182F45E95}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +21,10 @@ Global
 		{8C649E32-E228-459E-977C-C93C50EF7C04}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6DE8BC14-D014-4C0E-83E0-45E5686EF825}.Debug|Any CPU.ActiveCfg = Debug
 		{6DE8BC14-D014-4C0E-83E0-45E5686EF825}.Release|Any CPU.ActiveCfg = Release
-		{6B88D785-540B-4903-AD46-82724AF87296}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6B88D785-540B-4903-AD46-82724AF87296}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6B88D785-540B-4903-AD46-82724AF87296}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6B88D785-540B-4903-AD46-82724AF87296}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAE1DE6A-1048-41B3-A40D-DAB182F45E95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAE1DE6A-1048-41B3-A40D-DAB182F45E95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAE1DE6A-1048-41B3-A40D-DAB182F45E95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAE1DE6A-1048-41B3-A40D-DAB182F45E95}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -10,12 +10,12 @@ namespace VNShop.Controllers
     class SaleController : BaseController
     {
 
-        public List<SanPham> checkQuanityInStore(string barcode)
+        public List<SanPham> checkQuanityInStore(string barcode, int type = 0)
         {
             List<SanPham> sanPhams = null;
-            if (barcode.Length < 4)
+            if (type != 0)
             {
-                sanPhams = dbContext.SanPhams.Where(s => s.id == Int64.Parse(barcode)).ToList();
+                sanPhams = dbContext.SanPhams.Where(s => s.id == long.Parse(barcode)).ToList();
 
             }
             else

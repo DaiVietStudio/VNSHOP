@@ -43,28 +43,14 @@ namespace VNShop.Controllers
             }
             else
             {
-                SanPham sanPham = dbContext.SanPhams.FirstOrDefault(x => x.id == product);
-                if (loai == 1)
-                {
-                    return (double)sanPham.GiaLe;
-                }
-                else
-                {
-                    return (double)sanPham.GiaSi;
-
-                }
+                return 0;
             }
-
-
         }
 
         public List<DonViTinh> listUnitByProduct(long product)
         {
             List<DonViTinh> listUnit = new List<DonViTinh>();
-            SanPham sanPham = dbContext.SanPhams.FirstOrDefault(x => x.id == product);
-            DonViTinh donViTinhprimary = dbContext.DonViTinhs.FirstOrDefault(x => x.id == sanPham.DonViTinh);
             List<DonViTinh_SanPham> listUnitSecond = dbContext.DonViTinh_SanPham.Where(x => x.SanPham == product).ToList();
-            listUnit.Add(donViTinhprimary);
 
             foreach (DonViTinh_SanPham item in listUnitSecond)
             {
@@ -73,7 +59,7 @@ namespace VNShop.Controllers
             return listUnit;
         }
 
-       
+
 
         public Response store(DonViTinh donViTinh)
         {
