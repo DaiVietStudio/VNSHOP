@@ -41,7 +41,6 @@ namespace VNShop.Models
         public virtual DbSet<PhieuNhapKho> PhieuNhapKhoes { get; set; }
         public virtual DbSet<PhieuNo> PhieuNoes { get; set; }
         public virtual DbSet<SanPham> SanPhams { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<TaiKhoan> TaiKhoans { get; set; }
         public virtual DbSet<ThongTinDonVi> ThongTinDonVis { get; set; }
         public virtual DbSet<Tinh> Tinhs { get; set; }

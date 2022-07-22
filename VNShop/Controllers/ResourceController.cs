@@ -26,5 +26,11 @@ namespace VNShop
         {
             return dbContext.Xas.Where(x => x.Huyen == district).ToList();
         }
+
+        public void setUser()
+        {
+            TaiKhoan account = dbContext.TaiKhoans.FirstOrDefault();
+            Program.idUser = account.NhanVien1.id;
+        }
     }
 }

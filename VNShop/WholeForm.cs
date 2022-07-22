@@ -332,33 +332,55 @@ namespace VNShop
                 List<SanPham> listProduct = saleController.checkQuanityInStore(value);
                 if (listProduct.Count == 1)
                 {
-                    addCart(value);
+                    addCart(value, 0);
                 }
                 else
                 {
                     SelectProduct selectProduct = new SelectProduct(sanPhams);
                     selectProduct.callBack = addCart;
+                    selectProduct.Text = "Chọn sản phẩm";
                     selectProduct.ShowDialog();
                 }
             }
         }
 
 
-        public void addCart(dynamic value)
+        public void addCart(dynamic value, int type = 0)
         {
             if (value != null)
             {
-                loadProduct();
-
-                if (detailCarts.Exists(x => x.MaSanPham == value))
+                // check exist
+                bool exist = false;
+                int position = 0;
+                if (type == 0)
                 {
-                    int position = detailCarts.FindIndex(x => x.MaSanPham == value);
+                    exist = detailCarts.Exists(x => x.MaSanPham == value);
+                    position = detailCarts.FindIndex(x => x.MaSanPham == value);
+                }
+                else
+                {
+                    exist = detailCarts.Exists(x => x.id == long.Parse(value));
+                    position = detailCarts.FindIndex(x => x.id == long.Parse(value));
+                }
+
+                if (exist)
+                {
                     detailCarts[position].SoLuong++;
                     detailCarts[position].ThanhTien = detailCarts[position].SoLuong * detailCarts[position].GiaBan;
                 }
                 else
                 {
-                    SanPham sanPham = sanPhams.Where(x => x.MaSanPham == value).FirstOrDefault();
+                    SanPham sanPham = null;
+                    if (type == 0)
+                    {
+                        sanPham = sanPhams.Where(x => x.MaSanPham == value).FirstOrDefault();
+
+                    }
+                    else if (type == 1)
+                    {
+                        sanPham = sanPhams.Where(x => x.id == long.Parse(value)).FirstOrDefault();
+
+                    }
                     if (sanPham == null)
                     {
                         ProductForm productForm = new ProductForm(value);
@@ -366,14 +388,15 @@ namespace VNShop
                     }
                     else
                     {
+                        DonViTinh_SanPham donVi = sanPham.DonViTinh_SanPham.Where(s => s.Selected == true).First();
                         DetailCart itemCart = new DetailCart();
                         itemCart.id = sanPham.id;
-                        itemCart.DonViTinh = (long)sanPham.DonViTinh;
-                        itemCart.TenDonVi = sanPham.DonViTinh1.TenDonVi;
+                        itemCart.DonViTinh = (long)donVi.DonViTinh;
+                        itemCart.TenDonVi = donVi.DonViTinh1.TenDonVi;
                         itemCart.TenSanPham = sanPham.TenSanPham;
                         itemCart.SoLuong = 1;
-                        itemCart.GiaBan = sanPham.GiaSi;
-                        itemCart.ThanhTien = 1 * sanPham.GiaSi;
+                        itemCart.GiaBan = donVi.GiaSi;
+                        itemCart.ThanhTien = 1 * donVi.GiaSi;
                         itemCart.MaSanPham = sanPham.MaSanPham;
                         detailCarts.Add(itemCart);
                     }
@@ -390,6 +413,8 @@ namespace VNShop
                 List<SanPham> product = productController.productList();
                 SelectProduct selectProduct = new SelectProduct(sanPhams);
                 selectProduct.callBack = addCart;
+                selectProduct.Text = "Chọn & thêm mới sản phẩm";
+                selectProduct.refresh = loadProduct;
                 selectProduct.ShowDialog();
                 return true;
             }

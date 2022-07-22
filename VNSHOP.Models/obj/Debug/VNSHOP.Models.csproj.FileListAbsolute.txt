@@ -1,0 +1,12 @@
+C:\Users\AKINOSORA\source\repos\VNShop\VNSHOP.Models\bin\Debug\VNSHOP.Models.dll.config
+C:\Users\AKINOSORA\source\repos\VNShop\VNSHOP.Models\bin\Debug\VNSHOP.Models.dll
+C:\Users\AKINOSORA\source\repos\VNShop\VNSHOP.Models\bin\Debug\VNSHOP.Models.pdb
+C:\Users\AKINOSORA\source\repos\VNShop\VNSHOP.Models\bin\Debug\EntityFramework.dll
+C:\Users\AKINOSORA\source\repos\VNShop\VNSHOP.Models\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\AKINOSORA\source\repos\VNShop\VNSHOP.Models\bin\Debug\EntityFramework.xml
+C:\Users\AKINOSORA\source\repos\VNShop\VNSHOP.Models\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\AKINOSORA\source\repos\VNShop\VNSHOP.Models\obj\Debug\VNSHOP.Models.csproj.AssemblyReference.cache
+C:\Users\AKINOSORA\source\repos\VNShop\VNSHOP.Models\obj\Debug\VNSHOP.Models.csproj.CoreCompileInputs.cache
+C:\Users\AKINOSORA\source\repos\VNShop\VNSHOP.Models\obj\Debug\VNSHOP.Models.csproj.CopyComplete
+C:\Users\AKINOSORA\source\repos\VNShop\VNSHOP.Models\obj\Debug\VNSHOP.Models.dll
+C:\Users\AKINOSORA\source\repos\VNShop\VNSHOP.Models\obj\Debug\VNSHOP.Models.pdb

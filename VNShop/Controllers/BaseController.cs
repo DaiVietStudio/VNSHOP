@@ -8,8 +8,12 @@ namespace VNShop.Controllers
 {
     class BaseController
     {
-       protected QLBHEntities dbContext = new QLBHEntities();
-        
 
+        protected QLBHEntities dbContext;
+
+        public BaseController()
+        {
+            dbContext = new QLBHEntities();
+        }
     }
 }
