@@ -338,6 +338,7 @@ namespace VNShop
                 {
                     SelectProduct selectProduct = new SelectProduct(sanPhams);
                     selectProduct.callBack = addCart;
+                    selectProduct.Text = "Chọn sản phẩm";
                     selectProduct.ShowDialog();
                 }
             }
@@ -412,6 +413,8 @@ namespace VNShop
                 List<SanPham> product = productController.productList();
                 SelectProduct selectProduct = new SelectProduct(sanPhams);
                 selectProduct.callBack = addCart;
+                selectProduct.Text = "Chọn & thêm mới sản phẩm";
+                selectProduct.refresh = loadProduct;
                 selectProduct.ShowDialog();
                 return true;
             }
