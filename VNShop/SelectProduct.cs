@@ -16,8 +16,11 @@ namespace VNShop
     {
         private List<Models.SanPham> listProduct;
         public delegate void addCart(dynamic barcode, int type);
+        public delegate void refreshSource();
 
         public addCart callBack;
+        public refreshSource refresh = null;
+
         public SelectProduct(List<Models.SanPham> sanPhams)
         {
             InitializeComponent();
@@ -33,8 +36,11 @@ namespace VNShop
         {
             VNShop.Controllers.ProductController productController = new Controllers.ProductController();
             listProduct = productController.productList();
-
             lookProduct.Properties.DataSource = listProduct;
+            if(refresh != null)
+            {
+                refresh();
+            }
         }
 
         private void SelectProduct_Load(object sender, EventArgs e)

@@ -436,6 +436,7 @@ namespace VNShop
                 else
                 {
                     SelectProduct selectProduct = new SelectProduct(sanPhams);
+                    selectProduct.Text = "Sản phẩm có nhiều hơn 1 sản phẩm vui lòng chọn sản phẩm";
                     selectProduct.callBack = addCart;
                     selectProduct.ShowDialog();
                 }
@@ -454,7 +455,9 @@ namespace VNShop
             {
                 List<SanPham> product = productController.productList();
                 SelectProduct selectProduct = new SelectProduct(sanPhams);
+                selectProduct.Text = "Chọn sản phẩm & Thêm mới sản phẩm";
                 selectProduct.callBack = addCart;
+                selectProduct.refresh = loadProduct;
                 selectProduct.ShowDialog();
                 return true;
             }
