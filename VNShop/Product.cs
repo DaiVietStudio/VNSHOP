@@ -191,29 +191,29 @@ namespace VNShop
 
         private void btnExport_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            //string folder = "";
-            //FolderBrowserDialog dialog = new FolderBrowserDialog();
-            //DialogResult result = dialog.ShowDialog();
-            //if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(dialog.SelectedPath))
-            //{
-            //    folder = dialog.SelectedPath;
-            //    //Response export = productController.exportExcel(folder);
-            //    //if (export.status)
-            //    //{
-            //    //    XtraMessageBox.Show(export.message);
-            //    //}
-            //    //else
-            //    //{
-            //    //    XtraMessageBox.Show(export.message);
+            string folder = "";
+            FolderBrowserDialog dialog = new FolderBrowserDialog();
+            DialogResult result = dialog.ShowDialog();
+            if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(dialog.SelectedPath))
+            {
+                folder = dialog.SelectedPath;
+                Response export = productController.exportExcel(folder);
+                if (export.status)
+                {
+                    XtraMessageBox.Show(export.message);
+                }
+                else
+                {
+                    XtraMessageBox.Show(export.message);
 
-            //    //}
+                }
 
 
-            //}
+            }
 
-            ExportAll exportAll = new ExportAll();
-            ReportPrintTool tool = new ReportPrintTool(exportAll);
-            tool.ShowPreview();
+            //ExportAll exportAll = new ExportAll();
+            //ReportPrintTool tool = new ReportPrintTool(exportAll);
+            //tool.ShowPreview();
 
 
 
