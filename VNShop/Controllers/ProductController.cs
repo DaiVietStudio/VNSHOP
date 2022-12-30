@@ -10,6 +10,8 @@ using NPOI.SS.UserModel;
 using NPOI.SS.Util;
 using System.IO;
 using System.Data.Entity;
+using System.Net;
+using System.Web.Script.Serialization;
 
 namespace VNShop.Controllers
 {

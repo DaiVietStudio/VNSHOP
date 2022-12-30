@@ -67,59 +67,8 @@ namespace VNShop
             txtHello.Caption = "Phiên làm việc ngày " + now;
             chartControlMain.DataSource = saleController.chart();
             new ResourceController().setUser();
-
-            // Check update
-            //System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
-            //System.Diagnostics.FileVersionInfo fvi = System.Diagnostics.FileVersionInfo.GetVersionInfo(assembly.Location);
-            //AutoUpdater.CheckForUpdateEvent += AutoUpdaterOnCheckForUpdateEvent;
-            //string version = fvi.FileVersion;
-            //AutoUpdater.DownloadPath = "update";
-            //System.Timers.Timer timer = new System.Timers.Timer
-            //{
-            //    Interval = 15 * 60 * 1000,
-            //    SynchronizingObject = this
-            //};
-            //timer.Elapsed += delegate
-            //{
-            //    AutoUpdater.Start("https://lightnovelvietsub.000webhostapp.com/update.xml");
-            //};
-            //timer.Start();
-
         }
 
-        private void AutoUpdaterOnCheckForUpdateEvent(UpdateInfoEventArgs args)
-        {
-            if (args.IsUpdateAvailable)
-            {
-                DialogResult dialogResult;
-                dialogResult =
-                        MessageBox.Show(
-                            $@"Bạn ơi, phần mềm của bạn có phiên bản mới {args.CurrentVersion}. Phiên bản bạn đang sử dụng hiện tại  {args.InstalledVersion}. Bạn có muốn cập nhật phần mềm không?", @"Cập nhật phần mềm",
-                            MessageBoxButtons.YesNo,
-                            MessageBoxIcon.Information);
-
-                if (dialogResult.Equals(DialogResult.Yes) || dialogResult.Equals(DialogResult.OK))
-                {
-                    try
-                    {
-                        if (AutoUpdater.DownloadUpdate(args))
-                        {
-                            Application.Exit();
-                        }
-                    }
-                    catch (Exception exception)
-                    {
-                        MessageBox.Show(exception.Message, exception.GetType().ToString(), MessageBoxButtons.OK,
-                            MessageBoxIcon.Error);
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show(@"Phiên bản bạn đang sử dụng đã được cập nhật mới nhất.", @"Cập nhật phần mềm",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-        }
 
         private void btnCustomer_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -153,7 +102,7 @@ namespace VNShop
 
         private void MainApp_FormClosing(object sender, FormClosingEventArgs e)
         {
-            backup();
+         //   backup();
 
         }
 
@@ -201,6 +150,12 @@ namespace VNShop
             {
                 XtraMessageBox.Show("Đã chuyển đổi dữ liệu thành công");
             }
+        }
+
+        private void btnExport_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            JSONExport jSONExport = new JSONExport();
+            jSONExport.ShowDialog();
         }
     }
 }

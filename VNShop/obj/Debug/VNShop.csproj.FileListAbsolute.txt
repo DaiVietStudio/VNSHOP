@@ -525,3 +525,5 @@ D:\repos\VNShop\VNShop\obj\Debug\VNShop.csproj.CoreCompileInputs.cache
 D:\repos\VNShop\VNShop\obj\Debug\VNShop.csproj.CopyComplete
 D:\repos\VNShop\VNShop\obj\Debug\VNShop.exe
 D:\repos\VNShop\VNShop\obj\Debug\VNShop.pdb
+D:\repos\VNShop\VNShop\obj\Debug\VNShop.csproj.AssemblyReference.cache
+D:\repos\VNShop\VNShop\obj\Debug\VNShop.JSONExport.resources

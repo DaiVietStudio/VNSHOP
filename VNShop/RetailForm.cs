@@ -344,7 +344,7 @@ namespace VNShop
 
                 if (checkExist)
                 {
-                    int position = detailCarts.FindIndex(x => x.MaSanPham == barCode || x.id == int.Parse(barCode));
+                    int position = detailCarts.FindIndex(x => x.MaSanPham == barCode || x.id == long.Parse(barCode));
                     if (position != -1)
                     {
                         detailCarts[position].SoLuong++;
